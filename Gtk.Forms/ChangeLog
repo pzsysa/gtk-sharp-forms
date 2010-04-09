@@ -1,0 +1,52 @@
+2010-04-09  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* Widgets:
+	* gtk-gui:
+	* Editors:
+	* Pixmaps:
+	* Bindings:
+	* ChangeLog:
+	* Decorators:
+	* objects.xml:
+	* Packages.mdproj:
+	* AssemblyInfo.cs:
+	* Gtk.Forms.csproj: 
+
+2010-04-09  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* Editors:
+	* Pixmaps:
+	* objects.xml:
+	* Gtk.Forms.csproj: 
+
+2010-04-02  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* Adapters:
+	* Decorators: Rename adapters to decorators
+	* Gtk.Forms.csproj: 
+
+2010-03-22  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* Gtk.Forms.csproj: 
+
+2010-03-17  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* Gtk.Forms.csproj: 
+
+2010-03-16  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* Gtk.Forms.csproj: 
+
+2010-03-16  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* Gtk.Forms.csproj: 
+
+2010-03-16  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* Packages.mdproj:
+	* Gtk.Forms.csproj: 
+
+2010-03-16  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* Gtk.Forms.csproj: Cleanup
+	

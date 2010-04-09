@@ -1,0 +1,20 @@
+2010-04-09  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* gtk-gui:
+	* Main.cs:
+	* ChangeLog:
+	* Company.cs:
+	* MainWindow.cs:
+	* AssemblyInfo.cs:
+	* ComboBoxBinding.csproj: 
+
+2010-04-02  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* MainWindow.cs: 
+
+2010-04-02  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* Company.cs:
+	* MainWindow.cs:
+	* ComboBoxBinding.csproj: 
+

@@ -1,0 +1,87 @@
+2010-04-09  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* ChangeLog:
+	* Binding.cs:
+	* BindingSource.cs:
+	* BindingContext.cs:
+	* BaseCollection.cs:
+	* CurrencyManager.cs:
+	* PropertyManager.cs:
+	* ConvertEventArgs.cs:
+	* BindingMemberInfo.cs:
+	* ControlUpdateMode.cs:
+	* ListBindingHelper.cs:
+	* BindingsCollection.cs:
+	* IBindableComponent.cs:
+	* BindingManagerBase.cs:
+	* ConvertEventHandler.cs:
+	* NotifiedBindingList.cs:
+	* BindingCompleteState.cs:
+	* DataSourceUpdateMode.cs:
+	* ItemChangedEventArgs.cs:
+	* ListBindingConverter.cs:
+	* RelatedCurrencyManager.cs:
+	* RelatedPropertyManager.cs:
+	* BindingCompleteContext.cs:
+	* ItemChangedEventHandler.cs:
+	* ICurrencyManagerProvider.cs:
+	* BindingCompleteEventArgs.cs:
+	* ControlBindingsCollection.cs:
+	* BindingCompleteEventHandler.cs:
+	* BindingManagerDataErrorEventArgs.cs:
+	* BindingManagerDataErrorEventHandler.cs: 
+
+2010-04-02  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* NotifiedBindingList.cs: 
+
+2010-03-22  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* NotifiedBindingList.cs: 
+
+2010-03-22  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* Binding.cs: Add handler for CurrentItemChanged when manager is CurrencyManager
+	* CurrencyManager.cs: Disable editing flag check when handling ItemChanged event
+
+2010-03-17  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* BindingSource.cs: Initial commit
+
+2010-03-17  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* Binding.cs: Add event handler for PropertyChanged if data source is INotifyPropertyChanged
+
+
+
+
+
+
+
+
+
+
+2010-03-16  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* IBindableComponent.cs: Try to get recursively a binding context
+							 from parent when there is any in widget. 
+
+2010-03-16  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* CurrencyManager.cs: Import from SWF
+	* ListBindingHelper.cs:
+	* ItemChangedEventArgs.cs:
+	* RelatedPropertyManager.cs:
+	* RelatedCurrencyManager.cs:
+	* ItemChangedEventHandler.cs:
+	* ICurrencyManagerProvider.cs: 
+
+2010-03-16  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* Binding.cs:
+	* ControlBindingsCollection.cs: 
+
+2010-03-16  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* IBindableComponent.cs: Added Validating, HandleCreated events
+
