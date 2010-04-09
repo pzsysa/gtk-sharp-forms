@@ -1,0 +1,39 @@
+2010-04-09  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* ChangeLog:
+	* FormsEntry.cs:
+	* FormsLabel.cs:
+	* FormsWindow.cs:
+	* FormsComboBox.cs:
+	* FormsSpinButton.cs:
+	* FormsCheckButton.cs: 
+
+2010-04-02  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* FormsComboBox.cs: 
+
+2010-04-02  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* FormsLabel.cs:
+	* FormsEntry.cs:
+	* FormsWindow.cs:
+	* FormsComboBox.cs: 
+	* FormsSpinButton.cs:
+	* FormsCheckButton.cs: 
+
+2010-03-22  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* FormsSpinButton.cs: 
+
+2010-03-16  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* FormsLabel.cs:
+	* FormsEntry.cs: Implementing IBindableComponent
+	* FormsWindow.cs: Implementing IBindableComponent
+	* FormsCheckButton.cs: Implementing IBindableComponent
+
+2010-03-16  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* FormsEntry.cs:
+	* FormsWindow.cs: 
+

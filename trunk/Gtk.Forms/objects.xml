@@ -1,0 +1,38 @@
+<objects attr-sync="on">
+	<object type="Gtk.Forms.FormsCheckButton" base-type="Gtk.CheckButton" icon="checkbutton.png" palette-category="widget">
+		<itemgroups>
+      		<itemgroup label="Binding Properties">
+      	 		<!--<property name="DataBindings"/>-->
+      	</itemgroup>
+    </itemgroups>
+	</object>
+	<object type="Gtk.Forms.FormsComboBox" base-type="Gtk.ComboBox" icon="combo.png" palette-category="widget">
+		<itemgroups>
+      		<itemgroup label="Binding Properties">
+      	 		<!--<property name="DataBindings"/>-->
+      	</itemgroup>
+    </itemgroups>
+	</object>
+	<object type="Gtk.Forms.FormsEntry" base-type="Gtk.Entry" icon="entry.png" palette-category="widget">
+	  <itemgroups>
+      	<itemgroup label="Binding Properties">
+      	 <!--<property name="DataBindings"/>-->
+      	</itemgroup>
+    </itemgroups>
+	</object>
+	<object type="Gtk.Forms.FormsLabel" base-type="Gtk.Label" icon="label.png" palette-category="widget">
+    <itemgroups>
+      <itemgroup label="Binding Properties">			
+      	<!--<property name="DataBindings"/>-->
+      </itemgroup>
+    </itemgroups>
+    <signals />
+  </object>
+  <object type="Gtk.Forms.FormsSpinButton" base-type="Gtk.Widget" icon="spinbutton.png" palette-category="widget">
+  	<itemgroups>
+  	 <itemgroup label="Binding Properties">			
+ 	<!-- <property name="DataBindings"/>-->
+ 	</itemgroup>
+ 	</itemgroups>
+  </object>
+</objects>

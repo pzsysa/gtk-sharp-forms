@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gtk.Forms", "Gtk.Forms\Gtk.Forms.csproj", "{ACB49736-47BC-4318-9665-CBF9D8CB34CD}"
+EndProject
+Project("{9344bdbb-3e7f-41fc-a0dd-8665d75ee146}") = "Packages", "Gtk.Forms\Packages.mdproj", "{D370EEF4-D1DC-4C64-A3CC-C192B39E1E62}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "examples", "examples", "{06B37BE5-8EDF-4EAD-86F5-B0603300DE8F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabelEntryBinding", "examples\LabelEntryBinding\LabelEntryBinding.csproj", "{351A47A5-A918-4E31-B143-F154CE3723DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComboBoxBinding", "examples\LabelEntryBinding\ComboBoxBinding\ComboBoxBinding.csproj", "{2A0BEC56-55B4-4AB8-A33D-A697B9C89C81}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A0BEC56-55B4-4AB8-A33D-A697B9C89C81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A0BEC56-55B4-4AB8-A33D-A697B9C89C81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A0BEC56-55B4-4AB8-A33D-A697B9C89C81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A0BEC56-55B4-4AB8-A33D-A697B9C89C81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{351A47A5-A918-4E31-B143-F154CE3723DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{351A47A5-A918-4E31-B143-F154CE3723DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{351A47A5-A918-4E31-B143-F154CE3723DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{351A47A5-A918-4E31-B143-F154CE3723DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACB49736-47BC-4318-9665-CBF9D8CB34CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACB49736-47BC-4318-9665-CBF9D8CB34CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACB49736-47BC-4318-9665-CBF9D8CB34CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACB49736-47BC-4318-9665-CBF9D8CB34CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D370EEF4-D1DC-4C64-A3CC-C192B39E1E62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D370EEF4-D1DC-4C64-A3CC-C192B39E1E62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{351A47A5-A918-4E31-B143-F154CE3723DA} = {06B37BE5-8EDF-4EAD-86F5-B0603300DE8F}
+		{2A0BEC56-55B4-4AB8-A33D-A697B9C89C81} = {06B37BE5-8EDF-4EAD-86F5-B0603300DE8F}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = examples\LabelEntryBinding\ComboBoxBinding\ComboBoxBinding.csproj
+	EndGlobalSection
+EndGlobal

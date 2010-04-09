@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="3.5" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ACB49736-47BC-4318-9665-CBF9D8CB34CD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Gtk.Forms</RootNamespace>
+    <AssemblyName>Gtk.Forms</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="glib-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="Mono.Posix" />
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Bindings\Binding.cs" />
+    <Compile Include="Bindings\BindingMemberInfo.cs" />
+    <Compile Include="Bindings\IBindableComponent.cs" />
+    <Compile Include="Bindings\BindingManagerBase.cs" />
+    <Compile Include="Bindings\DataSourceUpdateMode.cs" />
+    <Compile Include="Bindings\ControlUpdateMode.cs" />
+    <Compile Include="Bindings\ConvertEventArgs.cs" />
+    <Compile Include="Bindings\ConvertEventHandler.cs" />
+    <Compile Include="Bindings\BindingCompleteEventHandler.cs" />
+    <Compile Include="Bindings\BindingCompleteEventArgs.cs" />
+    <Compile Include="Bindings\BindingCompleteContext.cs" />
+    <Compile Include="Bindings\BindingContext.cs" />
+    <Compile Include="Bindings\ControlBindingsCollection.cs" />
+    <Compile Include="Bindings\BindingsCollection.cs" />
+    <Compile Include="Bindings\BaseCollection.cs" />
+    <Compile Include="Bindings\BindingManagerDataErrorEventArgs.cs" />
+    <Compile Include="Bindings\BindingManagerDataErrorEventHandler.cs" />
+    <Compile Include="Bindings\BindingCompleteState.cs" />
+    <Compile Include="Bindings\ListBindingConverter.cs" />
+    <Compile Include="Bindings\PropertyManager.cs" />
+    <Compile Include="Widgets\FormsWindow.cs" />
+    <Compile Include="Widgets\FormsEntry.cs" />
+    <Compile Include="Bindings\ICurrencyManagerProvider.cs" />
+    <Compile Include="Bindings\CurrencyManager.cs" />
+    <Compile Include="Bindings\ItemChangedEventArgs.cs" />
+    <Compile Include="Bindings\ItemChangedEventHandler.cs" />
+    <Compile Include="Bindings\RelatedPropertyManager.cs" />
+    <Compile Include="Bindings\RelatedCurrencyManager.cs" />
+    <Compile Include="Bindings\ListBindingHelper.cs" />
+    <Compile Include="Widgets\FormsLabel.cs" />
+    <Compile Include="Widgets\FormsCheckButton.cs" />
+    <Compile Include="Bindings\BindingSource.cs" />
+    <Compile Include="Bindings\NotifiedBindingList.cs" />
+    <Compile Include="Widgets\FormsSpinButton.cs" />
+    <Compile Include="Widgets\FormsComboBox.cs" />
+    <Compile Include="Decorators\WidgetDecorator.cs" />
+    <Compile Include="Decorators\IFormsWidget.cs" />
+    <Compile Include="Decorators\ContainerDecorator.cs" />
+    <Compile Include="Decorators\WindowDecorator.cs" />
+    <Compile Include="Decorators\EntryAdapter.cs" />
+    <Compile Include="Decorators\ListWidgetDecorator.cs" />
+    <Compile Include="Decorators\IDecoratedListWidget.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Bindings\" />
+    <Folder Include="Widgets\" />
+    <Folder Include="Decorators\" />
+    <Folder Include="Pixmaps\" />
+    <Folder Include="gtk-gui\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="objects.xml">
+      <LogicalName>objects.xml</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pixmaps\label.png">
+      <LogicalName>label.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pixmaps\entry.png">
+      <LogicalName>entry.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pixmaps\spinbutton.png">
+      <LogicalName>spinbutton.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pixmaps\checkbutton.png" />
+    <None Include="Pixmaps\combo.png" />
+  </ItemGroup>
+</Project>

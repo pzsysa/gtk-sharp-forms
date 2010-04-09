@@ -1,0 +1,35 @@
+2010-04-09  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* gtk-gui:
+	* Main.cs:
+	* ChangeLog:
+	* Company.cs:
+	* MainWindow.cs:
+	* AssemblyInfo.cs:
+	* ComboBoxBinding:
+	* LabelEntryBinding.csproj: 
+
+2010-04-09  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* MainWindow.cs: 
+
+2010-03-22  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* Company.cs:
+	* MainWindow.cs: 
+
+2010-03-17  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* MainWindow.cs:
+	* LabelEntryBinding.csproj: 
+
+2010-03-17  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* Company.cs:
+	* MainWindow.cs:
+	* LabelEntryBinding.csproj: 
+
+2010-03-16  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* MainWindow.cs: 
+

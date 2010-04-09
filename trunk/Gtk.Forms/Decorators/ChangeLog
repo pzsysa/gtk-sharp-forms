@@ -1,0 +1,41 @@
+2010-04-09  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* ChangeLog:
+	* IFormsWidget.cs:
+	* EntryAdapter.cs:
+	* WidgetDecorator.cs:
+	* WindowDecorator.cs:
+	* ContainerDecorator.cs:
+	* ListWidgetDecorator.cs:
+	* IDecoratedListWidget.cs: 
+
+2010-04-02  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* ListWidgetDecorator.cs:
+	* IDecoratedListWidget.cs: 
+
+2010-04-02  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* IFormsWidget.cs:
+	* EntryAdapter.cs:
+	* WidgetAdapter.cs:
+	* WindowAdapter.cs:
+	* WidgetDecorator.cs:
+	* WindowDecorator.cs:
+	* ContainerAdapter.cs:
+	* ContainerDecorator.cs:
+	* ListWidgetDecorator.cs:
+	* IDecoratedListWidget.cs: 
+
+2010-03-16  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* WidgetAdapter.cs: 
+
+2010-03-16  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* IFormsWidget.cs:
+	* EntryAdapter.cs:
+	* WidgetAdapter.cs:
+	* WindowAdapter.cs:
+	* ContainerAdapter.cs: 
+
