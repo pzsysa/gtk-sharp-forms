@@ -6,8 +6,8 @@
   </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <widget-library name="..\..\..\Gtk.Forms\bin\Debug\Gtk.Forms.dll" />
-    <widget-library name="..\bin\Debug\GridViewBinding.exe" internal="true" />
+    <widget-library name="../../../Gtk.Forms/bin/Debug/Gtk.Forms.dll" />
+    <widget-library name="../bin/Debug/GridViewBinding.exe" internal="true" />
   </import>
   <widget class="Gtk.Window" id="MainWindow" design-size="452 300">
     <property name="MemberName" />
@@ -27,6 +27,7 @@
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="ShowScrollbars">True</property>
+                <property name="AutoGenerateColumns">True</property>
               </widget>
             </child>
           </widget>
@@ -118,6 +119,7 @@
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
+                <property name="InvisibleChar">●</property>
               </widget>
               <packing>
                 <property name="LeftAttach">1</property>
@@ -138,6 +140,7 @@
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
+                <property name="InvisibleChar">●</property>
               </widget>
               <packing>
                 <property name="TopAttach">1</property>

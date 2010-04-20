@@ -2,7 +2,7 @@
 //  DataGridViewDecorator.cs
 //  
 //  Author:
-//       Krzysztof Marecki <marecki.krzysztof@gmail.com>
+//       Krzysztof Marecki 
 // 
 //	Copyright (c) 2010 Krzysztof Marecki 
 //
@@ -19,18 +19,18 @@
 //  You should have received a copy of the GNU Lesser General Public
 //  License along with this library; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
-
-
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using Gtk;
 
 namespace Gtk.Forms
 {
 
 	public class GridViewDecorator <T> : BaseListWidgetDecorator<T>
-		where T : Widget, IDecoratedGridView
+		where T : TreeView, IDecoratedGridView
 	{
-		private T grid_widget;
+		private T grid;
 		
 		private bool auto_generate_columns = true;
 		public bool AutoGenerateColumns {
@@ -41,22 +41,47 @@ namespace Gtk.Forms
 		public GridViewDecorator (T widget)
 			: base (widget)
 		{
-			grid_widget = widget;
+			grid = widget;
 		}
 		
 		protected override ListStore CreateStore ()
 		{
-			return new ListStore (typeof(string));
+			ListStore store = null;
+			var types = new List<Type>();
+			
+			if (AutoGenerateColumns) {
+				
+				foreach (PropertyDescriptor prop in DataManager.GetItemProperties ()) 
+					types.Add (prop.PropertyType);	
+			}
+			
+			store = new ListStore (types.ToArray ());
+			return store;
 		}
 		
 		protected override void SetCellRenderers ()
 		{
-			
+			if (AutoGenerateColumns) {
+				
+				int count = 0;
+				foreach (PropertyDescriptor prop in DataManager.GetItemProperties ()) {
+					TreeViewColumn treecol = new TreeViewColumn (prop.DisplayName, new CellRendererText(), "text", count++);
+					grid.AppendColumn (treecol);
+				}
+			}
 		}
 		
 		protected override object[] GetItemValues (object item)
 		{
-			return new object[] {};
+			var values = new List<object> ();
+			
+			if (AutoGenerateColumns) {
+				
+				foreach (PropertyDescriptor prop in DataManager.GetItemProperties ())
+					values.Add (prop.GetValue (item));
+			}
+			
+			return values.ToArray ();
 		}
 	}
 }
