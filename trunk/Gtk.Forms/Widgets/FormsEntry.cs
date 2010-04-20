@@ -1,8 +1,8 @@
 // 
-//  FormsEntry.cs
+//  EntryDecorator.cs
 //  
 //  Author:
-//       Krzysztof Marecki <marecki.krzysztof@gmail.com>
+//       Krzysztof Marecki 
 //  
 //  Copyright (c) 2010 Krzysztof Marecki
 // 

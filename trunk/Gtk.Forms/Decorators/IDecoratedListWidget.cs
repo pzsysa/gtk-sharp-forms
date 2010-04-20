@@ -1,5 +1,5 @@
 // 
-//  IListWidget.cs
+//  IDecoratedListWidget.cs
 //  
 //  Author:
 //       Krzysztof Marecki <marecki.krzysztof@gmail.com>
@@ -27,15 +27,10 @@ using Gtk;
 namespace Gtk.Forms
 {
 
-	public interface IDecoratedListWidget
+	public interface IDecoratedListWidget : IDecoratedBaseListWidget
 	{
-		TreeModel Model { get; set; }
-		
-		
 		void AddAttribute (CellRenderer cell, string attribute, int column);
 		
 		void PackStart (CellRenderer cell, bool expand);
-		
-		void SetActiveIter (TreeIter iter);
 	}
 }

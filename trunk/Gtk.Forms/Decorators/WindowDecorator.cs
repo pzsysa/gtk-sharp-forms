@@ -39,11 +39,6 @@ namespace Gtk.Forms
 		#region Protected Methods
 		
 		#endregion
-		
-		#region Events
-		public event CancelEventHandler Validating;
-		public event EventHandler Validated;
-		#endregion
 	}
 }
 
