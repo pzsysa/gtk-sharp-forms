@@ -1,5 +1,5 @@
 // 
-//  FormsComboBox.cs
+//  FormsDataGridView.cs
 //  
 //  Author:
 //       Krzysztof Marecki <marecki.krzysztof@gmail.com>
@@ -19,38 +19,47 @@
 //  You should have received a copy of the GNU Lesser General Public
 //  License along with this library; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+
 using System;
-using System.Collections;
 using System.ComponentModel;
 using Gtk;
 
 namespace Gtk.Forms
 {
-	[ToolboxItem(true)]
-	public class FormsComboBox : Gtk.ComboBox, IBindableComponent, IDecoratedListWidget
+	public class FormsGridView : TreeView, IBindableComponent, IDecoratedGridView
 	{
-		private ListWidgetDecorator<FormsComboBox> decorator;
-		internal ListWidgetDecorator<FormsComboBox> Decorator { 
+		private GridViewDecorator<FormsGridView> decorator;
+		internal GridViewDecorator<FormsGridView> Decorator { 
 			get {
 				if (decorator == null)
-					decorator = new  ListWidgetDecorator<FormsComboBox>(this);
+					decorator = new GridViewDecorator<FormsGridView>(this);
 				
 				return decorator;
 			}
 		}
+		
+		public bool AutoGenerateColumns {
+			get { return Decorator.AutoGenerateColumns; }
+			set { Decorator.AutoGenerateColumns = value; }
+		}
+		
+		public object DataSource {
+			get { return Decorator.DataSource; }
+			set { Decorator.DataSource = value; }
+		}
 
-		public FormsComboBox ()
+		public FormsGridView ()
 			: base ()
 		{
 		}
 		
-		public FormsComboBox (IntPtr raw)
+		public FormsGridView (IntPtr raw)
 			: base (raw)
 		{
 		}
 		
-		public FormsComboBox (string[] entries)
-			: base (entries)
+		public FormsGridView (TreeModel model)
+			: base (model)
 		{
 		}
 		
@@ -77,40 +86,17 @@ namespace Gtk.Forms
 		public bool IsHandleCreated { get { return Decorator.IsHandleCreated; } }
 		#endregion
 		
-		#region IListWidget implementation
-		
-		public object DataSource {
-			get { return Decorator.DataSource; }
-			set { Decorator.DataSource = value; }
-		}
-		
-		public string DisplayMember {
-			get { return Decorator.DisplayMember; }
-			set { Decorator.DisplayMember = value; }
-		}
-		
-		public string ValueMember {
-			get { return Decorator.ValueMember; }
-			set { Decorator.ValueMember = value; }
-		}
-		#endregion
-		
-		#region IDecoratedListWidget implementation
+		#region IDecoratedGridView implementation
 		
 		TreeModel IDecoratedBaseListWidget.Model {
 			get { return Model; }
 			set { Model = value; }
 		}
+		
+		void IDecoratedBaseListWidget.SetActiveIter (TreeIter iter) {
+			Selection.SelectIter (iter);
+		}
 	
 		#endregion
-		
-		protected override void OnChanged ()
-		{
-			base.OnChanged ();
-			
-			TreeIter iter;
-			if (GetActiveIter (out iter))
-				Decorator.SetPositionFromIter (iter);
-		}
 	}
 }

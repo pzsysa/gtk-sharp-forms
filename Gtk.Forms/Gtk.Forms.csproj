@@ -79,9 +79,14 @@
     <Compile Include="Decorators\IFormsWidget.cs" />
     <Compile Include="Decorators\ContainerDecorator.cs" />
     <Compile Include="Decorators\WindowDecorator.cs" />
-    <Compile Include="Decorators\EntryAdapter.cs" />
     <Compile Include="Decorators\ListWidgetDecorator.cs" />
     <Compile Include="Decorators\IDecoratedListWidget.cs" />
+    <Compile Include="Decorators\EntryDecorator.cs" />
+    <Compile Include="Decorators\IDecoratedBaseListWidget.cs" />
+    <Compile Include="Decorators\BaseListWidgetDecorator.cs" />
+    <Compile Include="Widgets\FormsGridView.cs" />
+    <Compile Include="Decorators\GridViewDecorator.cs" />
+    <Compile Include="Decorators\IDecoratedGridView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -104,9 +109,11 @@
     <EmbeddedResource Include="Pixmaps\spinbutton.png">
       <LogicalName>spinbutton.png</LogicalName>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Pixmaps\checkbutton.png" />
-    <None Include="Pixmaps\combo.png" />
+    <EmbeddedResource Include="Pixmaps\checkbutton.png">
+      <LogicalName>checkbutton.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pixmaps\combo.png">
+      <LogicalName>combo.png</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

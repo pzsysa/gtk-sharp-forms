@@ -28,7 +28,7 @@ using Gtk.Forms;
 public partial class MainWindow : FormsWindow
 {
 	List<Customer> customers;
-    List<Customer> customers2;
+    NotifiedBindingList<Customer> customers2;
 	BindingSource bsrcCustomers;
     NotifiedBindingList<Customer> customers3;
 	
@@ -56,7 +56,7 @@ public partial class MainWindow : FormsWindow
 
         formslabel1.DataBindings.Add("Text", customers, "CompanyId");
 
-        customers2 = new List<Customer>() { new Customer() { CompanyID = 1, CompanyName = "Acme Workshop" },
+        customers2 = new NotifiedBindingList<Customer>() { new Customer() { CompanyID = 1, CompanyName = "Acme Workshop" },
                                                 new Customer() { CompanyID = 2, CompanyName = "Sirius Tech"} };
         bsrcCustomers = new BindingSource() { DataSource = customers2 }; 
        
