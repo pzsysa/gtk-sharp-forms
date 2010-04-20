@@ -1,3 +1,8 @@
+2010-04-20  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* FormsGridView.cs: Handled CursorChanged event to set item position
+						in DataSource.
+
 2010-04-09  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
 
 	* ChangeLog:

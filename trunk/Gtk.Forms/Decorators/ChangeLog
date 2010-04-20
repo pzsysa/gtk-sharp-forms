@@ -1,3 +1,8 @@
+2010-04-20  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* GridViewDecorator.cs: Added simplistic GridView binding.
+							It uses synchronisation between DataSource and Model.
+
 2010-04-09  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
 
 	* ChangeLog:

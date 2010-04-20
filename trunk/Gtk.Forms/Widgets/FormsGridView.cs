@@ -98,5 +98,15 @@ namespace Gtk.Forms
 		}
 	
 		#endregion
+		
+		protected override void OnCursorChanged ()
+		{
+			base.OnCursorChanged ();
+			
+			TreeIter iter;
+			
+			if (Selection.GetSelected (out iter))
+				Decorator.SetPositionFromIter (iter);
+		}
 	}
 }

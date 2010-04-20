@@ -69,7 +69,6 @@
     <Compile Include="Bindings\RelatedPropertyManager.cs" />
     <Compile Include="Bindings\RelatedCurrencyManager.cs" />
     <Compile Include="Bindings\ListBindingHelper.cs" />
-    <Compile Include="Widgets\FormsLabel.cs" />
     <Compile Include="Widgets\FormsCheckButton.cs" />
     <Compile Include="Bindings\BindingSource.cs" />
     <Compile Include="Bindings\NotifiedBindingList.cs" />
@@ -87,6 +86,7 @@
     <Compile Include="Widgets\FormsGridView.cs" />
     <Compile Include="Decorators\GridViewDecorator.cs" />
     <Compile Include="Decorators\IDecoratedGridView.cs" />
+    <Compile Include="Widgets\FormsLabel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

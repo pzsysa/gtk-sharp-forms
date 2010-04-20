@@ -23,7 +23,7 @@
 	<object type="Gtk.Forms.FormsGridView" base-type="Gtk.TreeView" palette-category="widget">
 	  <itemgroups>
       	<itemgroup label="Binding Properties">
-      	 <!--<property name="DataBindings"/>-->
+      	 	<property name="AutoGenerateColumns"/>
       	</itemgroup>
     </itemgroups>
 	</object>
