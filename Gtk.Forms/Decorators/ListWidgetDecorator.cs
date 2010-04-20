@@ -72,8 +72,8 @@ namespace Gtk.Forms
 
 			PropertyDescriptor prop = null;
 
-			if (data_manager != null) {
-				PropertyDescriptorCollection col = data_manager.GetItemProperties ();
+			if (DataManager != null) {
+				PropertyDescriptorCollection col = DataManager.GetItemProperties ();
 				prop = col.Find (field, true);
 			} else {
 				PropertyDescriptorCollection properties = TypeDescriptor.GetProperties (item);

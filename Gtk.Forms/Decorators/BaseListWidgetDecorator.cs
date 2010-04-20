@@ -38,7 +38,8 @@ namespace Gtk.Forms
 		private object data_source;
 		private BindingMemberInfo value_member;
 		private string display_member;
-		private CurrencyManager DataManager;
+		
+		protected CurrencyManager DataManager {get; set;}
 		
 		public BaseListWidgetDecorator (T widget)
 			: base (widget)
@@ -136,7 +137,7 @@ namespace Gtk.Forms
 				SetModel ();
 			}
 			SetItems ();
-			//list_widget.SetItemsCore (data_manager.List);
+			//list_widget.SetItemsCore (DataManager.List);
 		}
 			
 		private void SetModel ()
@@ -199,8 +200,8 @@ namespace Gtk.Forms
 			/* For the first added item, ItemChanged is fired _after_ PositionChanged,
 			 * so we need to set Index _only_ for that case - normally we would do that
 			 * in PositionChanged handler */
-//			if (AllowSelection && SelectedIndex == -1 && data_manager.Count == 1)
-//				SelectedIndex = data_manager.Position;
+//			if (AllowSelection && SelectedIndex == -1 && DataManager.Count == 1)
+//				SelectedIndex = DataManager.Position;
 		}
 
 		private void OnPositionChanged (object sender, EventArgs e)
@@ -209,8 +210,8 @@ namespace Gtk.Forms
 			/* For the first added item, PositionChanged is fired
 			 * _before_ ItemChanged (items not yet added), which leave us in a temporary
 			 * invalid state */
-//			if (AllowSelection && data_manager.Count > 1)
-//				SelectedIndex = data_manager.Position;
+//			if (AllowSelection && DataManager.Count > 1)
+//				SelectedIndex = DataManager.Position;
 		}
 	}
 }

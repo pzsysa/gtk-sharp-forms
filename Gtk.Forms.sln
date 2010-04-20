@@ -44,6 +44,6 @@ Global
 		{5AB8B974-A24C-4669-A8E0-508D24BD6132} = {06B37BE5-8EDF-4EAD-86F5-B0603300DE8F}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = examples\GridViewBinding\GridViewBinding.csproj
+		StartupItem = examples\LabelEntryBinding\ComboBoxBinding\ComboBoxBinding.csproj
 	EndGlobalSection
 EndGlobal
