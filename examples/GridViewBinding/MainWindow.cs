@@ -10,6 +10,8 @@ public partial class MainWindow : FormsWindow
 	public MainWindow () : base(Gtk.WindowType.Toplevel)
 	{
 		Build ();	
+		
+		labelError.ModifyFg (StateType.Normal, new Gdk.Color(255, 0, 0));
 	}
 	
 	protected override void OnShown ()
@@ -38,5 +40,16 @@ public partial class MainWindow : FormsWindow
 	{
 		Application.Quit ();
 		a.RetVal = true;
+	}
+	
+	protected virtual void OnEntryNameValidating (object sender, System.ComponentModel.CancelEventArgs e)
+	{
+		if (entryName.Text == "") {
+			e.Cancel = true;
+			labelError.Text = "Please fill company name";
+			labelError.Visible = true;
+		} else {
+			labelError.Visible = false;
+		}
 	}
 }

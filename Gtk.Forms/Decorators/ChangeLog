@@ -1,3 +1,11 @@
+2010-04-22  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* WindowDecorator.cs:
+	* WidgetDecorator.cs: Started implementing validation mechanism.
+						  Using signal filtering to ensure that not validated
+						  widget will not loose the focus and to disable
+						  not focused widgets. 
+
 2010-04-20  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
 
 	* GridViewDecorator.cs: Added simplistic GridView binding.

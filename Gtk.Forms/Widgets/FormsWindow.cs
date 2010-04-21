@@ -26,11 +26,11 @@ namespace Gtk.Forms
 {
 	public class FormsWindow : Window, IBindableComponent
 	{ 
-		private WidgetDecorator decorator;
-		internal WidgetDecorator Decorator { 
+		private WindowDecorator decorator;
+		internal WindowDecorator Decorator { 
 			get {
 				if (decorator == null)
-					decorator = new WidgetDecorator (this);
+					decorator = new WindowDecorator (this);
 				
 				return decorator;
 			}

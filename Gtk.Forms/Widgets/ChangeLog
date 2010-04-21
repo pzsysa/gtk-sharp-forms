@@ -1,3 +1,7 @@
+2010-04-22  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* FormsWindow.cs: 
+
 2010-04-20  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
 
 	* FormsGridView.cs: Handled CursorChanged event to set item position
