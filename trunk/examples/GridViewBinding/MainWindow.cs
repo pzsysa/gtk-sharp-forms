@@ -25,12 +25,13 @@ public partial class MainWindow : FormsWindow
 						new Product(){ProductID=4, ProductName="keyboard", Price=21m, Favourite=true}};
 		
 		bsrcProducts = new BindingSource (){DataSource = products};
-		gridview.DataSource = bsrcProducts;		
 		
-		entryID.DataBindings.Add (new Binding ("Text", bsrcProducts, "ProductID"));
-		entryName.DataBindings.Add (new Binding ("Text", bsrcProducts, "ProductName"));
-		spinPrice.DataBindings.Add (new Binding ("Value", bsrcProducts, "Price"));
-		checkFavourite.DataBindings.Add (new Binding("Active", bsrcProducts, "Favourite"));
+		entryID.DataBindings.Add (new Binding ("Text", bsrcProducts, "ProductID", true, DataSourceUpdateMode.OnPropertyChanged));
+		entryName.DataBindings.Add (new Binding ("Text", bsrcProducts, "ProductName", true, DataSourceUpdateMode.OnValidation));
+		spinPrice.DataBindings.Add (new Binding ("Value", bsrcProducts, "Price", true, DataSourceUpdateMode.OnPropertyChanged));
+		checkFavourite.DataBindings.Add (new Binding("Active", bsrcProducts, "Favourite", true, DataSourceUpdateMode.OnPropertyChanged));
+	
+		gridview.DataSource = bsrcProducts;		
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)

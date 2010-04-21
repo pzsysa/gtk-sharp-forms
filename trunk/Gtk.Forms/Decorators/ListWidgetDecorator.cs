@@ -59,7 +59,7 @@ namespace Gtk.Forms
 			if (o == null)
 				o = item;
 			
-			return new object[] {o};
+			return new object[] {o.ToString ()};
 		}
 		
 		private object FilterItemOnProperty (object item, string field)

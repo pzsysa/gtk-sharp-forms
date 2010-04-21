@@ -69,6 +69,7 @@ namespace Gtk.Forms
 		{
 			this.widget = widget;
 			
+			
 			this.widget.Realized += widget_Realized;
 		}
 

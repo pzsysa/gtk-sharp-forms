@@ -52,7 +52,8 @@ namespace Gtk.Forms
 			if (AutoGenerateColumns) {
 				
 				foreach (PropertyDescriptor prop in DataManager.GetItemProperties ()) 
-					types.Add (prop.PropertyType);	
+//					types.Add (prop.PropertyType);	
+					types.Add (typeof (string));	
 			}
 			
 			store = new ListStore (types.ToArray ());
@@ -78,7 +79,7 @@ namespace Gtk.Forms
 			if (AutoGenerateColumns) {
 				
 				foreach (PropertyDescriptor prop in DataManager.GetItemProperties ())
-					values.Add (prop.GetValue (item));
+					values.Add (prop.GetValue (item).ToString ());
 			}
 			
 			return values.ToArray ();
