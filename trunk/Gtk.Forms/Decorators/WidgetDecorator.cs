@@ -27,6 +27,7 @@ namespace Gtk.Forms
 	public class WidgetDecorator
 	{
 		private Widget widget; 
+		private bool? validated;
 		
 		private BindingContext binding_context;
 		public virtual BindingContext BindingContext {
@@ -65,17 +66,90 @@ namespace Gtk.Forms
 			get { return widget.GdkWindow != null; }
 		}
 		
+		public bool Validated {
+			get {
+				if (validated == null) {
+					CancelEventArgs args = new CancelEventArgs ();
+					OnValidating (args);
+					validated = !args.Cancel;
+				}
+				
+				return validated.Value;
+			}
+		}
+		
 		public WidgetDecorator (Widget widget)
 		{
 			this.widget = widget;
 			
+			this.widget.FocusInEvent += widget_FocusInEvent;
+			this.widget.FocusOutEvent += widget_FocusOutEvent;
+			HandleWidgetRealized ();
+		}
+
+		void HandleWidgetRealized ()
+		{
+			if (widget.IsRealized)
+				widget_Realized (widget, EventArgs.Empty);
+			else
+				widget.Realized += widget_Realized;
+		}
+
+		private void widget_FocusInEvent (object o, FocusInEventArgs args)
+		{
+			if (widget.Toplevel is FormsWindow) {
+				var window = (FormsWindow)widget.Toplevel;
+				window.Decorator.Focused = this;
+			}
+		}
+		
+		[GLib.ConnectBefore]
+		private void widget_FocusOutEvent (object o, FocusOutEventArgs args)
+		{
+//			CancelEventArgs cargs = new CancelEventArgs ();
+//			OnValidating (cargs);
 			
-			this.widget.Realized += widget_Realized;
+			if (!Validated) {
+				widget.GrabFocus ();
+				args.RetVal = true;
+			}
+			
+//			if (widget.Toplevel is FormsWindow) {
+//				var window = (FormsWindow)widget.Toplevel;
+//				window.Decorator.NotValidated = Validated;		
+//			}
+			
+			if (widget.Toplevel is FormsWindow) {
+				var window = (FormsWindow)widget.Toplevel;
+				window.Decorator.Focused = null;
+			}
 		}
 
 		private void widget_Realized (object sender, EventArgs e)
 		{
 			OnHandleCreated (EventArgs.Empty);
+			if (widget.GdkWindow != null)
+				widget.GdkWindow.AddFilter (new Gdk.FilterFunc(FocusableFilter));
+		}
+		
+		private Gdk.FilterReturn FocusableFilter(IntPtr xevent, Gdk.Event evnt)
+		{
+			Gdk.Event evnt2=Gdk.Event.New(xevent);
+			
+			if(evnt2.Type==Gdk.EventType.ButtonPress || evnt2.Type==Gdk.EventType.ClientEvent) {
+				
+				if (widget.Toplevel is FormsWindow) {
+					var window = (FormsWindow)widget.Toplevel;
+				
+					if ((window.Decorator.Focused != null) && !window.Decorator.Focused.Validated) 
+						return Gdk.FilterReturn.Remove;
+				}
+			}
+			
+			//something can ba changed in control, need to validate again
+			validated = null;
+			
+			return Gdk.FilterReturn.Continue;
 		}
 		
 		protected void OnBindingContextChanged (EventArgs args)
@@ -88,6 +162,13 @@ namespace Gtk.Forms
 		protected void OnHandleCreated (EventArgs args)
 		{
 			var handler = HandleCreated;
+			if (handler != null)
+				handler (this, args);
+		}
+		
+		protected void OnValidating (CancelEventArgs args)
+		{
+			var handler = Validating;
 			if (handler != null)
 				handler (this, args);
 		}

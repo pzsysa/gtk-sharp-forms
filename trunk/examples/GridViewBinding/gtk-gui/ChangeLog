@@ -1,3 +1,9 @@
+2010-04-22  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
+
+	* gui.stetic:
+	* generated.cs:
+	* MainWindow.cs: 
+
 2010-04-20  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
 
 	* gui.stetic:

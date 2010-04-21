@@ -29,12 +29,20 @@ namespace Gtk.Forms
 	{
 		private Window window;
 		
+		public WidgetDecorator Focused { get; set; }
+		
 		public WindowDecorator (Window widget)
 			: base (widget)
 		{
 			window = widget;
+			window.DestroyEvent += window_DestroyEvent;
 		}
-		
+
+		[GLib.ConnectBefore]
+		void window_DestroyEvent (object o, DestroyEventArgs args)
+		{
+			Console.WriteLine("SEEK AND DESTROY");
+		}
 		 
 		#region Protected Methods
 		

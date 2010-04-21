@@ -19,6 +19,11 @@
       	 <!--<property name="DataBindings"/>-->
       	</itemgroup>
     </itemgroups>
+    <signals>
+      		<itemgroup label="Forms Signals">
+      			<signal name="Validating"/>
+      		</itemgroup>
+      	</signals>
 	</object>
 	<object type="Gtk.Forms.FormsGridView" base-type="Gtk.TreeView" palette-category="widget">
 	  <itemgroups>
