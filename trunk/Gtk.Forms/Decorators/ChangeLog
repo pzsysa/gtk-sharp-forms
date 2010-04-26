@@ -1,3 +1,9 @@
+2010-04-26  Krzysztof Marecki  <christopherm7@gmail.com>
+
+	* WindowDecorator.cs: Handled Delete event to supress window closing
+
+	* WidgetDecorator.cs: Validation handles ButtonPress
+
 2010-04-22  Krzysztof Marecki  <marecki.krzysztof@gmail.com>
 
 	* WindowDecorator.cs:

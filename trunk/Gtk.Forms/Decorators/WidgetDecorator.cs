@@ -68,6 +68,8 @@ namespace Gtk.Forms
 		
 		public bool Validated {
 			get {
+				validated = null;
+				//need to rethink how to cache validated value
 				if (validated == null) {
 					CancelEventArgs args = new CancelEventArgs ();
 					OnValidating (args);
@@ -82,9 +84,26 @@ namespace Gtk.Forms
 		{
 			this.widget = widget;
 			
+			this.widget.ButtonPressEvent += widget_ButtonPressEvent;
 			this.widget.FocusInEvent += widget_FocusInEvent;
 			this.widget.FocusOutEvent += widget_FocusOutEvent;
+		
 			HandleWidgetRealized ();
+		}
+		
+		[GLib.ConnectBefore]
+		void widget_ButtonPressEvent (object o, ButtonPressEventArgs args)
+		{
+			if (widget.Toplevel is FormsWindow) {
+				var window = (FormsWindow)widget.Toplevel;
+				
+				if(window.Decorator.Focused != null) {
+					var focused = window.Decorator.Focused;
+					
+					if(!focused.Validated)
+						args.RetVal=true;
+				}
+			}
 		}
 
 		void HandleWidgetRealized ()
@@ -94,7 +113,7 @@ namespace Gtk.Forms
 			else
 				widget.Realized += widget_Realized;
 		}
-
+		
 		private void widget_FocusInEvent (object o, FocusInEventArgs args)
 		{
 			if (widget.Toplevel is FormsWindow) {
@@ -106,18 +125,12 @@ namespace Gtk.Forms
 		[GLib.ConnectBefore]
 		private void widget_FocusOutEvent (object o, FocusOutEventArgs args)
 		{
-//			CancelEventArgs cargs = new CancelEventArgs ();
-//			OnValidating (cargs);
-			
 			if (!Validated) {
 				widget.GrabFocus ();
+				
 				args.RetVal = true;
+				return;
 			}
-			
-//			if (widget.Toplevel is FormsWindow) {
-//				var window = (FormsWindow)widget.Toplevel;
-//				window.Decorator.NotValidated = Validated;		
-//			}
 			
 			if (widget.Toplevel is FormsWindow) {
 				var window = (FormsWindow)widget.Toplevel;
@@ -133,20 +146,9 @@ namespace Gtk.Forms
 		}
 		
 		private Gdk.FilterReturn FocusableFilter(IntPtr xevent, Gdk.Event evnt)
-		{
-			Gdk.Event evnt2=Gdk.Event.New(xevent);
-			
-			if(evnt2.Type==Gdk.EventType.ButtonPress || evnt2.Type==Gdk.EventType.ClientEvent) {
-				
-				if (widget.Toplevel is FormsWindow) {
-					var window = (FormsWindow)widget.Toplevel;
-				
-					if ((window.Decorator.Focused != null) && !window.Decorator.Focused.Validated) 
-						return Gdk.FilterReturn.Remove;
-				}
-			}
-			
-			//something can ba changed in control, need to validate again
+		{			
+			//user changed something in control, need to validate again
+			//but, which is no suprise, gdk.filterfunc does not work in windows :(
 			validated = null;
 			
 			return Gdk.FilterReturn.Continue;
