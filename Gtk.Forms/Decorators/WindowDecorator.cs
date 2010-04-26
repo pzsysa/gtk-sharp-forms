@@ -35,15 +35,19 @@ namespace Gtk.Forms
 			: base (widget)
 		{
 			window = widget;
-			window.DestroyEvent += window_DestroyEvent;
+			window.DeleteEvent += window_DeleteEvent;
+		}
+		
+		[GLib.ConnectBefore]
+		void window_DeleteEvent (object o, DeleteEventArgs args)
+		{
+			if(Focused != null) {
+	
+				if(!Focused.Validated)
+					args.RetVal=true;
+			}
 		}
 
-		[GLib.ConnectBefore]
-		void window_DestroyEvent (object o, DestroyEventArgs args)
-		{
-			Console.WriteLine("SEEK AND DESTROY");
-		}
-		 
 		#region Protected Methods
 		
 		#endregion
