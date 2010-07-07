@@ -30,7 +30,7 @@ using System;
 using System.Collections;
 using System.ComponentModel;
 
-namespace Gtk.Forms {
+namespace GtkForms {
 	[DefaultEvent("CollectionChanged")]
 	public class BindingsCollection : BaseCollection {
 

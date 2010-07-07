@@ -27,7 +27,7 @@ using System.Collections;
 using System.ComponentModel;
 using Gtk;
 
-namespace Gtk.Forms
+namespace GtkForms
 {
 	public abstract class BaseListWidgetDecorator<T> : WidgetDecorator
 		where T : Widget, IDecoratedBaseListWidget

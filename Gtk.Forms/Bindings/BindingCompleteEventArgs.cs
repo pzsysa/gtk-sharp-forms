@@ -29,7 +29,7 @@
 using System;
 using System.ComponentModel;
 
-namespace Gtk.Forms
+namespace GtkForms
 {
 	public class BindingCompleteEventArgs : CancelEventArgs
 	{

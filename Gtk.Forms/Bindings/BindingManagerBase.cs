@@ -31,7 +31,7 @@ using System;
 using System.ComponentModel;
 using System.Collections;
 
-namespace Gtk.Forms
+namespace GtkForms
 {
 	public abstract class BindingManagerBase
 	{

@@ -6,7 +6,7 @@
   </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <widget-library name="../../../Gtk.Forms/bin/Debug/Gtk.Forms.dll" />
+    <widget-library name="../../../Gtk.Forms/bin/Debug/GtkForms.dll" />
     <widget-library name="../bin/Debug/GridViewBinding.exe" internal="true" />
   </import>
   <widget class="Gtk.Window" id="MainWindow" design-size="452 300">
@@ -23,7 +23,7 @@
             <property name="MemberName" />
             <property name="ShadowType">In</property>
             <child>
-              <widget class="Gtk.Forms.FormsGridView" id="gridview">
+              <widget class="GtkForms.FormsGridView" id="gridview">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="ShowScrollbars">True</property>
@@ -60,7 +60,7 @@
               <widget class="Gtk.Alignment" id="alignmentFavourite">
                 <property name="MemberName" />
                 <child>
-                  <widget class="Gtk.Forms.FormsCheckButton" id="checkFavourite">
+                  <widget class="GtkForms.FormsCheckButton" id="checkFavourite">
                     <property name="MemberName" />
                     <property name="CanFocus">True</property>
                     <property name="Label" translatable="yes" />
@@ -91,7 +91,7 @@
                 <property name="Xscale">0</property>
                 <property name="Xalign">0.01</property>
                 <child>
-                  <widget class="Gtk.Forms.FormsSpinButton" id="spinPrice">
+                  <widget class="GtkForms.FormsSpinButton" id="spinPrice">
                     <property name="MemberName" />
                     <property name="WidthRequest">60</property>
                     <property name="CanFocus">True</property>
@@ -115,7 +115,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Forms.FormsEntry" id="entryID">
+              <widget class="GtkForms.FormsEntry" id="entryID">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
@@ -136,7 +136,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Forms.FormsEntry" id="entryName">
+              <widget class="GtkForms.FormsEntry" id="entryName">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
@@ -180,7 +180,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Forms.FormsLabel" id="labelFavourite">
+              <widget class="GtkForms.FormsLabel" id="labelFavourite">
                 <property name="MemberName" />
                 <property name="Xalign">1</property>
                 <property name="Yalign">0</property>
@@ -201,7 +201,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Forms.FormsLabel" id="labelID">
+              <widget class="GtkForms.FormsLabel" id="labelID">
                 <property name="MemberName" />
                 <property name="Xalign">1</property>
                 <property name="Yalign">0</property>
@@ -220,7 +220,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Forms.FormsLabel" id="labelName">
+              <widget class="GtkForms.FormsLabel" id="labelName">
                 <property name="MemberName" />
                 <property name="Xalign">1</property>
                 <property name="Yalign">0</property>
@@ -242,7 +242,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Forms.FormsLabel" id="labelPrice">
+              <widget class="GtkForms.FormsLabel" id="labelPrice">
                 <property name="MemberName" />
                 <property name="Xalign">1</property>
                 <property name="Yalign">0</property>

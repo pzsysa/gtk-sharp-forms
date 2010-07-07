@@ -51,9 +51,9 @@
     <Compile Include="Company.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Gtk.Forms\Gtk.Forms.csproj">
+    <ProjectReference Include="..\..\..\Gtk.Forms\GtkForms.csproj">
       <Project>{ACB49736-47BC-4318-9665-CBF9D8CB34CD}</Project>
-      <Name>Gtk.Forms</Name>
+      <Name>GtkForms</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

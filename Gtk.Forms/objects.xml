@@ -1,19 +1,19 @@
 <objects attr-sync="on">
-	<object type="Gtk.Forms.FormsCheckButton" base-type="Gtk.CheckButton" icon="checkbutton.png" palette-category="widget">
+	<object type="GtkForms.FormsCheckButton" base-type="Gtk.CheckButton" icon="checkbutton.png" palette-category="widget">
 		<itemgroups>
       		<itemgroup label="Binding Properties">
       	 		<!--<property name="DataBindings"/>-->
       	</itemgroup>
     </itemgroups>
 	</object>
-	<object type="Gtk.Forms.FormsComboBox" base-type="Gtk.ComboBox" icon="combo.png" palette-category="widget">
+	<object type="GtkForms.FormsComboBox" base-type="Gtk.ComboBox" icon="combo.png" palette-category="widget">
 		<itemgroups>
       		<itemgroup label="Binding Properties">
       	 		<!--<property name="DataBindings"/>-->
       	</itemgroup>
     </itemgroups>
 	</object>
-	<object type="Gtk.Forms.FormsEntry" base-type="Gtk.Entry" icon="entry.png" palette-category="widget">
+	<object type="GtkForms.FormsEntry" base-type="Gtk.Entry" icon="entry.png" palette-category="widget">
 	  <itemgroups>
       	<itemgroup label="Binding Properties">
       	 <!--<property name="DataBindings"/>-->
@@ -25,14 +25,14 @@
       		</itemgroup>
       	</signals>
 	</object>
-	<object type="Gtk.Forms.FormsGridView" base-type="Gtk.TreeView" palette-category="widget">
+	<object type="GtkForms.FormsGridView" base-type="Gtk.TreeView" palette-category="widget">
 	  <itemgroups>
       	<itemgroup label="Binding Properties">
       	 	<property name="AutoGenerateColumns"/>
       	</itemgroup>
     </itemgroups>
 	</object>
-	<object type="Gtk.Forms.FormsLabel" base-type="Gtk.Label" icon="label.png" palette-category="widget">
+	<object type="GtkForms.FormsLabel" base-type="Gtk.Label" icon="label.png" palette-category="widget">
     <itemgroups>
       <itemgroup label="Binding Properties">			
       	<!--<property name="DataBindings"/>-->
@@ -40,7 +40,7 @@
     </itemgroups>
     <signals />
   </object>
-  <object type="Gtk.Forms.FormsSpinButton" base-type="Gtk.Widget" icon="spinbutton.png" palette-category="widget">
+  <object type="GtkForms.FormsSpinButton" base-type="Gtk.Widget" icon="spinbutton.png" palette-category="widget">
   	<itemgroups>
   	 <itemgroup label="Binding Properties">			
  	<!-- <property name="DataBindings"/>-->

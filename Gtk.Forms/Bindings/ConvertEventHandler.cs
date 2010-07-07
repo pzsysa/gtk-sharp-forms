@@ -26,6 +26,6 @@
 
 // COMPLETE
 
-namespace Gtk.Forms {
+namespace GtkForms {
 	public delegate void ConvertEventHandler (object sender, ConvertEventArgs e);
 }

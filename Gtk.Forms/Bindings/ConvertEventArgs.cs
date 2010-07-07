@@ -29,7 +29,7 @@
 
 using System;
 
-namespace Gtk.Forms {
+namespace GtkForms {
 	public class ConvertEventArgs : EventArgs {
 		private object	object_value;
 		private Type	desired_type;

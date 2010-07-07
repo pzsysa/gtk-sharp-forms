@@ -30,7 +30,7 @@ using System.ComponentModel;
 using System.Reflection;
 using System.Collections.Generic;
 
-namespace Gtk.Forms
+namespace GtkForms
 {
 	public static class ListBindingHelper 
 	{

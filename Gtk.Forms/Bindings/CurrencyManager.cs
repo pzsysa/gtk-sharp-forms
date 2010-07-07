@@ -30,7 +30,7 @@ using System.Reflection;
 using System.Collections;
 using System.ComponentModel;
 
-namespace Gtk.Forms {
+namespace GtkForms {
 	public class CurrencyManager : BindingManagerBase {
 
 		protected int listposition;

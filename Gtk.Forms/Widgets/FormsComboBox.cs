@@ -24,7 +24,7 @@ using System.Collections;
 using System.ComponentModel;
 using Gtk;
 
-namespace Gtk.Forms
+namespace GtkForms
 {
 	[ToolboxItem(true)]
 	public class FormsComboBox : Gtk.ComboBox, IBindableComponent, IDecoratedListWidget

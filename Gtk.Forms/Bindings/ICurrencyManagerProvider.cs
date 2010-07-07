@@ -20,7 +20,7 @@
 // Copyright (c) 2006 Novell, Inc. (http://www.novell.com)
 //
 
-namespace Gtk.Forms {
+namespace GtkForms {
 
 	public interface ICurrencyManagerProvider {
 		CurrencyManager CurrencyManager { get; }

@@ -27,7 +27,7 @@
 //
 
 
-namespace Gtk.Forms
+namespace GtkForms
 {
 	public enum DataSourceUpdateMode
 	{
