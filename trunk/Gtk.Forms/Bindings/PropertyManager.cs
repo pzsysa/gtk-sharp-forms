@@ -26,7 +26,7 @@ using System;
 using System.Collections;
 using System.ComponentModel;
 
-namespace Gtk.Forms {
+namespace GtkForms {
 
 	public class PropertyManager : BindingManagerBase {
 

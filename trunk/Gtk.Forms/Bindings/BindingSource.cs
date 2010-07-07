@@ -28,7 +28,7 @@ using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Gtk.Forms {
+namespace GtkForms {
 
 	[ComplexBindingProperties ("DataSource", "DataMember")]
 	[DefaultEvent ("CurrentChanged")]

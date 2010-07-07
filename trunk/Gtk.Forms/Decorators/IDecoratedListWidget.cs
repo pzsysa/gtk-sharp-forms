@@ -24,7 +24,7 @@ using System;
 using System.Collections;
 using Gtk;
 
-namespace Gtk.Forms
+namespace GtkForms
 {
 
 	public interface IDecoratedListWidget : IDecoratedBaseListWidget

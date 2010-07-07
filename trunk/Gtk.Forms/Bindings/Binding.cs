@@ -28,7 +28,7 @@ using System;
 using System.ComponentModel;
 using Gtk;
 
-namespace Gtk.Forms {
+namespace GtkForms {
 
 	[TypeConverter (typeof (ListBindingConverter))]
 	public class Binding {

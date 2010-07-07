@@ -31,7 +31,7 @@ using System.Globalization;
 using System.ComponentModel;
 
 
-namespace Gtk.Forms {
+namespace GtkForms {
 
 	[DefaultEvent("CollectionChanged")]
 	public class BindingContext : ICollection, IEnumerable {

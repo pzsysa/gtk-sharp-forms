@@ -11,7 +11,7 @@
 using System;
 using Gtk;
 
-namespace Gtk.Forms
+namespace GtkForms
 {
 
 

@@ -28,7 +28,7 @@
 
 using System;
 
-namespace Gtk.Forms {
+namespace GtkForms {
 	public struct BindingMemberInfo {
 		private string		data_member;
 		private string		data_field;

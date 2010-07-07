@@ -1,6 +1,6 @@
 using System;
 using Gtk;
-using Gtk.Forms;
+using GtkForms;
 
 public partial class MainWindow : FormsWindow
 {

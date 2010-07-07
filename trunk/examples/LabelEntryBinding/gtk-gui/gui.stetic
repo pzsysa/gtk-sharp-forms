@@ -6,7 +6,7 @@
   </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <widget-library name="../../../Gtk.Forms/bin/Debug/Gtk.Forms.dll" />
+    <widget-library name="../../../Gtk.Forms/bin/Debug/GtkForms.dll" />
     <widget-library name="../bin/Debug/LabelEntryBinding.exe" internal="true" />
   </import>
   <widget class="Gtk.Window" id="MainWindow" design-size="773 205">
@@ -23,7 +23,7 @@
             <property name="MemberName" />
             <property name="Spacing">6</property>
             <child>
-              <widget class="Gtk.Forms.FormsLabel" id="label">
+              <widget class="GtkForms.FormsLabel" id="label">
                 <property name="MemberName" />
               </widget>
               <packing>
@@ -32,7 +32,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Forms.FormsEntry" id="entry">
+              <widget class="GtkForms.FormsEntry" id="entry">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
@@ -61,7 +61,7 @@
             <property name="MemberName" />
             <property name="Spacing">6</property>
             <child>
-              <widget class="Gtk.Forms.FormsLabel" id="checkLabel">
+              <widget class="GtkForms.FormsLabel" id="checkLabel">
                 <property name="MemberName" />
               </widget>
               <packing>
@@ -72,7 +72,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Forms.FormsCheckButton" id="check">
+              <widget class="GtkForms.FormsCheckButton" id="check">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="DrawIndicator">True</property>
@@ -99,7 +99,7 @@
             <property name="MemberName" />
             <property name="Spacing">6</property>
             <child>
-              <widget class="Gtk.Forms.FormsLabel" id="notifyLabel">
+              <widget class="GtkForms.FormsLabel" id="notifyLabel">
                 <property name="MemberName" />
               </widget>
               <packing>
@@ -110,7 +110,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Forms.FormsEntry" id="notifyEntry">
+              <widget class="GtkForms.FormsEntry" id="notifyEntry">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>
@@ -139,7 +139,7 @@
             <property name="MemberName" />
             <property name="Spacing">6</property>
             <child>
-              <widget class="Gtk.Forms.FormsLabel" id="spinLabel">
+              <widget class="GtkForms.FormsLabel" id="spinLabel">
                 <property name="MemberName" />
               </widget>
               <packing>
@@ -150,7 +150,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Forms.FormsSpinButton" id="spin">
+              <widget class="GtkForms.FormsSpinButton" id="spin">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
               </widget>
@@ -162,7 +162,7 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Forms.FormsEntry" id="spinEntry">
+              <widget class="GtkForms.FormsEntry" id="spinEntry">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="IsEditable">True</property>

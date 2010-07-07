@@ -27,7 +27,7 @@
 // COMPLETE
 
 
-namespace Gtk.Forms
+namespace GtkForms
 {
 	public delegate void ItemChangedEventHandler (object sender, ItemChangedEventArgs e);
 }

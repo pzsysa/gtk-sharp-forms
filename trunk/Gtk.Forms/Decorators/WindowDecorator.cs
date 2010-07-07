@@ -23,7 +23,7 @@ using System.ComponentModel;
 
 using Gtk;
 
-namespace Gtk.Forms
+namespace GtkForms
 {
 	internal class WindowDecorator : ContainerDecorator
 	{

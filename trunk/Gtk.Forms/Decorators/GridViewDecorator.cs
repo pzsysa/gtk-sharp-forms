@@ -24,7 +24,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using Gtk;
 
-namespace Gtk.Forms
+namespace GtkForms
 {
 
 	public class GridViewDecorator <T> : BaseListWidgetDecorator<T>

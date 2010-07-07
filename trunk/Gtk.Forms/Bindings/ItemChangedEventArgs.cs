@@ -28,7 +28,7 @@
 
 using System;
 
-namespace Gtk.Forms
+namespace GtkForms
 {
 	public class ItemChangedEventArgs : EventArgs
 	{

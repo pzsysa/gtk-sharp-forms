@@ -30,7 +30,7 @@ using System.Reflection;
 using Gtk;
 
 
-namespace Gtk.Forms {
+namespace GtkForms {
 	//[DefaultEvent("CollectionChanged")]
 	//[Editor("System.Drawing.Design.UITypeEditor, " + Consts.AssemblySystem_Drawing, typeof(System.Drawing.Design.UITypeEditor))]
 	//[TypeConverter("System.Windows.Forms.Design.ControlBindingsConverter, " + Consts.AssemblySystem_Design)]

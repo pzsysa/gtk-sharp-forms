@@ -7,8 +7,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{ACB49736-47BC-4318-9665-CBF9D8CB34CD}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Gtk.Forms</RootNamespace>
-    <AssemblyName>Gtk.Forms</AssemblyName>
+    <RootNamespace>GtkForms</RootNamespace>
+    <AssemblyName>GtkForms</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

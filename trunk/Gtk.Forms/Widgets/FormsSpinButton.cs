@@ -24,7 +24,7 @@ using System;
 using System.ComponentModel;
 using Gtk;
 
-namespace Gtk.Forms
+namespace GtkForms
 {
 
 	[ToolboxItem(true)]

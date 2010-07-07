@@ -26,7 +26,7 @@
 //	Jonathan Pobst (monkey@jpobst.com)
 //
 
-namespace Gtk.Forms
+namespace GtkForms
 {
 	public enum BindingCompleteState
 	{

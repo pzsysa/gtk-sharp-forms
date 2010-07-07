@@ -29,7 +29,7 @@ using System;
 using System.Collections;
 using System.ComponentModel;
 
-namespace Gtk.Forms {
+namespace GtkForms {
 	public class BaseCollection : MarshalByRefObject, ICollection, IEnumerable {
 		internal ArrayList	list;
 
