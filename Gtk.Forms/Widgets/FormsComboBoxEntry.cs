@@ -108,6 +108,11 @@ namespace GtkForms
 	
 		#endregion
 		
+		public string Text {
+			get { return Entry.Text; }
+			set { Entry.Text = value; }
+		}
+		
 		protected override void OnChanged ()
 		{
 			base.OnChanged ();
@@ -115,6 +120,12 @@ namespace GtkForms
 			TreeIter iter;
 			if (GetActiveIter (out iter))
 				Decorator.SetPositionFromIter (iter);
+		}
+		
+		[EditorBrowsable (EditorBrowsableState.Never)]
+		public event EventHandler TextChanged {
+			add { Entry.Changed += value; }
+			remove { Entry.Changed -= value; }
 		}
 	}
 }
