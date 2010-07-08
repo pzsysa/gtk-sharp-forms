@@ -9,7 +9,7 @@
     <widget-library name="../../../../Gtk.Forms/bin/Debug/GtkForms.dll" />
     <widget-library name="../bin/Debug/ComboBoxBinding.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="385 98">
+  <widget class="Gtk.Window" id="MainWindow" design-size="402 98">
     <property name="MemberName" />
     <property name="Title" translatable="yes">ComboBox binding</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -151,11 +151,22 @@
             <property name="MemberName" />
             <property name="Spacing">6</property>
             <child>
-              <widget class="GtkForms.FormsLabel" id="formslabel3">
+              <widget class="GtkForms.FormsLabel" id="formslabel4">
                 <property name="MemberName" />
               </widget>
               <packing>
                 <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkForms.FormsLabel" id="formslabel3">
+                <property name="MemberName" />
+              </widget>
+              <packing>
+                <property name="Position">1</property>
                 <property name="AutoSize">False</property>
               </packing>
             </child>
@@ -166,7 +177,7 @@
                 <property name="Items" translatable="yes" />
               </widget>
               <packing>
-                <property name="Position">1</property>
+                <property name="Position">2</property>
                 <property name="AutoSize">True</property>
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>
@@ -182,7 +193,7 @@
                 <signal name="Clicked" handler="OnButton3Clicked" />
               </widget>
               <packing>
-                <property name="Position">2</property>
+                <property name="Position">3</property>
                 <property name="AutoSize">True</property>
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>
@@ -198,7 +209,7 @@
                 <signal name="Clicked" handler="OnButton4Clicked" />
               </widget>
               <packing>
-                <property name="Position">3</property>
+                <property name="Position">4</property>
                 <property name="AutoSize">True</property>
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>

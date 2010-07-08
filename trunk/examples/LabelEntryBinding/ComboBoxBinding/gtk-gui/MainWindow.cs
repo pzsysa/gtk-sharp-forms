@@ -29,6 +29,8 @@ public partial class MainWindow
 
 	private global::Gtk.HBox hbox3;
 
+	private global::GtkForms.FormsLabel formslabel4;
+
 	private global::GtkForms.FormsLabel formslabel3;
 
 	private global::GtkForms.FormsComboBoxEntry formscomboboxentry1;
@@ -142,19 +144,27 @@ public partial class MainWindow
 		this.hbox3.Name = "hbox3";
 		this.hbox3.Spacing = 6;
 		// Container child hbox3.Gtk.Box+BoxChild
+		this.formslabel4 = new global::GtkForms.FormsLabel ();
+		this.formslabel4.Name = "formslabel4";
+		this.hbox3.Add (this.formslabel4);
+		global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.formslabel4]));
+		w10.Position = 0;
+		w10.Expand = false;
+		w10.Fill = false;
+		// Container child hbox3.Gtk.Box+BoxChild
 		this.formslabel3 = new global::GtkForms.FormsLabel ();
 		this.formslabel3.Name = "formslabel3";
 		this.hbox3.Add (this.formslabel3);
-		global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.formslabel3]));
-		w10.Position = 0;
+		global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.formslabel3]));
+		w11.Position = 1;
 		// Container child hbox3.Gtk.Box+BoxChild
 		this.formscomboboxentry1 = new global::GtkForms.FormsComboBoxEntry ();
 		this.formscomboboxentry1.Name = "formscomboboxentry1";
 		this.hbox3.Add (this.formscomboboxentry1);
-		global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.formscomboboxentry1]));
-		w11.Position = 1;
-		w11.Expand = false;
-		w11.Fill = false;
+		global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.formscomboboxentry1]));
+		w12.Position = 2;
+		w12.Expand = false;
+		w12.Fill = false;
 		// Container child hbox3.Gtk.Box+BoxChild
 		this.button3 = new global::Gtk.Button ();
 		this.button3.CanFocus = true;
@@ -162,10 +172,10 @@ public partial class MainWindow
 		this.button3.UseUnderline = true;
 		this.button3.Label = global::Mono.Unix.Catalog.GetString ("Change first item");
 		this.hbox3.Add (this.button3);
-		global::Gtk.Box.BoxChild w12 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.button3]));
-		w12.Position = 2;
-		w12.Expand = false;
-		w12.Fill = false;
+		global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.button3]));
+		w13.Position = 3;
+		w13.Expand = false;
+		w13.Fill = false;
 		// Container child hbox3.Gtk.Box+BoxChild
 		this.button4 = new global::Gtk.Button ();
 		this.button4.CanFocus = true;
@@ -173,13 +183,13 @@ public partial class MainWindow
 		this.button4.UseUnderline = true;
 		this.button4.Label = global::Mono.Unix.Catalog.GetString ("Clear");
 		this.hbox3.Add (this.button4);
-		global::Gtk.Box.BoxChild w13 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.button4]));
-		w13.Position = 3;
-		w13.Expand = false;
-		w13.Fill = false;
+		global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.button4]));
+		w14.Position = 4;
+		w14.Expand = false;
+		w14.Fill = false;
 		this.notebook1.Add (this.hbox3);
-		global::Gtk.Notebook.NotebookChild w14 = ((global::Gtk.Notebook.NotebookChild)(this.notebook1[this.hbox3]));
-		w14.Position = 2;
+		global::Gtk.Notebook.NotebookChild w15 = ((global::Gtk.Notebook.NotebookChild)(this.notebook1[this.hbox3]));
+		w15.Position = 2;
 		// Notebook tab
 		this.label3 = new global::Gtk.Label ();
 		this.label3.Name = "label3";
@@ -190,7 +200,7 @@ public partial class MainWindow
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
-		this.DefaultWidth = 385;
+		this.DefaultWidth = 402;
 		this.DefaultHeight = 98;
 		this.button1.Hide ();
 		this.Show ();

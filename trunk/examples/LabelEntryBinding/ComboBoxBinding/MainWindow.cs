@@ -73,8 +73,10 @@ public partial class MainWindow : FormsWindow
         formscomboboxentry1.DataSource = customers3;
         formscomboboxentry1.DisplayMember = "CompanyName";
 		formscomboboxentry1.ValueMember = "CompanyID";
+		formscomboboxentry1.DataBindings.Add("Text", bsrcCustomers, "CompanyName",true,DataSourceUpdateMode.OnPropertyChanged);
 
         formslabel3.DataBindings.Add("Text", customers3, "CompanyId");
+		formslabel4.DataBindings.Add("Text", customers3, "CompanyName");
 	}
 	
 	protected virtual void OnButton1Clicked (object sender, System.EventArgs e)
