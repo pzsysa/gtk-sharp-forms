@@ -83,6 +83,8 @@ namespace GtkForms
 			}
 		}
 		
+		public bool CellRenderExists { get; set; }
+		
 		public string ValueMember {
 			get { return value_member.BindingMember; }
 			set {
@@ -144,7 +146,10 @@ namespace GtkForms
 		{
 			store = CreateStore ();
 			
-			SetCellRenderers ();
+			if (!CellRenderExists) {
+				SetCellRenderers ();
+				CellRenderExists = true;
+			}
                 
             list_widget.Model = store;
 		}

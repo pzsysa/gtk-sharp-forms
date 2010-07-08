@@ -31,7 +31,7 @@ public partial class MainWindow
 
 	private global::GtkForms.FormsLabel formslabel3;
 
-	private global::GtkForms.FormsComboBox formscombobox3;
+	private global::GtkForms.FormsComboBoxEntry formscomboboxentry1;
 
 	private global::Gtk.Button button3;
 
@@ -148,10 +148,10 @@ public partial class MainWindow
 		global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.formslabel3]));
 		w10.Position = 0;
 		// Container child hbox3.Gtk.Box+BoxChild
-		this.formscombobox3 = new global::GtkForms.FormsComboBox ();
-		this.formscombobox3.Name = "formscombobox3";
-		this.hbox3.Add (this.formscombobox3);
-		global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.formscombobox3]));
+		this.formscomboboxentry1 = new global::GtkForms.FormsComboBoxEntry ();
+		this.formscomboboxentry1.Name = "formscomboboxentry1";
+		this.hbox3.Add (this.formscomboboxentry1);
+		global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.hbox3[this.formscomboboxentry1]));
 		w11.Position = 1;
 		w11.Expand = false;
 		w11.Fill = false;
@@ -190,8 +190,8 @@ public partial class MainWindow
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
-		this.DefaultWidth = 345;
-		this.DefaultHeight = 77;
+		this.DefaultWidth = 385;
+		this.DefaultHeight = 98;
 		this.button1.Hide ();
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
