@@ -53,8 +53,9 @@ public partial class MainWindow : FormsWindow
                                                     new Customer() { CompanyID = 2, CompanyName = "Sirius Tech"} };
         formscombobox1.DataSource = customers;
         formscombobox1.DisplayMember = "CompanyName";
-
-        formslabel1.DataBindings.Add("Text", customers, "CompanyId");
+		formscombobox1.ValueMember = "CompanyID";
+ 
+		formslabel1.DataBindings.Add("Text", customers, "CompanyId");
 
         customers2 = new NotifiedBindingList<Customer>() { new Customer() { CompanyID = 1, CompanyName = "Acme Workshop" },
                                                 new Customer() { CompanyID = 2, CompanyName = "Sirius Tech"} };
@@ -62,14 +63,16 @@ public partial class MainWindow : FormsWindow
        
         formscombobox2.DataSource = bsrcCustomers;
         formscombobox2.DisplayMember = "CompanyName";
+		formscombobox2.ValueMember = "CompanyID";
 
         formslabel2.DataBindings.Add("Text", bsrcCustomers, "CompanyId");
 
         customers3 = new NotifiedBindingList<Customer>() { new Customer() { CompanyID = 1, CompanyName = "Acme Workshop" },
                                                    new Customer() { CompanyID = 2, CompanyName = "Sirius Tech"} };
 
-        formscombobox3.DataSource = customers3;
-        formscombobox3.DisplayMember = "CompanyName";
+        formscomboboxentry1.DataSource = customers3;
+        formscomboboxentry1.DisplayMember = "CompanyName";
+		formscomboboxentry1.ValueMember = "CompanyID";
 
         formslabel3.DataBindings.Add("Text", customers3, "CompanyId");
 	}

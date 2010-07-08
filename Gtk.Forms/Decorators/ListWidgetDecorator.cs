@@ -48,8 +48,9 @@ namespace GtkForms
 		protected override void SetCellRenderers ()
 		{
             Gtk.CellRendererText ct = new Gtk.CellRendererText ();
+			ct.Editable = true;
             list_widget.PackStart (ct, false);
-            list_widget.AddAttribute (ct, "text", 0);
+            list_widget.AddAttribute (ct, "text", 0);	
 		}
 		
 		protected override object[] GetItemValues (object item)

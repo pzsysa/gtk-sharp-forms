@@ -13,6 +13,13 @@
       	</itemgroup>
     </itemgroups>
 	</object>
+	<object type="GtkForms.FormsComboBoxEntry" base-type="Gtk.ComboBoxEntry" icon="combo.png" palette-category="widget">
+		<itemgroups>
+      		<itemgroup label="Binding Properties">
+      	 		<!--<property name="DataBindings"/>-->
+      	</itemgroup>
+    </itemgroups>
+	</object>
 	<object type="GtkForms.FormsEntry" base-type="Gtk.Entry" icon="entry.png" palette-category="widget">
 	  <itemgroups>
       	<itemgroup label="Binding Properties">

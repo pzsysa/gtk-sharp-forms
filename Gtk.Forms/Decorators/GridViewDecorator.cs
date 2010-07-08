@@ -66,7 +66,9 @@ namespace GtkForms
 				
 				int count = 0;
 				foreach (PropertyDescriptor prop in DataManager.GetItemProperties ()) {
-					TreeViewColumn treecol = new TreeViewColumn (prop.DisplayName, new CellRendererText(), "text", count++);
+					CellRendererText ct = new CellRendererText ();
+					ct.Editable = true;
+					TreeViewColumn treecol = new TreeViewColumn (prop.DisplayName, ct, "text", count++);
 					grid.AppendColumn (treecol);
 				}
 			}
