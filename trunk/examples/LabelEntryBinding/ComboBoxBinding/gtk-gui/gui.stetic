@@ -9,7 +9,7 @@
     <widget-library name="../../../../Gtk.Forms/bin/Debug/GtkForms.dll" />
     <widget-library name="../bin/Debug/ComboBoxBinding.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="402 98">
+  <widget class="Gtk.Window" id="MainWindow" design-size="408 98">
     <property name="MemberName" />
     <property name="Title" translatable="yes">ComboBox binding</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -214,6 +214,9 @@
                 <property name="Expand">False</property>
                 <property name="Fill">False</property>
               </packing>
+            </child>
+            <child>
+              <placeholder />
             </child>
           </widget>
           <packing>

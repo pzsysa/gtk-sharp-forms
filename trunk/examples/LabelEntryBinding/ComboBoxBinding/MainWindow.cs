@@ -70,10 +70,10 @@ public partial class MainWindow : FormsWindow
         customers3 = new NotifiedBindingList<Customer>() { new Customer() { CompanyID = 1, CompanyName = "Acme Workshop" },
                                                    new Customer() { CompanyID = 2, CompanyName = "Sirius Tech"} };
 
-        formscomboboxentry1.DataSource = customers3;
-        formscomboboxentry1.DisplayMember = "CompanyName";
-		formscomboboxentry1.ValueMember = "CompanyID";
-		formscomboboxentry1.DataBindings.Add("Text", bsrcCustomers, "CompanyName",true,DataSourceUpdateMode.OnPropertyChanged);
+        //formscomboboxentry1.DataSource = customers3;
+        //formscomboboxentry1.DisplayMember = "CompanyName";
+		//formscomboboxentry1.ValueMember = "CompanyID";
+		formscomboboxentry1.DataBindings.Add("Text", customers3, "CompanyName",true,DataSourceUpdateMode.OnPropertyChanged);
 
         formslabel3.DataBindings.Add("Text", customers3, "CompanyId");
 		formslabel4.DataBindings.Add("Text", customers3, "CompanyName");
