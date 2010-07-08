@@ -44,6 +44,7 @@ namespace GtkForms
 			: base ()
 		{
 		}
+
 		
 		public FormsComboBoxEntry (IntPtr raw)
 			: base (raw)
