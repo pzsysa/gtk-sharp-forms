@@ -435,10 +435,20 @@ namespace GtkForms {
 		internal void UpdateIsBinding ()
 		{
 			is_binding = false;
+			
+			if (control == null)
+				return;
 
 //			if (control == null || (control is Control && !((Control)control).IsHandleCreated))
-			if (control == null || (control is Widget && !((Widget)control).IsDrawable))
-				return;
+//			if (control == null || (control is Widget && ((Widget)control).GdkWindow != null))
+//				return;
+			
+			//must be special case for ComboBoxEntry otherwise is_binding is always false
+			if (control is Widget && !(control is ComboBoxEntry)) {
+				Widget widget = (Widget) control;
+				if (!widget.IsDrawable)
+					return;
+			}
 
 			is_binding = true;
 			PushData ();
