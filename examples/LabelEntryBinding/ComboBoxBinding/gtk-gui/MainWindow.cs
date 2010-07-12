@@ -200,7 +200,7 @@ public partial class MainWindow
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
-		this.DefaultWidth = 402;
+		this.DefaultWidth = 408;
 		this.DefaultHeight = 98;
 		this.button1.Hide ();
 		this.Show ();
