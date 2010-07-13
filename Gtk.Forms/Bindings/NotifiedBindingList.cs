@@ -17,13 +17,13 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
-// Copyright (c) 2007 Novell, Inc.
 // Copyright (c) 2010 Krzysztof Marecki
-
+// Copyright (c) 2007 Novell, Inc.
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.ComponentModel;
 using System.Reflection;
 
@@ -242,7 +242,15 @@ namespace GtkForms
 		
 		protected virtual int FindCore (PropertyDescriptor prop, object key)
 		{
-			throw new NotSupportedException ();
+			for (int index = 0; index < base.Count; index++) {
+				T current = base[index];
+				object propval = prop.GetValue (current);
+				if (Comparer.Default.Compare (key, propval) == 0) {
+					return index;
+				}
+			}
+			
+			return -1;
 		}
 
 		protected override void InsertItem (int index, T item)
