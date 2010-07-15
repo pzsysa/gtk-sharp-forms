@@ -27,11 +27,11 @@ namespace GtkForms
 	[ToolboxItem(true)]
 	public class FormsEntry : Entry, IBindableComponent
 	{
-		private WidgetDecorator decorator;
-		internal WidgetDecorator Decorator { 
+		private EntryDecorator decorator;
+		internal EntryDecorator Decorator { 
 			get {
 				if (decorator == null)
-					decorator = new WidgetDecorator (this);
+					decorator = new EntryDecorator (this);
 				
 				return decorator;
 			}
@@ -75,6 +75,11 @@ namespace GtkForms
 		
 		public bool IsHandleCreated { get { return Decorator.IsHandleCreated; } }
 		#endregion
+		
+		public Gdk.Color BackgroundColor {
+			get { return Decorator.BackgroundColor; }
+			set { Decorator.BackgroundColor = value; }
+		}
 		
 		[EditorBrowsable (EditorBrowsableState.Never)]
 		public event EventHandler TextChanged {

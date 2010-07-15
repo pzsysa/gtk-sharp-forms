@@ -28,6 +28,7 @@ namespace GtkForms
 	{
 		private Widget widget; 
 		private bool? validated;
+		private Gdk.Color backgroundColor;
 		
 		private BindingContext binding_context;
 		public virtual BindingContext BindingContext {
@@ -77,6 +78,14 @@ namespace GtkForms
 				}
 				
 				return validated.Value;
+			}
+		}
+		
+		public virtual Gdk.Color BackgroundColor {
+			get { return backgroundColor; }
+			set {
+				backgroundColor = value;
+				widget.ModifyBg (StateType.Normal, backgroundColor);
 			}
 		}
 		

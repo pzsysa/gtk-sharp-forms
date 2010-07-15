@@ -50,11 +50,12 @@ public partial class MainWindow : FormsWindow
         Binding binding2 = new Binding("Text", bsrc, "CompanyName");
         binding2.DataSourceUpdateMode = DataSourceUpdateMode.OnPropertyChanged;
 
-        this.notifyEntry.DataBindings.Add(binding2);
+        notifyEntry.DataBindings.Add(binding2);
+		notifyEntry.BackgroundColor = GdkColors.Gold;
 
         Binding binding3 = new Binding("Text", bsrc, "CompanyName");
         binding3.ControlUpdateMode = ControlUpdateMode.OnPropertyChanged;
-        this.notifyLabel.DataBindings.Add(binding3);
+        notifyLabel.DataBindings.Add(binding3);
 		
 		
 		Binding binding4 = new Binding("Text", spin, "Value");
