@@ -18,20 +18,37 @@
 // 
 //  You should have received a copy of the GNU Lesser General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 using System;
 using Gtk;
 
 namespace GtkForms
 {
-	internal class EntryAdapter : WidgetDecorator
+	internal class EntryDecorator : WidgetDecorator
 	{
 		private Entry entry;
+		private Gdk.Color? backgroundColor;
 		
-		public EntryAdapter (Entry widget)
+		public EntryDecorator (Entry widget)
 			: base (widget)
 		{
 			entry = widget;
+		}
+		
+		public override Gdk.Color BackgroundColor {
+			get { return backgroundColor.GetValueOrDefault (); }
+			set {
+				backgroundColor = value;
+				entry.ModifyBase (StateType.Normal, value);
+			} 
+		}
+		
+		private void SetCursorColor()
+		{
+			Gdk.Color cursorColor=
+					((BackgroundColor.Red >=248 || BackgroundColor.Green>=248 || BackgroundColor.Blue>=248)
+					  || (!backgroundColor.HasValue) ) ? 
+					 GdkColors.Black : GdkColors.White;
+			this.entry.ModifyCursor(cursorColor, cursorColor);
 		}
 	}
 }
