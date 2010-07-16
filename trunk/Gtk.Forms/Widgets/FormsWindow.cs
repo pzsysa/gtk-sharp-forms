@@ -39,16 +39,19 @@ namespace GtkForms
 		public FormsWindow (IntPtr raw)
 			: base (raw)
 		{
+			BindingContext = new BindingContext ();
 		}
 		
 		public FormsWindow (WindowType type)
 			: base (type)
 		{
+			BindingContext = new BindingContext ();
 		}
 		
 		public FormsWindow (string title)
 			: base (title)
 		{
+			BindingContext = new BindingContext ();
 		}
 		
 		#region IBindableComponent implementation
