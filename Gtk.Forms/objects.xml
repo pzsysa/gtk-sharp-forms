@@ -1,4 +1,11 @@
 <objects attr-sync="on">
+<object type="GtkForms.FormsButton" base-type="Gtk.Button" icon="button.png" palette-category="widget">
+		<itemgroups>
+      		<itemgroup label="Binding Properties">
+      	 		<!--<property name="DataBindings"/>-->
+      	</itemgroup>
+    </itemgroups>
+	</object>
 	<object type="GtkForms.FormsCheckButton" base-type="Gtk.CheckButton" icon="checkbutton.png" palette-category="widget">
 		<itemgroups>
       		<itemgroup label="Binding Properties">

@@ -103,6 +103,7 @@
     <Compile Include="Widgets\FormsLabel.cs" />
     <Compile Include="Widgets\FormsComboBoxEntry.cs" />
     <Compile Include="GdkColors.cs" />
+    <Compile Include="Widgets\FormsButton.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -130,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pixmaps\combo.png">
       <LogicalName>combo.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pixmaps\button.png">
+      <LogicalName>button.png</LogicalName>
     </EmbeddedResource>
   </ItemGroup>
 </Project>
