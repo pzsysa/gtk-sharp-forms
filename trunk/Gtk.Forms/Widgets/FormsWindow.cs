@@ -20,12 +20,15 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.ComponentModel;
+using System.Threading;
 using Gtk;
 
 namespace GtkForms
 {
 	public class FormsWindow : Window, IBindableComponent
 	{ 
+		bool destroyed;
+		
 		private WindowDecorator decorator;
 		internal WindowDecorator Decorator { 
 			get {
@@ -40,18 +43,21 @@ namespace GtkForms
 			: base (raw)
 		{
 			BindingContext = new BindingContext ();
+			Visible = false;
 		}
 		
 		public FormsWindow (WindowType type)
 			: base (type)
 		{
 			BindingContext = new BindingContext ();
+			Visible = false;
 		}
 		
 		public FormsWindow (string title)
 			: base (title)
 		{
 			BindingContext = new BindingContext ();
+			Visible = false;
 		}
 		
 		#region IBindableComponent implementation
@@ -76,6 +82,47 @@ namespace GtkForms
 		
 		public bool IsHandleCreated { get { return Decorator.IsHandleCreated; } }
 		#endregion
+		
+		public void Close ()
+		{
+			Destroy ();
+		}
+		
+		public new void Show ()
+		{
+			Gdk.Window active = Gdk.Screen.Default.ActiveWindow;
+			
+			if (WindowPosition == WindowPosition.CenterOnParent) {
+				foreach (var toplevel in Gtk.Window.ListToplevels()) {
+					if (toplevel.GdkWindow == active) {
+						TransientFor = toplevel;
+						WindowPosition = WindowPosition.CenterOnParent;
+						break;
+					}
+				}
+			}
+				
+			base.Show ();
+		}
+		
+		public void ShowModal ()
+		{
+			Modal = true;
+			Show ();
+		
+			while (!destroyed)
+			{
+				Gtk.Application.RunIteration();
+			}
+		}
+		
+		
+		protected override void OnDestroyed ()
+		{
+			base.OnDestroyed ();
+			
+			destroyed = true;
+		}
 	}
 }
 
