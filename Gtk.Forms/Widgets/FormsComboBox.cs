@@ -27,7 +27,7 @@ using Gtk;
 namespace GtkForms
 {
 	[ToolboxItem(true)]
-	public class FormsComboBox : Gtk.ComboBox, IBindableComponent, IDecoratedListWidget
+	public class FormsComboBox : Gtk.ComboBox, IBindableComponent, IDecoratedListWidget, IListWidget
 	{
 		private ListWidgetDecorator<FormsComboBox> decorator;
 		internal ListWidgetDecorator<FormsComboBox> Decorator { 

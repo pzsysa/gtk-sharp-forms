@@ -89,7 +89,6 @@
     <Compile Include="Widgets\FormsSpinButton.cs" />
     <Compile Include="Widgets\FormsComboBox.cs" />
     <Compile Include="Decorators\WidgetDecorator.cs" />
-    <Compile Include="Decorators\IFormsWidget.cs" />
     <Compile Include="Decorators\ContainerDecorator.cs" />
     <Compile Include="Decorators\WindowDecorator.cs" />
     <Compile Include="Decorators\ListWidgetDecorator.cs" />
@@ -104,6 +103,7 @@
     <Compile Include="Widgets\FormsComboBoxEntry.cs" />
     <Compile Include="GdkColors.cs" />
     <Compile Include="Widgets\FormsButton.cs" />
+    <Compile Include="Widgets\IListWidget.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

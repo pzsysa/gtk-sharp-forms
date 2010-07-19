@@ -80,8 +80,11 @@ namespace GtkForms
 			
 			if (AutoGenerateColumns) {
 				
-				foreach (PropertyDescriptor prop in DataManager.GetItemProperties ())
-					values.Add (prop.GetValue (item).ToString ());
+				foreach (PropertyDescriptor prop in DataManager.GetItemProperties ()) {
+					object propval = prop.GetValue (item);
+					string val = (propval != null) ? propval.ToString () : string.Empty;
+					values.Add (val);
+				}
 			}
 			
 			return values.ToArray ();

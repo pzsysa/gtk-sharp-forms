@@ -1,30 +1,29 @@
-// 
-//  IFormsWidget.cs
+//  
+//  IListWidget.cs
 //  
 //  Author:
-//       Krzysztof Marecki <marecki.krzysztof@gmail.com>
-//  
-//  Copyright (c) 2010 Krzysztof Marecki
+//       Krzysztof Marecki <freefirma@gmail.com>
+// 
+//  Copyright (c) 2010 KrzysztofMarecki
 // 
 //  This program is free software: you can redistribute it and/or modify
-//  it under the terms of the GNU Lesser General Public License as published by
+//  it under the terms of the GNU General Public License as published by
 //  the Free Software Foundation, either version 3 of the License, or
 //  (at your option) any later version.
 // 
 //  This program is distributed in the hope that it will be useful,
 //  but WITHOUT ANY WARRANTY; without even the implied warranty of
 //  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-//  GNU Lesser General Public License for more details.
+//  GNU General Public License for more details.
 // 
-//  You should have received a copy of the GNU Lesser General Public License
+//  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-
 namespace GtkForms
 {
-	internal interface IFormsWidget
+	public interface IListWidget
 	{
-		WidgetDecorator Adapter { get; }
+		object DataSource { get; set; }
 	}
 }
 
