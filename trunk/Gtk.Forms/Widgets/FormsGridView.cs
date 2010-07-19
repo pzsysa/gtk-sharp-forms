@@ -26,7 +26,7 @@ using Gtk;
 
 namespace GtkForms
 {
-	public class FormsGridView : TreeView, IBindableComponent, IDecoratedGridView
+	public class FormsGridView : TreeView, IBindableComponent, IDecoratedGridView, IListWidget
 	{
 		private GridViewDecorator<FormsGridView> decorator;
 		internal GridViewDecorator<FormsGridView> Decorator { 

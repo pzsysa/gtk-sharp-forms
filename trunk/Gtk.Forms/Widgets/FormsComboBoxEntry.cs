@@ -26,7 +26,7 @@ using Gtk;
 
 namespace GtkForms
 {
-	public class FormsComboBoxEntry : Gtk.ComboBoxEntry, IBindableComponent, IDecoratedListWidget
+	public class FormsComboBoxEntry : Gtk.ComboBoxEntry, IBindableComponent, IDecoratedListWidget, IListWidget
 	{
 		private ListWidgetDecorator<FormsComboBoxEntry> decorator;
 		internal ListWidgetDecorator<FormsComboBoxEntry> Decorator { 
