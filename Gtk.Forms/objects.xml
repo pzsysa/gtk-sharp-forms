@@ -68,4 +68,12 @@
  	</itemgroup>
  	</itemgroups>
   </object>
+  	<object type="GtkForms.FormsTextView" base-type="Gtk.TextView" icon="textview.png" palette-category="widget">
+    <itemgroups>
+      <itemgroup label="Binding Properties">			
+      	<!--<property name="DataBindings"/>-->
+      </itemgroup>
+    </itemgroups>
+    <signals />
+  </object>
 </objects>

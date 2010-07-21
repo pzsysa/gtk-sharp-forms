@@ -65,37 +65,19 @@ public partial class MainWindow : FormsWindow
 		spinEntry.DataBindings.Add (binding5);
 		
 		Switch switch1 = new Switch ();
-		Binding bindingOn = new Binding ("Checked", switch1, "Status");
-		bindingOn.DataSourceUpdateMode = DataSourceUpdateMode.OnPropertyChanged;
-		bindingOn.Parse += delegate(object sender, ConvertEventArgs e) {
-			bool b = (bool) e.Value;
-			if (b)
-				e.Value = SwitchStatus.On;
-			else
-				e.Cancel = true;
-		};
-		bindingOn.Format += delegate(object sender, ConvertEventArgs e) {
-			SwitchStatus s = (SwitchStatus) e.Value;
-			e.Value = s == SwitchStatus.On;
-		};
+		var bindingOn = new BooleanBinding<SwitchStatus>
+			("Checked", switch1, "Status", SwitchStatus.On);
 		radioOn.DataBindings.Add(bindingOn);
 		
-		Binding bindingOff = new Binding ("Checked", switch1, "Status");
-		bindingOff.DataSourceUpdateMode = DataSourceUpdateMode.OnPropertyChanged;
-		bindingOff.Parse += delegate(object sender, ConvertEventArgs e) {
-			bool b = (bool) e.Value;
-			if (b)
-				e.Value = SwitchStatus.Off;
-			else
-				e.Cancel = true;
-		};
-		bindingOff.Format += delegate(object sender, ConvertEventArgs e) {
-			SwitchStatus s = (SwitchStatus) e.Value;
-			e.Value = s == SwitchStatus.Off;
-		};
+		var bindingOff = new BooleanBinding<SwitchStatus>
+			("Checked", switch1, "Status", SwitchStatus.Off);
 		radioOff.DataBindings.Add(bindingOff);
 		
 		labelStatus.DataBindings.Add ("Text", switch1, "Status");
+		
+		Company company2=new Company();
+		labelTextView.DataBindings.Add ("Text", company2, "CompanyName");
+		textView.DataBindings.Add ("Text", company2, "CompanyName", false, DataSourceUpdateMode.OnPropertyChanged);
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
