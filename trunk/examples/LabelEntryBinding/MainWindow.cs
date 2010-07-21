@@ -63,6 +63,39 @@ public partial class MainWindow : FormsWindow
 		
 		spinLabel.DataBindings.Add (binding4);
 		spinEntry.DataBindings.Add (binding5);
+		
+		Switch switch1 = new Switch ();
+		Binding bindingOn = new Binding ("Checked", switch1, "Status");
+		bindingOn.DataSourceUpdateMode = DataSourceUpdateMode.OnPropertyChanged;
+		bindingOn.Parse += delegate(object sender, ConvertEventArgs e) {
+			bool b = (bool) e.Value;
+			if (b)
+				e.Value = SwitchStatus.On;
+			else
+				e.Cancel = true;
+		};
+		bindingOn.Format += delegate(object sender, ConvertEventArgs e) {
+			SwitchStatus s = (SwitchStatus) e.Value;
+			e.Value = s == SwitchStatus.On;
+		};
+		radioOn.DataBindings.Add(bindingOn);
+		
+		Binding bindingOff = new Binding ("Checked", switch1, "Status");
+		bindingOff.DataSourceUpdateMode = DataSourceUpdateMode.OnPropertyChanged;
+		bindingOff.Parse += delegate(object sender, ConvertEventArgs e) {
+			bool b = (bool) e.Value;
+			if (b)
+				e.Value = SwitchStatus.Off;
+			else
+				e.Cancel = true;
+		};
+		bindingOff.Format += delegate(object sender, ConvertEventArgs e) {
+			SwitchStatus s = (SwitchStatus) e.Value;
+			e.Value = s == SwitchStatus.Off;
+		};
+		radioOff.DataBindings.Add(bindingOff);
+		
+		labelStatus.DataBindings.Add ("Text", switch1, "Status");
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)

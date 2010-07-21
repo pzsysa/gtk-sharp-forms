@@ -83,6 +83,11 @@ namespace GtkForms
 		public bool IsHandleCreated { get { return Decorator.IsHandleCreated; } }
 		#endregion
 		
+		public Gdk.Color BackgroundColor {
+			get { return Decorator.BackgroundColor; }
+			set { Decorator.BackgroundColor = value; }
+		}
+		
 		public void Close ()
 		{
 			Destroy ();

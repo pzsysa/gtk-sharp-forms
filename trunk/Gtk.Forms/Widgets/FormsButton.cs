@@ -58,22 +58,27 @@ namespace GtkForms
 				}
 			}
 		}
+		
+		public Gdk.Color BackgroundColor {
+			get { return Decorator.BackgroundColor; }
+			set { Decorator.BackgroundColor = value; }
+		}
 	
-			Label FindLabelChild (Container container)
-			{
-				var widgets = (
-					from child in container.Children
-					where typeof (Label).IsAssignableFrom (child.GetType ())
-					select (Label) child
-				).Union (
-					from child in container.Children
-					where typeof (Container).IsAssignableFrom (child.GetType ())
-				    select FindLabelChild ((Container) child)
-				);
-				
-				var labels = widgets.ToArray ();
-				return labels.Length > 0 ? labels.First (w => (w != null)) : null;
-			}
+		Label FindLabelChild (Container container)
+		{
+			var widgets = (
+				from child in container.Children
+				where typeof (Label).IsAssignableFrom (child.GetType ())
+				select (Label) child
+			).Union (
+				from child in container.Children
+				where typeof (Container).IsAssignableFrom (child.GetType ())
+			    select FindLabelChild ((Container) child)
+			);
+			
+			var labels = widgets.ToArray ();
+			return labels.Length > 0 ? labels.First (w => (w != null)) : null;
+		}
 		
 	}
 }

@@ -104,6 +104,11 @@ namespace GtkForms
 	
 		#endregion
 		
+		public Gdk.Color BackgroundColor {
+			get { return Decorator.BackgroundColor; }
+			set { Decorator.BackgroundColor = value; }
+		}
+		
 		protected override void OnChanged ()
 		{
 			base.OnChanged ();

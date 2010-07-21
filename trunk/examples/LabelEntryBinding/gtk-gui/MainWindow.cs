@@ -31,6 +31,14 @@ public partial class MainWindow
 
 	private global::GtkForms.FormsEntry spinEntry;
 
+	private global::Gtk.HBox hbox5;
+
+	private global::GtkForms.FormsRadioButton radioOn;
+
+	private global::GtkForms.FormsRadioButton radioOff;
+
+	private global::GtkForms.FormsLabel labelStatus;
+
 	protected virtual void Build ()
 	{
 		global::Stetic.Gui.Initialize (this);
@@ -158,6 +166,51 @@ public partial class MainWindow
 		w13.Position = 3;
 		w13.Expand = false;
 		w13.Fill = false;
+		// Container child vbox1.Gtk.Box+BoxChild
+		this.hbox5 = new global::Gtk.HBox ();
+		this.hbox5.Name = "hbox5";
+		this.hbox5.Spacing = 6;
+		// Container child hbox5.Gtk.Box+BoxChild
+		this.radioOn = new global::GtkForms.FormsRadioButton ();
+		this.radioOn.CanFocus = true;
+		this.radioOn.Name = "radioOn";
+		this.radioOn.Label = global::Mono.Unix.Catalog.GetString ("On");
+		this.radioOn.DrawIndicator = true;
+		this.radioOn.UseUnderline = true;
+		this.radioOn.Group = new global::GLib.SList (global::System.IntPtr.Zero);
+		this.hbox5.Add (this.radioOn);
+		global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.hbox5[this.radioOn]));
+		w14.Position = 0;
+		w14.Expand = false;
+		w14.Fill = false;
+		// Container child hbox5.Gtk.Box+BoxChild
+		this.radioOff = new global::GtkForms.FormsRadioButton ();
+		this.radioOff.CanFocus = true;
+		this.radioOff.Name = "radioOff";
+		this.radioOff.Label = global::Mono.Unix.Catalog.GetString ("Off");
+		this.radioOff.DrawIndicator = true;
+		this.radioOff.UseUnderline = true;
+		this.radioOff.Group = this.radioOn.Group;
+		this.hbox5.Add (this.radioOff);
+		global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.hbox5[this.radioOff]));
+		w15.Position = 1;
+		w15.Expand = false;
+		w15.Fill = false;
+		// Container child hbox5.Gtk.Box+BoxChild
+		this.labelStatus = new global::GtkForms.FormsLabel ();
+		this.labelStatus.Name = "labelStatus";
+		this.labelStatus.LabelProp = global::Mono.Unix.Catalog.GetString ("formslabel1");
+		this.hbox5.Add (this.labelStatus);
+		global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.hbox5[this.labelStatus]));
+		w16.Position = 2;
+		w16.Expand = false;
+		w16.Fill = false;
+		this.vbox1.Add (this.hbox5);
+		global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox5]));
+		w17.PackType = ((global::Gtk.PackType)(1));
+		w17.Position = 4;
+		w17.Expand = false;
+		w17.Fill = false;
 		this.Add (this.vbox1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
