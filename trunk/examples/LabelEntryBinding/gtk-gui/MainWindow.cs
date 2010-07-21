@@ -31,6 +31,14 @@ public partial class MainWindow
 
 	private global::GtkForms.FormsEntry spinEntry;
 
+	private global::Gtk.HBox hbox6;
+
+	private global::GtkForms.FormsLabel labelTextView;
+
+	private global::Gtk.ScrolledWindow GtkScrolledWindow;
+
+	private global::GtkForms.FormsTextView textView;
+
 	private global::Gtk.HBox hbox5;
 
 	private global::GtkForms.FormsRadioButton radioOn;
@@ -167,6 +175,37 @@ public partial class MainWindow
 		w13.Expand = false;
 		w13.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
+		this.hbox6 = new global::Gtk.HBox ();
+		this.hbox6.Name = "hbox6";
+		this.hbox6.Spacing = 6;
+		// Container child hbox6.Gtk.Box+BoxChild
+		this.labelTextView = new global::GtkForms.FormsLabel ();
+		this.labelTextView.Name = "labelTextView";
+		this.labelTextView.LabelProp = global::Mono.Unix.Catalog.GetString ("formslabel1");
+		this.hbox6.Add (this.labelTextView);
+		global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.hbox6[this.labelTextView]));
+		w14.Position = 0;
+		w14.Expand = false;
+		w14.Fill = false;
+		// Container child hbox6.Gtk.Box+BoxChild
+		this.GtkScrolledWindow = new global::Gtk.ScrolledWindow ();
+		this.GtkScrolledWindow.Name = "GtkScrolledWindow";
+		this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
+		// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
+		this.textView = new global::GtkForms.FormsTextView ();
+		this.textView.CanFocus = true;
+		this.textView.Name = "textView";
+		this.GtkScrolledWindow.Add (this.textView);
+		this.hbox6.Add (this.GtkScrolledWindow);
+		global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.hbox6[this.GtkScrolledWindow]));
+		w16.Position = 1;
+		this.vbox1.Add (this.hbox6);
+		global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox6]));
+		w17.PackType = ((global::Gtk.PackType)(1));
+		w17.Position = 4;
+		w17.Expand = false;
+		w17.Fill = false;
+		// Container child vbox1.Gtk.Box+BoxChild
 		this.hbox5 = new global::Gtk.HBox ();
 		this.hbox5.Name = "hbox5";
 		this.hbox5.Spacing = 6;
@@ -179,10 +218,10 @@ public partial class MainWindow
 		this.radioOn.UseUnderline = true;
 		this.radioOn.Group = new global::GLib.SList (global::System.IntPtr.Zero);
 		this.hbox5.Add (this.radioOn);
-		global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.hbox5[this.radioOn]));
-		w14.Position = 0;
-		w14.Expand = false;
-		w14.Fill = false;
+		global::Gtk.Box.BoxChild w18 = ((global::Gtk.Box.BoxChild)(this.hbox5[this.radioOn]));
+		w18.Position = 0;
+		w18.Expand = false;
+		w18.Fill = false;
 		// Container child hbox5.Gtk.Box+BoxChild
 		this.radioOff = new global::GtkForms.FormsRadioButton ();
 		this.radioOff.CanFocus = true;
@@ -192,31 +231,31 @@ public partial class MainWindow
 		this.radioOff.UseUnderline = true;
 		this.radioOff.Group = this.radioOn.Group;
 		this.hbox5.Add (this.radioOff);
-		global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.hbox5[this.radioOff]));
-		w15.Position = 1;
-		w15.Expand = false;
-		w15.Fill = false;
+		global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.hbox5[this.radioOff]));
+		w19.Position = 1;
+		w19.Expand = false;
+		w19.Fill = false;
 		// Container child hbox5.Gtk.Box+BoxChild
 		this.labelStatus = new global::GtkForms.FormsLabel ();
 		this.labelStatus.Name = "labelStatus";
 		this.labelStatus.LabelProp = global::Mono.Unix.Catalog.GetString ("formslabel1");
 		this.hbox5.Add (this.labelStatus);
-		global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.hbox5[this.labelStatus]));
-		w16.Position = 2;
-		w16.Expand = false;
-		w16.Fill = false;
+		global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.hbox5[this.labelStatus]));
+		w20.Position = 2;
+		w20.Expand = false;
+		w20.Fill = false;
 		this.vbox1.Add (this.hbox5);
-		global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox5]));
-		w17.PackType = ((global::Gtk.PackType)(1));
-		w17.Position = 4;
-		w17.Expand = false;
-		w17.Fill = false;
+		global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox5]));
+		w21.PackType = ((global::Gtk.PackType)(1));
+		w21.Position = 5;
+		w21.Expand = false;
+		w21.Fill = false;
 		this.Add (this.vbox1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
 		this.DefaultWidth = 773;
-		this.DefaultHeight = 205;
+		this.DefaultHeight = 299;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 	}

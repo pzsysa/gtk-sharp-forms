@@ -81,6 +81,18 @@ namespace GtkForms
 			set { Decorator.BackgroundColor = value; }
 		}
 		
+		public new string Text {
+			get { return base.Text; }
+			set {
+				if (value == null) {
+					return;
+				}
+				if (base.Text != value ) {
+					base.Text = value; 
+				}
+			}
+		}
+		
 		[EditorBrowsable (EditorBrowsableState.Never)]
 		public event EventHandler TextChanged {
 			add { base.Changed += value; }
