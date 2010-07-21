@@ -41,5 +41,15 @@ Global
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = examples\LabelEntryBinding\LabelEntryBinding.csproj
+		Policies = $0
+		$0.StandardHeader = $1
+		$1.inheritsSet = LGPLv2License
+		$0.VersionControlPolicy = $2
+		$2.inheritsSet = Mono
+		$0.ChangeLogPolicy = $3
+		$3.UpdateMode = None
+		$3.MessageStyle = $4
+		$4.LineAlign = 0
+		$3.inheritsSet = Mono
 	EndGlobalSection
 EndGlobal

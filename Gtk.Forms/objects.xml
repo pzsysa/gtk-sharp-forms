@@ -54,6 +54,13 @@
     </itemgroups>
     <signals />
   </object>
+  <object type="GtkForms.FormsRadioButton" base-type="Gtk.RadioButton" icon="radiobutton.png" palette-category="widget">
+		<itemgroups>
+      		<itemgroup label="Binding Properties">
+      	 		<!--<property name="DataBindings"/>-->
+      	</itemgroup>
+    </itemgroups>
+ </object>
   <object type="GtkForms.FormsSpinButton" base-type="Gtk.Widget" icon="spinbutton.png" palette-category="widget">
   	<itemgroups>
   	 <itemgroup label="Binding Properties">			

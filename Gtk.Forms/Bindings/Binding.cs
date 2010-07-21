@@ -415,8 +415,10 @@ namespace GtkForms {
 				data = null_value;
 
 			try {
-				data = FormatData (data);
-				SetControlValue (data);
+				ConvertEventArgs e = new ConvertEventArgs (data, data_type);
+				data = FormatData (e);
+				if (!e.Cancel)
+					SetControlValue (data);
 			} catch (Exception e) {
 
 				if (formatting_enabled) {
@@ -464,8 +466,10 @@ namespace GtkForms {
 			PropertyDescriptor pd = TypeDescriptor.GetProperties (manager.Current).Find (binding_member_info.BindingField, true);
 			if (pd.IsReadOnly)
 				return;
-			data = ParseData (data, pd.PropertyType);
-			pd.SetValue (manager.Current, data);
+			ConvertEventArgs e = new ConvertEventArgs (data, pd.PropertyType);
+			data = ParseData (e);
+			if (!e.Cancel)
+				pd.SetValue (manager.Current, data);
 		}
 
 		private void ControlValidatingHandler (object sender, CancelEventArgs e)
@@ -541,11 +545,15 @@ namespace GtkForms {
 			PullData ();
 		}
 
-		private object ParseData (object data, Type data_type)
+		private object ParseData (ConvertEventArgs e)
 		{
-			ConvertEventArgs e = new ConvertEventArgs (data, data_type);
-
+			object data = e.Value;
+			Type data_type = e.DesiredType;
+			
 			OnParse (e);
+			
+			if (e.Cancel)
+				return data;
 			if (data_type.IsInstanceOfType (e.Value))
 				return e.Value;
 			if (e.Value == Convert.DBNull)
@@ -560,10 +568,10 @@ namespace GtkForms {
 			return ConvertData (e.Value, data_type);
 		}
 
-		private object FormatData (object data)
+		private object FormatData (ConvertEventArgs e)
 		{
-			ConvertEventArgs e = new ConvertEventArgs (data, data_type);
-
+			object data = e.Value;
+			
 			OnFormat (e);
 			if (data_type.IsInstanceOfType (e.Value))
 				return e.Value;

@@ -28,9 +28,10 @@
 // COMPLETE
 
 using System;
+using System.ComponentModel;
 
 namespace GtkForms {
-	public class ConvertEventArgs : EventArgs {
+	public class ConvertEventArgs : CancelEventArgs {
 		private object	object_value;
 		private Type	desired_type;
 

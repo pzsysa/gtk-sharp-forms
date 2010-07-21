@@ -104,6 +104,7 @@
     <Compile Include="GdkColors.cs" />
     <Compile Include="Widgets\FormsButton.cs" />
     <Compile Include="Widgets\IListWidget.cs" />
+    <Compile Include="Widgets\FormsRadioButton.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -134,6 +135,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pixmaps\button.png">
       <LogicalName>button.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pixmaps\radiobutton.png">
+      <LogicalName>radiobutton.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pixmaps\textview.png">
+      <LogicalName>textview.png</LogicalName>
     </EmbeddedResource>
   </ItemGroup>
 </Project>

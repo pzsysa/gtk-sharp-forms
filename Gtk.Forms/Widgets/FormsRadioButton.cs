@@ -1,11 +1,10 @@
 // 
-//  FormsSpinButton.cs
+//  FormsRadioButton.cs
 //  
 //  Author:
-//      Krzysztof Marecki <marecki.krzysztof@gmail.com>
-//  
-//  Copyright (c) 2010 Krzysztof Marecki
-//
+//       Krzysztof Marecki <freefirma@gmail.com>
+// 
+//  Copyright (c) 2010 KrzysztofMarecki
 // 
 //  This library is free software; you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as
@@ -26,9 +25,8 @@ using Gtk;
 
 namespace GtkForms
 {
-
 	[ToolboxItem(true)]
-	public class FormsSpinButton : SpinButton, IBindableComponent
+	public class FormsRadioButton : RadioButton, IBindableComponent
 	{
 		private WidgetDecorator decorator;
 		internal WidgetDecorator Decorator { 
@@ -40,23 +38,18 @@ namespace GtkForms
 			}
 		}
 		
-		public FormsSpinButton (IntPtr raw)
+		public FormsRadioButton ()
+			: base (string.Empty)
+		{
+		}
+		
+		public FormsRadioButton (IntPtr raw)
 			: base (raw)
 		{
 		}
 		
-		public FormsSpinButton (double min, double max, double step)
-			: base (min, max, step)
-		{
-		}
-		
-		public FormsSpinButton (Adjustment adjustment, double climb_rate, uint digits)
-			: base (adjustment, climb_rate, digits)
-		{
-		}
-		
-		public FormsSpinButton ()
-			: this (1, 100, 1)
+		public FormsRadioButton (string label)
+			: base (label)
 		{
 		}
 		
@@ -83,9 +76,15 @@ namespace GtkForms
 		public bool IsHandleCreated { get { return Decorator.IsHandleCreated; } }
 		#endregion
 		
-		public Gdk.Color BackgroundColor {
-			get { return Decorator.BackgroundColor; }
-			set { Decorator.BackgroundColor = value; }
+		public bool Checked {
+			get { return base.Active; }
+			set { base.Active = value; }
+		}
+		
+		public event EventHandler CheckedChanged {
+			add { base.Toggled += value; }
+			remove { base.Toggled -= value; }
 		}
 	}
 }
+

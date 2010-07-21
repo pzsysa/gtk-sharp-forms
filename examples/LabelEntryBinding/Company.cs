@@ -19,8 +19,6 @@ using System.ComponentModel;
         public event PropertyChangedEventHandler PropertyChanged;
 
         #endregion
-
-		public event EventHandler CompanyNameChanged;
 	
         private string companyName;
         public string CompanyName
@@ -33,9 +31,6 @@ using System.ComponentModel;
                     companyName = value;
                     if (PropertyChanged != null)
                         PropertyChanged(this, new PropertyChangedEventArgs("CompanyName"));
-				
-//					if(CompanyNameChanged !=null)
-//						CompanyNameChanged(this, EventArgs.Empty);
                 }
             }
         }

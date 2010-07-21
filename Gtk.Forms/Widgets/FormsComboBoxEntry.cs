@@ -109,6 +109,11 @@ namespace GtkForms
 	
 		#endregion
 		
+		public Gdk.Color BackgroundColor {
+			get { return Decorator.BackgroundColor; }
+			set { Decorator.BackgroundColor = value; }
+		}
+		
 		public string Text {
 			get { return Entry.Text; }
 			set { Entry.Text = value; }
