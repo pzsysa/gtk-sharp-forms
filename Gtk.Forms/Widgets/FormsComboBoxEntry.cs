@@ -114,6 +114,11 @@ namespace GtkForms
 			set { Decorator.BackgroundColor = value; }
 		}
 		
+		public object SelectedItem {
+			get { return Decorator.SelectedItem; }
+			set { Decorator.SelectedItem = value; }
+		}
+		
 		public string Text {
 			get { return Entry.Text; }
 			set { Entry.Text = value; }
@@ -128,6 +133,23 @@ namespace GtkForms
 				Decorator.SetPositionFromIter (iter);
 		}
 		
+		protected override bool OnSelectionNotifyEvent (Gdk.EventSelection evnt)
+		{
+			bool ret = base.OnSelectionNotifyEvent (evnt);
+			OnSelectedItemChanged (EventArgs.Empty);
+			return ret;
+		}
+		
+		protected void OnSelectedItemChanged (EventArgs args)
+		{
+			var handler = SelectedItemChanged;
+			if (handler != null) {
+				handler (this, args);
+			}
+		}
+		
+	 	public event EventHandler SelectedItemChanged; 
+			
 		[EditorBrowsable (EditorBrowsableState.Never)]
 		public event EventHandler TextChanged {
 			add { Entry.Changed += value; }
