@@ -85,6 +85,18 @@ namespace GtkForms
 		
 		public bool CellRenderExists { get; set; }
 		
+		public object SelectedItem {
+			get { return DataManager.Current; }
+			set {
+				foreach (object item in DataManager.List) {
+					if (Comparer.Default.Compare (item, value) == 0) {
+						int position = DataManager.List.IndexOf (item);
+						DataManager.Position = position;
+					}
+				}
+			}
+		}
+		
 		public string ValueMember {
 			get { return value_member.BindingMember; }
 			set {
