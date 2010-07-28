@@ -121,17 +121,14 @@ namespace GtkForms
 			TreeIter iter;
 			if (GetActiveIter (out iter))
 				Decorator.SetPositionFromIter (iter);
-		}
-		
-		protected override bool OnSelectionNotifyEvent (Gdk.EventSelection evnt)
-		{
-			bool ret = base.OnSelectionNotifyEvent (evnt);
+			
 			OnSelectedItemChanged (EventArgs.Empty);
-			return ret;
 		}
 		
+				
 		protected void OnSelectedItemChanged (EventArgs args)
 		{
+			Console.WriteLine ("OnSelectedItemChanged");
 			var handler = SelectedItemChanged;
 			if (handler != null) {
 				handler (this, args);
