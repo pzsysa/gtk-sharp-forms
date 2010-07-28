@@ -65,6 +65,15 @@ namespace GtkForms
 		public NotifiedBindingList () : base ()
 		{
 			CheckType ();
+			property_changed_event_handler = new PropertyChangedEventHandler (PropertyChangedHandler);
+		}
+		
+		public NotifiedBindingList (IEnumerable list)
+			: base ()
+		{
+			foreach (var item in list) {
+				Add ((T) item);
+			}
 		}
 
 		public bool AllowEdit {
@@ -415,6 +424,10 @@ namespace GtkForms
 			if (index >= 0)
 				OnListChanged (new ListChangedEventArgs (ListChangedType.ItemChanged, index));
 		}
+	}
+	
+	public class NotifiedBindingList : NotifiedBindingList<object>
+	{
 	}
 
 }
