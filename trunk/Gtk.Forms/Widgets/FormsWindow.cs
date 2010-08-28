@@ -88,6 +88,12 @@ namespace GtkForms
 			set { Decorator.BackgroundColor = value; }
 		}
 		
+		ResponseType responseType = ResponseType.None;
+		public ResponseType ResponseType {
+			get { return responseType; }
+			protected set { responseType = value; }
+		}
+		
 		public void Close ()
 		{
 			Destroy ();
@@ -106,7 +112,7 @@ namespace GtkForms
 					}
 				}
 			}
-				
+	
 			base.Show ();
 		}
 		
