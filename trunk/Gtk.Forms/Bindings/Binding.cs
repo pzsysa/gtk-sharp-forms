@@ -458,7 +458,15 @@ namespace GtkForms {
 
 		private void SetControlValue (object data)
 		{
-			control_property.SetValue (control, data);
+			PropertyDescriptor pd = TypeDescriptor.GetProperties (manager.Current).Find (binding_member_info.BindingField, true);
+			object control_data = control_property.GetValue (control);
+			if (control_data == null)
+				control_data = datasource_null_value;
+			ConvertEventArgs e = new ConvertEventArgs (control_data, pd.PropertyType);
+			control_data = ParseData (e);
+			Console.WriteLine("control_data {0}, data {1}", control_data, data);
+			if (data != control_data)
+				control_property.SetValue (control, data);
 		}
 
 		private void SetPropertyValue (object data)
@@ -602,13 +610,17 @@ namespace GtkForms {
 				return converter.ConvertTo (data, data_type);
 
 			converter = TypeDescriptor.GetConverter (data_type);
-			if (converter != null && converter.CanConvertFrom (data.GetType()))
-				return converter.ConvertFrom (data);
-
-			if (data is IConvertible) {
-				object res = Convert.ChangeType (data, data_type);
-				if (data_type.IsInstanceOfType (res))
-					return res;
+			try {
+				if (converter != null && converter.CanConvertFrom (data.GetType()))
+					return converter.ConvertFrom (data);
+					
+				if (data is IConvertible) {
+					object res = Convert.ChangeType (data, data_type);
+					if (data_type.IsInstanceOfType (res))
+						return res;
+				}
+			}
+			catch (Exception) {
 			}
 
 			return null;

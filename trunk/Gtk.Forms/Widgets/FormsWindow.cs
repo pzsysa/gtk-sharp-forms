@@ -121,9 +121,8 @@ namespace GtkForms
 			Modal = true;
 			Show ();
 		
-			while (!destroyed)
-			{
-				Gtk.Application.RunIteration();
+			while (!destroyed) {
+				Gtk.Application.RunIteration ();
 			}
 		}
 		
@@ -131,7 +130,6 @@ namespace GtkForms
 		protected override void OnDestroyed ()
 		{
 			base.OnDestroyed ();
-			
 			destroyed = true;
 		}
 	}
