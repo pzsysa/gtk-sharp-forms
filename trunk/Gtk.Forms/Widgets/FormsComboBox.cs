@@ -128,7 +128,6 @@ namespace GtkForms
 				
 		protected void OnSelectedItemChanged (EventArgs args)
 		{
-			Console.WriteLine ("OnSelectedItemChanged");
 			var handler = SelectedItemChanged;
 			if (handler != null) {
 				handler (this, args);

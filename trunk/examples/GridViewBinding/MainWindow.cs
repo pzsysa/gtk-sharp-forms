@@ -29,7 +29,7 @@ public partial class MainWindow : FormsWindow
 		bsrcProducts = new BindingSource (){DataSource = products};
 		
 		entryID.DataBindings.Add (new Binding ("Text", bsrcProducts, "ProductID", true, DataSourceUpdateMode.OnPropertyChanged));
-		entryName.DataBindings.Add (new Binding ("Text", bsrcProducts, "ProductName", true, DataSourceUpdateMode.OnValidation));
+		entryName.DataBindings.Add (new Binding ("Text", bsrcProducts, "ProductName", true, DataSourceUpdateMode.OnPropertyChanged));
 		spinPrice.DataBindings.Add (new Binding ("Value", bsrcProducts, "Price", true, DataSourceUpdateMode.OnPropertyChanged));
 		checkFavourite.DataBindings.Add (new Binding("Active", bsrcProducts, "Favourite", true, DataSourceUpdateMode.OnPropertyChanged));
 	

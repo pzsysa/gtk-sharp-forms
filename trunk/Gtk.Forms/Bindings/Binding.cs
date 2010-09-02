@@ -341,7 +341,7 @@ namespace GtkForms {
 				checked_isnull = true;
 			}
 
-			PushData ();
+			PushData (false, true);
 		}
 
 		internal bool PullData ()
@@ -385,10 +385,15 @@ namespace GtkForms {
 
 		internal void PushData ()
 		{
-			PushData (false);
+			PushData (false, false);
 		}
 
 		void PushData (bool force)
+		{
+			PushData (force, false);
+		}
+		
+		void PushData (bool force, bool force_control_update)
 		{
 			if (manager == null || manager.IsSuspended || manager.Count == 0 || manager.Position == -1)
 				return;
@@ -418,7 +423,7 @@ namespace GtkForms {
 				ConvertEventArgs e = new ConvertEventArgs (data, data_type);
 				data = FormatData (e);
 				if (!e.Cancel)
-					SetControlValue (data);
+					SetControlValue (data, force_control_update);
 			} catch (Exception e) {
 
 				if (formatting_enabled) {
@@ -456,17 +461,23 @@ namespace GtkForms {
 			PushData ();
 		}
 
-		private void SetControlValue (object data)
+		private void SetControlValue (object data, bool force_control_update)
 		{
-			PropertyDescriptor pd = TypeDescriptor.GetProperties (manager.Current).Find (binding_member_info.BindingField, true);
-			object control_data = control_property.GetValue (control);
-			if (control_data == null)
-				control_data = datasource_null_value;
-			ConvertEventArgs e = new ConvertEventArgs (control_data, pd.PropertyType);
-			control_data = ParseData (e);
-			Console.WriteLine("control_data {0}, data {1}", control_data, data);
-			if (data != control_data)
-				control_property.SetValue (control, data);
+			if (!force_control_update) {
+				//Set control property value only if differs from data
+				PropertyDescriptor pd = TypeDescriptor.GetProperties (manager.Current).Find (binding_member_info.BindingField, true);
+				object control_data = control_property.GetValue (control);
+				if (control_data == null)
+					control_data = datasource_null_value;
+				ConvertEventArgs e = new ConvertEventArgs (control_data, pd.PropertyType);
+				control_data = ParseData (e);
+				//We need to compare different types eg. Decimal and string
+				if (StringComparer.InvariantCultureIgnoreCase.Compare ((control_data ?? (pd.PropertyType.IsValueType ? Activator.CreateInstance (pd.PropertyType) : string.Empty)).ToString (), 
+				                                                       (data ?? string.Empty).ToString())== 0)
+					return;
+			}
+			
+			control_property.SetValue (control, data);
 		}
 
 		private void SetPropertyValue (object data)
