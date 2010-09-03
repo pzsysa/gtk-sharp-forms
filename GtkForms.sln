@@ -40,7 +40,7 @@ Global
 		{2A0BEC56-55B4-4AB8-A33D-A697B9C89C81} = {268F213E-0C0B-4F1B-9A0D-75390188AE44}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = examples\GridViewBinding\GridViewBinding.csproj
+		StartupItem = examples\LabelEntryBinding\ComboBoxBinding\ComboBoxBinding.csproj
 		Policies = $0
 		$0.StandardHeader = $1
 		$1.inheritsSet = LGPLv2License
