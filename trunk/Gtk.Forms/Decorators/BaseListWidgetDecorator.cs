@@ -93,9 +93,10 @@ namespace GtkForms
 						return;
 				
 					foreach (object item in DataManager.List) {
+						if (!(item is DBNull) && value is DBNull)
+							continue;
+					
 						if (Comparer.Default.Compare (item, value) == 0) {
-							if (value is DBNull)
-								continue;
 							int position = DataManager.List.IndexOf (item);
 							DataManager.Position = position;
 					}

@@ -85,10 +85,12 @@ namespace ComboBoxBinding
 			
 			City city = new City ();
 			//city.CityName = "Krakow";
+			formscombobox3.DataSource = bsrcCities;
 			formscombobox3.DataBindings.Add ("SelectedItem", city, "CityName", false, DataSourceUpdateMode.OnPropertyChanged);
+			formscombobox3.DataBindings[0].WriteValue();
 			labelCityName.DataBindings.Add ("Text", city, "CityName");
 			
-			formscombobox3.DataSource = bsrcCities;
+//			formscombobox3.DataSource = bsrcCities;
 		}
 		
 		protected virtual void OnButton1Clicked (object sender, System.EventArgs e)
