@@ -78,7 +78,8 @@ namespace GtkForms
 				}
 
 				display_member = value;
-				ConnectToDataSource ();
+				if (DataSource != null)
+					ConnectToDataSource ();
 //				OnDisplayMemberChanged (EventArgs.Empty);
 			}
 		}
@@ -86,12 +87,17 @@ namespace GtkForms
 		public bool CellRenderExists { get; set; }
 		
 		public object SelectedItem {
-			get { return DataManager.Current; }
+			get { return (DataManager != null) ? DataManager.Current : null; }
 			set {
-				foreach (object item in DataManager.List) {
-					if (Comparer.Default.Compare (item, value) == 0) {
-						int position = DataManager.List.IndexOf (item);
-						DataManager.Position = position;
+					if (DataManager == null)
+						return;
+				
+					foreach (object item in DataManager.List) {
+						if (Comparer.Default.Compare (item, value) == 0) {
+							if (value is DBNull)
+								continue;
+							int position = DataManager.List.IndexOf (item);
+							DataManager.Position = position;
 					}
 				}
 			}
@@ -110,7 +116,8 @@ namespace GtkForms
 				if (display_member == string.Empty)
 					DisplayMember = value_member.BindingMember;
 
-				ConnectToDataSource ();
+				if (DataSource != null)
+					ConnectToDataSource ();
 //				OnValueMemberChanged (EventArgs.Empty);
 			}
 		}

@@ -103,6 +103,8 @@
     <Compile Include="Widgets\FormsRadioButton.cs" />
     <Compile Include="Bindings\BooleanBinding.cs" />
     <Compile Include="Widgets\FormsTextView.cs" />
+    <Compile Include="Designer\ActionGroups.designer.cs" />
+    <Compile Include="Designer\Gui.designer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

@@ -42,6 +42,10 @@
     <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
     </Reference>
     <Reference Include="Mono.Posix" />
+    <Reference Include="GtkForms, Version=1.0.3898.34760, Culture=neutral, PublicKeyToken=null">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Gtk.Forms\bin\Debug\GtkForms.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainWindow.gtkx">
@@ -59,6 +63,7 @@
     </Compile>
     <Compile Include="Designer\ActionGroups.designer.cs" />
     <Compile Include="Designer\Gui.designer.cs" />
+    <Compile Include="City.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Gtk.Forms\GtkForms.csproj">

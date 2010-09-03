@@ -18,11 +18,12 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 // Copyright (c) 2004-2005 Novell, Inc.
+// Copyright (c) 2010 Krzysztof Marecki
 //
 // Authors:
 //	Peter Bartok	pbartok@novell.com
 //	Jackson Harper	jackson@ximian.com
-//
+//  Krzysztof Marecki
 
 using System;
 using System.ComponentModel;
@@ -450,9 +451,9 @@ namespace GtkForms {
 //			if (control == null || (control is Widget && ((Widget)control).GdkWindow != null))
 //				return;
 			
-			//must be special case for ComboBoxEntry otherwise is_binding is always false
-			if (control is Widget && !(control is ComboBoxEntry)) {
-				Widget widget = (Widget) control;
+			//must be special case for ComboBox and ComboBoxEntry otherwise is_binding is always false
+			if (control is Widget && !(control is ComboBoxEntry) && !(control is ComboBox)) {
+				Widget widget = (Widget) control; 
 				if (!widget.IsDrawable)
 					return;
 			}

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <stetic-interface>
-  <widget class="Gtk.Window" id="MainWindow" design-size="773 299">
+  <widget class="Gtk.Window" id="ComboBoxBinding.MainWindow" design-size="773 299">
     <property name="MemberName" />
     <property name="Title" translatable="yes">Label entry binding demo</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -229,7 +229,6 @@
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes">On</property>
-                <property name="Active">True</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>

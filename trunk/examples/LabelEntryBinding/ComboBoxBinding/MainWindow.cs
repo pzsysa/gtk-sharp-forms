@@ -25,93 +25,98 @@ using System.ComponentModel;
 using Gtk;
 using GtkForms;
 
-public partial class MainWindow : FormsWindow
+namespace ComboBoxBinding 
 {
-	List<Customer> customers;
-    NotifiedBindingList<Customer> customers2;
-	BindingSource bsrcCustomers;
-    NotifiedBindingList<Customer> customers3;
-	
-	public MainWindow () : base(Gtk.WindowType.Toplevel)
+	public partial class MainWindow : FormsWindow
 	{
-		Build ();
-	}
-
-	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
-	{
-		Application.Quit ();
-		a.RetVal = true;
-	}
-	
-	protected override void OnShown ()
-	{
-		base.OnShown ();
+		List<Customer> customers;
+	    NotifiedBindingList<Customer> customers2;
+		BindingSource bsrcCustomers;
+	    NotifiedBindingList<Customer> customers3;
 		
-		BindingContext = new BindingContext ();
+		public MainWindow () : base(Gtk.WindowType.Toplevel)
+		{
+			Build ();
+		}
+	
+		protected void OnDeleteEvent (object sender, DeleteEventArgs a)
+		{
+			Application.Quit ();
+			a.RetVal = true;
+		}
 		
-		customers = new List<Customer>() { new Customer() { CompanyID = 1, CompanyName = "Acme Workshop" },
-                                                    new Customer() { CompanyID = 2, CompanyName = "Sirius Tech"} };
-        formscombobox1.DataSource = customers;
-        formscombobox1.DisplayMember = "CompanyName";
-		formscombobox1.ValueMember = "CompanyID";
- 
-		formslabel1.DataBindings.Add("Text", customers, "CompanyId");
-
-        customers2 = new NotifiedBindingList<Customer>() { new Customer() { CompanyID = 1, CompanyName = "Acme Workshop" },
-                                                new Customer() { CompanyID = 2, CompanyName = "Sirius Tech"} };
-        bsrcCustomers = new BindingSource() { DataSource = customers2 }; 
-       
-        formscombobox2.DataSource = bsrcCustomers;
-        formscombobox2.DisplayMember = "CompanyName";
-		formscombobox2.ValueMember = "CompanyID";
-
-        formslabel2.DataBindings.Add("Text", bsrcCustomers, "CompanyId");
-
-        customers3 = new NotifiedBindingList<Customer>() { new Customer() { CompanyID = 1, CompanyName = "Acme Workshop" },
-                                                   new Customer() { CompanyID = 2, CompanyName = "Sirius Tech"} };
-
-        formscomboboxentry1.DataSource = customers3;
-        formscomboboxentry1.DisplayMember = "CompanyName";
-		formscomboboxentry1.ValueMember = "CompanyID";
-		formscomboboxentry1.DataBindings.Add("Text", customers3, "CompanyName", true, DataSourceUpdateMode.OnPropertyChanged);
-
-        formslabel3.DataBindings.Add("Text", customers3, "CompanyId");
-		formslabel4.DataBindings.Add("Text", customers3, "CompanyName");
+		protected override void OnShown ()
+		{
+			base.OnShown ();
+			
+			BindingContext = new BindingContext ();
+			
+			customers = new List<Customer>() { new Customer() { CompanyID = 1, CompanyName = "Acme Workshop" },
+	                                                    new Customer() { CompanyID = 2, CompanyName = "Sirius Tech"} };
+	        formscombobox1.DataSource = customers;
+	        formscombobox1.DisplayMember = "CompanyName";
+			formscombobox1.ValueMember = "CompanyID";
+	 
+			formslabel1.DataBindings.Add("Text", customers, "CompanyId");
+	
+	        customers2 = new NotifiedBindingList<Customer>() { new Customer() { CompanyID = 1, CompanyName = "Acme Workshop" },
+	                                                new Customer() { CompanyID = 2, CompanyName = "Sirius Tech"} };
+	        bsrcCustomers = new BindingSource() { DataSource = customers2 }; 
+	       
+	        formscombobox2.DataSource = bsrcCustomers;
+	        formscombobox2.DisplayMember = "CompanyName";
+			formscombobox2.ValueMember = "CompanyID";
+	
+	        formslabel2.DataBindings.Add("Text", bsrcCustomers, "CompanyId");
+	
+	        customers3 = new NotifiedBindingList<Customer>() { new Customer() { CompanyID = 1, CompanyName = "Acme Workshop" },
+	                                                   new Customer() { CompanyID = 2, CompanyName = "Sirius Tech"} };
+	
+	        formscomboboxentry1.DataSource = customers3;
+	        formscomboboxentry1.DisplayMember = "CompanyName";
+			formscomboboxentry1.ValueMember = "CompanyID";
+			formscomboboxentry1.DataBindings.Add("Text", customers3, "CompanyName", true, DataSourceUpdateMode.OnPropertyChanged);
+	
+	        formslabel3.DataBindings.Add("Text", customers3, "CompanyId");
+			formslabel4.DataBindings.Add("Text", customers3, "CompanyName");
+			
+			var bsrcCities = new BindingSource() { DataSource = new NotifiedBindingList<string> { "Warszawa", "Krakow"}};
+			//formscombobox3.DataSource = bsrcCities;
+			
+			City city = new City ();
+			//city.CityName = "Krakow";
+			formscombobox3.DataBindings.Add ("SelectedItem", city, "CityName", false, DataSourceUpdateMode.OnPropertyChanged);
+			labelCityName.DataBindings.Add ("Text", city, "CityName");
+			
+			formscombobox3.DataSource = bsrcCities;
+		}
+		
+		protected virtual void OnButton1Clicked (object sender, System.EventArgs e)
+		{
+			 customers[0].CompanyID = 10;
+	         customers[0].CompanyName = "Neo Acme Workshop";
+		}
+		
+		protected virtual void OnButton2Clicked (object sender, System.EventArgs e)
+		{
+			customers2[0].CompanyID = 10;
+	        customers2[0].CompanyName = "Neo Acme Workshop";
+		}
+		
+		protected virtual void OnButton3Clicked (object sender, System.EventArgs e)
+		{
+			customers3[0].CompanyID = 10;
+	        customers3[0].CompanyName = "Neo Acme Workshop";
+		}
+		
+		protected virtual void OnButton4Clicked (object sender, System.EventArgs e)
+		{
+			customers3.Clear ();
+		}
+		
+		protected virtual void OnButton5Clicked (object sender, System.EventArgs e)
+		{
+			bsrcCustomers.Position = 1;
+		}
 	}
-	
-	protected virtual void OnButton1Clicked (object sender, System.EventArgs e)
-	{
-		 customers[0].CompanyID = 10;
-         customers[0].CompanyName = "Neo Acme Workshop";
-	}
-	
-	protected virtual void OnButton2Clicked (object sender, System.EventArgs e)
-	{
-		customers2[0].CompanyID = 10;
-        customers2[0].CompanyName = "Neo Acme Workshop";
-	}
-	
-	protected virtual void OnButton3Clicked (object sender, System.EventArgs e)
-	{
-		customers3[0].CompanyID = 10;
-        customers3[0].CompanyName = "Neo Acme Workshop";
-	}
-	
-	protected virtual void OnButton4Clicked (object sender, System.EventArgs e)
-	{
-		customers3.Clear ();
-	}
-	
-	protected virtual void OnButton5Clicked (object sender, System.EventArgs e)
-	{
-		bsrcCustomers.Position = 1;
-	}
-	
-	
-	
-	
-	
-	
-	
-
 }

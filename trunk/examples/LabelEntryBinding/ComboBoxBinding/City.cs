@@ -1,8 +1,8 @@
 // 
-//  Company.cs
+//  City.cs
 //  
 //  Author:
-//       Krzysztof Marecki <marecki.krzysztof@gmail.com>
+//       Krzysztof Marecki <hippiecoder@gmail.com>
 // 
 //  Copyright (c) 2010 Krzysztof Marecki
 // 
@@ -19,44 +19,28 @@
 //  You should have received a copy of the GNU Lesser General Public
 //  License along with this library; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
-
 using System;
 using System.ComponentModel;
 
-namespace ComboBoxBinding 
+namespace ComboBoxBinding
 {
- 	public class Customer : INotifyPropertyChanged
-    {
-        private string companyName;
-        public string CompanyName 
+	public class City : INotifyPropertyChanged
+	{
+		private string cityName;
+        public string CityName 
         {
-            get { return companyName; }
+            get { return cityName; }
             set
             {
-                if (companyName != value)
+                if (cityName != value)
                 {
-                    companyName = value;
-                    OnPropertyChanged("CompanyName");
+                    cityName = value;
+                    OnPropertyChanged("CityName");
                 }
             }
         }
-
-        private int companyID;
-        public int CompanyID
-        {
-            get { return companyID; }
-            set
-            {
-                if (companyID != value)
-                {
-                    companyID = value;
-                    OnPropertyChanged("CompanyID");
-                }
-            }
-
-        }
-
-        #region INotifyPropertyChanged Members
+		
+		#region INotifyPropertyChanged Members
 
         protected void OnPropertyChanged(string name)
         {
@@ -67,6 +51,6 @@ namespace ComboBoxBinding
         public event PropertyChangedEventHandler PropertyChanged;
 
         #endregion
-    }
+	}
 }
 
