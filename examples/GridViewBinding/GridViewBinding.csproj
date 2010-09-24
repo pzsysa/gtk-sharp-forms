@@ -73,11 +73,4 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ProjectExtensions>
-    <MonoDevelop>
-      <Properties>
-        <GtkDesignInfo wasConverted="true" />
-      </Properties>
-    </MonoDevelop>
-  </ProjectExtensions>
 </Project>
