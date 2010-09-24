@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <stetic-interface>
-  <widget class="Gtk.Window" id="ComboBoxBinding.MainWindow" design-size="773 299">
+  <widget class="Gtk.Window" id="MainWindow" design-size="773 299">
     <property name="MemberName" />
     <property name="Title" translatable="yes">Label entry binding demo</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -175,6 +175,48 @@
           </packing>
         </child>
         <child>
+          <widget class="Gtk.HBox" id="hbox7">
+            <property name="MemberName" />
+            <property name="Spacing">6</property>
+            <child>
+              <widget class="GtkForms.FormsLabel" id="labelStreet">
+                <property name="MemberName" />
+                <property name="LabelProp" translatable="yes">formslabel1</property>
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkForms.FormsEntry" id="entryAdressStreet">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="IsEditable">True</property>
+                <property name="InvisibleChar">●</property>
+              </widget>
+              <packing>
+                <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder />
+            </child>
+          </widget>
+          <packing>
+            <property name="PackType">End</property>
+            <property name="Position">4</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
           <widget class="Gtk.HBox" id="hbox6">
             <property name="MemberName" />
             <property name="Spacing">6</property>
@@ -214,7 +256,7 @@
           </widget>
           <packing>
             <property name="PackType">End</property>
-            <property name="Position">4</property>
+            <property name="Position">5</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>
@@ -229,6 +271,7 @@
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Label" translatable="yes">On</property>
+                <property name="Active">True</property>
                 <property name="DrawIndicator">True</property>
                 <property name="HasLabel">True</property>
                 <property name="UseUnderline">True</property>
@@ -273,7 +316,7 @@
           </widget>
           <packing>
             <property name="PackType">End</property>
-            <property name="Position">5</property>
+            <property name="Position">6</property>
             <property name="AutoSize">True</property>
             <property name="Expand">False</property>
             <property name="Fill">False</property>

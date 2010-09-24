@@ -143,11 +143,4 @@
       <LogicalName>textview.png</LogicalName>
     </EmbeddedResource>
   </ItemGroup>
-  <ProjectExtensions>
-    <MonoDevelop>
-      <Properties>
-        <GtkDesignInfo wasConverted="true" />
-      </Properties>
-    </MonoDevelop>
-  </ProjectExtensions>
 </Project>

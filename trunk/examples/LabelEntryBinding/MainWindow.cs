@@ -78,6 +78,9 @@ public partial class MainWindow : FormsWindow
 		Company company2=new Company();
 		labelTextView.DataBindings.Add ("Text", company2, "CompanyName");
 		textView.DataBindings.Add ("Text", company2, "CompanyName", false, DataSourceUpdateMode.OnPropertyChanged);
+		
+		labelStreet.DataBindings.Add ("Text", company2.Adress, "Street");
+		entryAdressStreet.DataBindings.Add ("Text", company2, "Adress.Street", false, DataSourceUpdateMode.OnPropertyChanged);
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
