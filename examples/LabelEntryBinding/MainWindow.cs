@@ -33,7 +33,7 @@ public partial class MainWindow : FormsWindow
 		BindingContext = new BindingContext ();
 		label.DataBindings.Add ("Text", entry, "Text");
 		
-		Binding binding = new Binding("Text", check, "Active");
+		Binding binding = new Binding ("Text", check, "Active");
 		binding.Format += delegate(object sender, ConvertEventArgs e) {
 			bool val = (bool)e.Value;
 			e.Value = val ? "Enabled" : "Disabled";
@@ -44,38 +44,35 @@ public partial class MainWindow : FormsWindow
 		Company company = new Company ();
 		company.CompanyName = "Acme";
 		BindingSource bsrc = new BindingSource ();
-		var companies = new NotifiedBindingList<Company>{company};
+		var companies = new NotifiedBindingList<Company> { company };
 		bsrc.DataSource = companies;
 		
-        Binding binding2 = new Binding("Text", bsrc, "CompanyName");
-        binding2.DataSourceUpdateMode = DataSourceUpdateMode.OnPropertyChanged;
-
-        notifyEntry.DataBindings.Add(binding2);
+		Binding binding2 = new Binding ("Text", bsrc, "CompanyName");
+		binding2.DataSourceUpdateMode = DataSourceUpdateMode.OnPropertyChanged;
+		
+		notifyEntry.DataBindings.Add (binding2);
 		notifyEntry.BackgroundColor = GdkColors.Gold;
-
-        Binding binding3 = new Binding("Text", bsrc, "CompanyName");
-        binding3.ControlUpdateMode = ControlUpdateMode.OnPropertyChanged;
-        notifyLabel.DataBindings.Add(binding3);
 		
+		Binding binding3 = new Binding ("Text", bsrc, "CompanyName");
+		binding3.ControlUpdateMode = ControlUpdateMode.OnPropertyChanged;
+		notifyLabel.DataBindings.Add (binding3);
 		
-		Binding binding4 = new Binding("Text", spin, "Value");
-		Binding binding5 = new Binding("Text", spin, "Value");
+		Binding binding4 = new Binding ("Text", spin, "Value");
+		Binding binding5 = new Binding ("Text", spin, "Value");
 		
 		spinLabel.DataBindings.Add (binding4);
 		spinEntry.DataBindings.Add (binding5);
 		
 		Switch switch1 = new Switch ();
-		var bindingOn = new BooleanBinding<SwitchStatus>
-			("Checked", switch1, "Status", SwitchStatus.On);
-		radioOn.DataBindings.Add(bindingOn);
+		var bindingOn = new BooleanBinding<SwitchStatus> ("Checked", switch1, "Status", SwitchStatus.On);
+		radioOn.DataBindings.Add (bindingOn);
 		
-		var bindingOff = new BooleanBinding<SwitchStatus>
-			("Checked", switch1, "Status", SwitchStatus.Off);
-		radioOff.DataBindings.Add(bindingOff);
+		var bindingOff = new BooleanBinding<SwitchStatus> ("Checked", switch1, "Status", SwitchStatus.Off);
+		radioOff.DataBindings.Add (bindingOff);
 		
 		labelStatus.DataBindings.Add ("Text", switch1, "Status");
 		
-		Company company2=new Company();
+		Company company2 = new Company ();
 		labelTextView.DataBindings.Add ("Text", company2, "CompanyName");
 		textView.DataBindings.Add ("Text", company2, "CompanyName", false, DataSourceUpdateMode.OnPropertyChanged);
 		
@@ -88,5 +85,5 @@ public partial class MainWindow : FormsWindow
 		Application.Quit ();
 		a.RetVal = true;
 	}
-
+	
 }

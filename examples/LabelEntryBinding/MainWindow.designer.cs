@@ -44,9 +44,21 @@ public partial class MainWindow
 
 	private global::Gtk.HBox hbox7;
 
+	private global::Gtk.Notebook notebook1;
+
+	private global::Gtk.Frame frame1;
+
+	private global::Gtk.Alignment GtkAlignment;
+
+	private global::Gtk.HBox hbox8;
+
 	private global::GtkForms.FormsLabel labelStreet;
 
 	private global::GtkForms.FormsEntry entryAdressStreet;
+
+	private global::Gtk.Label GtkLabel3;
+
+	private global::Gtk.Label label1;
 
 	private global::Gtk.HBox hbox6;
 
@@ -196,31 +208,65 @@ public partial class MainWindow
 		this.hbox7.Name = "hbox7";
 		this.hbox7.Spacing = 6;
 		// Container child hbox7.Gtk.Box+BoxChild
+		this.notebook1 = new global::Gtk.Notebook ();
+		this.notebook1.CanFocus = true;
+		this.notebook1.Name = "notebook1";
+		this.notebook1.CurrentPage = 0;
+		// Container child notebook1.Gtk.Notebook+NotebookChild
+		this.frame1 = new global::Gtk.Frame ();
+		this.frame1.Name = "frame1";
+		this.frame1.ShadowType = ((global::Gtk.ShadowType)(0));
+		// Container child frame1.Gtk.Container+ContainerChild
+		this.GtkAlignment = new global::Gtk.Alignment (0f, 0f, 1f, 1f);
+		this.GtkAlignment.Name = "GtkAlignment";
+		this.GtkAlignment.LeftPadding = ((uint)(12));
+		// Container child GtkAlignment.Gtk.Container+ContainerChild
+		this.hbox8 = new global::Gtk.HBox ();
+		this.hbox8.Name = "hbox8";
+		this.hbox8.Spacing = 6;
+		// Container child hbox8.Gtk.Box+BoxChild
 		this.labelStreet = new global::GtkForms.FormsLabel ();
 		this.labelStreet.Name = "labelStreet";
 		this.labelStreet.LabelProp = global::Mono.Unix.Catalog.GetString ("formslabel1");
-		this.hbox7.Add (this.labelStreet);
-		global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.hbox7[this.labelStreet]));
+		this.hbox8.Add (this.labelStreet);
+		global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.hbox8[this.labelStreet]));
 		w14.Position = 0;
 		w14.Expand = false;
 		w14.Fill = false;
-		// Container child hbox7.Gtk.Box+BoxChild
+		// Container child hbox8.Gtk.Box+BoxChild
 		this.entryAdressStreet = new global::GtkForms.FormsEntry ();
 		this.entryAdressStreet.CanFocus = true;
 		this.entryAdressStreet.Name = "entryAdressStreet";
 		this.entryAdressStreet.IsEditable = true;
 		this.entryAdressStreet.InvisibleChar = '●';
-		this.hbox7.Add (this.entryAdressStreet);
-		global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.hbox7[this.entryAdressStreet]));
+		this.hbox8.Add (this.entryAdressStreet);
+		global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.hbox8[this.entryAdressStreet]));
 		w15.Position = 1;
 		w15.Expand = false;
 		w15.Fill = false;
+		this.GtkAlignment.Add (this.hbox8);
+		this.frame1.Add (this.GtkAlignment);
+		this.GtkLabel3 = new global::Gtk.Label ();
+		this.GtkLabel3.Name = "GtkLabel3";
+		this.GtkLabel3.LabelProp = global::Mono.Unix.Catalog.GetString ("<b>GtkFrame</b>");
+		this.GtkLabel3.UseMarkup = true;
+		this.frame1.LabelWidget = this.GtkLabel3;
+		this.notebook1.Add (this.frame1);
+		// Notebook tab
+		this.label1 = new global::Gtk.Label ();
+		this.label1.Name = "label1";
+		this.label1.LabelProp = global::Mono.Unix.Catalog.GetString ("page1");
+		this.notebook1.SetTabLabel (this.frame1, this.label1);
+		this.label1.ShowAll ();
+		this.hbox7.Add (this.notebook1);
+		global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.hbox7[this.notebook1]));
+		w19.Position = 0;
 		this.vbox1.Add (this.hbox7);
-		global::Gtk.Box.BoxChild w16 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox7]));
-		w16.PackType = ((global::Gtk.PackType)(1));
-		w16.Position = 4;
-		w16.Expand = false;
-		w16.Fill = false;
+		global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox7]));
+		w20.PackType = ((global::Gtk.PackType)(1));
+		w20.Position = 4;
+		w20.Expand = false;
+		w20.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.hbox6 = new global::Gtk.HBox ();
 		this.hbox6.Name = "hbox6";
@@ -230,10 +276,10 @@ public partial class MainWindow
 		this.labelTextView.Name = "labelTextView";
 		this.labelTextView.LabelProp = global::Mono.Unix.Catalog.GetString ("formslabel1");
 		this.hbox6.Add (this.labelTextView);
-		global::Gtk.Box.BoxChild w17 = ((global::Gtk.Box.BoxChild)(this.hbox6[this.labelTextView]));
-		w17.Position = 0;
-		w17.Expand = false;
-		w17.Fill = false;
+		global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.hbox6[this.labelTextView]));
+		w21.Position = 0;
+		w21.Expand = false;
+		w21.Fill = false;
 		// Container child hbox6.Gtk.Box+BoxChild
 		this.GtkScrolledWindow = new global::Gtk.ScrolledWindow ();
 		this.GtkScrolledWindow.Name = "GtkScrolledWindow";
@@ -244,14 +290,14 @@ public partial class MainWindow
 		this.textView.Name = "textView";
 		this.GtkScrolledWindow.Add (this.textView);
 		this.hbox6.Add (this.GtkScrolledWindow);
-		global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.hbox6[this.GtkScrolledWindow]));
-		w19.Position = 1;
+		global::Gtk.Box.BoxChild w23 = ((global::Gtk.Box.BoxChild)(this.hbox6[this.GtkScrolledWindow]));
+		w23.Position = 1;
 		this.vbox1.Add (this.hbox6);
-		global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox6]));
-		w20.PackType = ((global::Gtk.PackType)(1));
-		w20.Position = 5;
-		w20.Expand = false;
-		w20.Fill = false;
+		global::Gtk.Box.BoxChild w24 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox6]));
+		w24.PackType = ((global::Gtk.PackType)(1));
+		w24.Position = 5;
+		w24.Expand = false;
+		w24.Fill = false;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.hbox5 = new global::Gtk.HBox ();
 		this.hbox5.Name = "hbox5";
@@ -261,15 +307,14 @@ public partial class MainWindow
 		this.radioOn.CanFocus = true;
 		this.radioOn.Name = "radioOn";
 		this.radioOn.Label = global::Mono.Unix.Catalog.GetString ("On");
-		this.radioOn.Active = true;
 		this.radioOn.DrawIndicator = true;
 		this.radioOn.UseUnderline = true;
 		this.radioOn.Group = new global::GLib.SList (global::System.IntPtr.Zero);
 		this.hbox5.Add (this.radioOn);
-		global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.hbox5[this.radioOn]));
-		w21.Position = 0;
-		w21.Expand = false;
-		w21.Fill = false;
+		global::Gtk.Box.BoxChild w25 = ((global::Gtk.Box.BoxChild)(this.hbox5[this.radioOn]));
+		w25.Position = 0;
+		w25.Expand = false;
+		w25.Fill = false;
 		// Container child hbox5.Gtk.Box+BoxChild
 		this.radioOff = new global::GtkForms.FormsRadioButton ();
 		this.radioOff.CanFocus = true;
@@ -279,31 +324,31 @@ public partial class MainWindow
 		this.radioOff.UseUnderline = true;
 		this.radioOff.Group = this.radioOn.Group;
 		this.hbox5.Add (this.radioOff);
-		global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.hbox5[this.radioOff]));
-		w22.Position = 1;
-		w22.Expand = false;
-		w22.Fill = false;
+		global::Gtk.Box.BoxChild w26 = ((global::Gtk.Box.BoxChild)(this.hbox5[this.radioOff]));
+		w26.Position = 1;
+		w26.Expand = false;
+		w26.Fill = false;
 		// Container child hbox5.Gtk.Box+BoxChild
 		this.labelStatus = new global::GtkForms.FormsLabel ();
 		this.labelStatus.Name = "labelStatus";
 		this.labelStatus.LabelProp = global::Mono.Unix.Catalog.GetString ("formslabel1");
 		this.hbox5.Add (this.labelStatus);
-		global::Gtk.Box.BoxChild w23 = ((global::Gtk.Box.BoxChild)(this.hbox5[this.labelStatus]));
-		w23.Position = 2;
-		w23.Expand = false;
-		w23.Fill = false;
+		global::Gtk.Box.BoxChild w27 = ((global::Gtk.Box.BoxChild)(this.hbox5[this.labelStatus]));
+		w27.Position = 2;
+		w27.Expand = false;
+		w27.Fill = false;
 		this.vbox1.Add (this.hbox5);
-		global::Gtk.Box.BoxChild w24 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox5]));
-		w24.PackType = ((global::Gtk.PackType)(1));
-		w24.Position = 6;
-		w24.Expand = false;
-		w24.Fill = false;
+		global::Gtk.Box.BoxChild w28 = ((global::Gtk.Box.BoxChild)(this.vbox1[this.hbox5]));
+		w28.PackType = ((global::Gtk.PackType)(1));
+		w28.Position = 6;
+		w28.Expand = false;
+		w28.Fill = false;
 		this.Add (this.vbox1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
-		this.DefaultWidth = 773;
-		this.DefaultHeight = 299;
+		this.DefaultWidth = 423;
+		this.DefaultHeight = 349;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 	}
