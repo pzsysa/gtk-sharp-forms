@@ -2,56 +2,49 @@ using System;
 using System.ComponentModel;
 
 
-	public class Company : INotifyPropertyChanged
-    {
-        #region INotifyPropertyChanged Members
+public class Company : INotifyPropertyChanged
+{
+	#region INotifyPropertyChanged Members
 
-        public event PropertyChangedEventHandler PropertyChanged;
+	public event PropertyChangedEventHandler PropertyChanged;
 
-        #endregion
-	
-        private string companyName;
-        public string CompanyName
-        {
-            get { return companyName; }
-            set
-            {
-                if (companyName != value)
-                {
-                    companyName = value;
-                    if (PropertyChanged != null)
-                        PropertyChanged(this, new PropertyChangedEventArgs("CompanyName"));
-                }
-            }
-        }
-	
-		Adress adress =new Adress();
-		public Adress Adress 
-		{
-			get { return adress; }
+	#endregion
+
+	private string companyName;
+	public string CompanyName {
+		get { return companyName; }
+		set {
+			if (companyName != value) {
+				companyName = value;
+				if (PropertyChanged != null)
+					PropertyChanged (this, new PropertyChangedEventArgs ("CompanyName"));
+			}
 		}
 	}
 
-	public class Adress : INotifyPropertyChanged
-		{
-			#region INotifyPropertyChanged Members
+	Adress adress = new Adress ();
+	public Adress Adress {
+		get { return adress; }
+	}
+}
 
-        	public event PropertyChangedEventHandler PropertyChanged;
+public class Adress : INotifyPropertyChanged
+{
+	#region INotifyPropertyChanged Members
 
-        	#endregion
-	
-			private string street;
-		    public string Street
-		    {
-		        get { return street; }
-		        set
-		        {
-		            if (street != value)
-		            {
-		                street = value;
-		                if (PropertyChanged != null)
-		                    PropertyChanged(this, new PropertyChangedEventArgs("Street"));
-		            }
-		        }
+	public event PropertyChangedEventHandler PropertyChanged;
+
+	#endregion
+
+	private string street;
+	public string Street {
+		get { return street; }
+		set {
+			if (street != value) {
+				street = value;
+				if (PropertyChanged != null)
+					PropertyChanged (this, new PropertyChangedEventArgs ("Street"));
 			}
-    }
+		}
+	}
+}

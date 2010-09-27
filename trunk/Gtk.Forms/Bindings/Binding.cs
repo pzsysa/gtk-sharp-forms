@@ -451,13 +451,6 @@ namespace GtkForms {
 //			if (control == null || (control is Widget && ((Widget)control).GdkWindow != null))
 //				return;
 			
-			//must be special case for ComboBox and ComboBoxEntry otherwise is_binding is always false
-			if (control is Widget && !(control is ComboBoxEntry) && !(control is ComboBox)) {
-				Widget widget = (Widget) control; 
-				if (!widget.IsDrawable)
-					return;
-			}
-
 			is_binding = true;
 			PushData ();
 		}
