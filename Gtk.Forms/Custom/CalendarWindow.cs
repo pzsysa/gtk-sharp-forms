@@ -20,6 +20,7 @@
 //  License along with this library; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 using System;
+
 namespace GtkForms.Custom
 {
 	public partial class CalendarWindow : Gtk.Window
@@ -27,11 +28,19 @@ namespace GtkForms.Custom
 		public CalendarWindow () : base(Gtk.WindowType.Toplevel)
 		{
 			this.Build ();
+			
+			calendar.DaySelectedDoubleClick += Calendar_DaySelectedDoubleClick;
 		}
 		
 		public DateTime Date {
 			get { return calendar.Date; }
 			set { calendar.Date = value; }
+		}
+
+		protected override void OnShown ()
+		{
+			base.OnShown ();
+			GrabFocus ();
 		}
 		
 		protected virtual void Calendar_DaySelectedDoubleClick (object sender, System.EventArgs e)
@@ -39,7 +48,10 @@ namespace GtkForms.Custom
 			Hide ();
 		}
 		
-		
+		protected virtual void GtkFormsCustomCalendarWindow_FocusOutEvent (object o, Gtk.FocusOutEventArgs args)
+		{
+			Hide ();
+		}
 	}
 }
 

@@ -16,33 +16,40 @@ namespace GtkForms.Custom
 	public partial class CalendarWindow
 	{
 
+		private global::Gtk.EventBox eventbox;
+
 		private global::Gtk.Calendar calendar;
 
 		protected virtual void Build ()
 		{
 			global::Stetic.Gui.Initialize (this);
 			// Widget GtkForms.Custom.CalendarWindow
+			this.Events = ((global::Gdk.EventMask)(16384));
 			this.Name = "GtkForms.Custom.CalendarWindow";
 			this.Title = global::Mono.Unix.Catalog.GetString ("CalendarWindow");
-			this.TypeHint = ((global::Gdk.WindowTypeHint)(3));
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 			this.Resizable = false;
 			this.AllowGrow = false;
 			this.Decorated = false;
+			this.SkipPagerHint = true;
 			this.SkipTaskbarHint = true;
 			// Container child GtkForms.Custom.CalendarWindow.Gtk.Container+ContainerChild
+			this.eventbox = new global::Gtk.EventBox ();
+			this.eventbox.Name = "eventbox";
+			// Container child eventbox.Gtk.Container+ContainerChild
 			this.calendar = new global::Gtk.Calendar ();
 			this.calendar.CanFocus = true;
 			this.calendar.Name = "calendar";
 			this.calendar.DisplayOptions = ((global::Gtk.CalendarDisplayOptions)(35));
-			this.Add (this.calendar);
+			this.eventbox.Add (this.calendar);
+			this.Add (this.eventbox);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
 			}
 			this.DefaultWidth = 237;
 			this.DefaultHeight = 216;
 			this.Show ();
-			this.calendar.DaySelectedDoubleClick += new global::System.EventHandler (this.Calendar_DaySelectedDoubleClick);
+			this.FocusOutEvent += new global::Gtk.FocusOutEventHandler (this.GtkFormsCustomCalendarWindow_FocusOutEvent);
 		}
 	}
 }

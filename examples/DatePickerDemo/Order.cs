@@ -1,10 +1,10 @@
 // 
-//  MainWindow.cs
+//  Order.cs
 //  
 //  Author:
 //       Krzysztof Marecki <marecki.krzysztof@gmail.com>
 // 
-//  Copyright (c) 2010 Krzysztof Marecki
+//  Copyright (c) 2010 KrzysztofMarecki
 // 
 //  This library is free software; you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as
@@ -19,34 +19,44 @@
 //  You should have received a copy of the GNU Lesser General Public
 //  License along with this library; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
-using System;
-using Gtk;
-using GtkForms;
+using System; 
+using System.ComponentModel;
 
 namespace DatePickerDemo
 {
-	public partial class MainWindow : FormsWindow
+	public class Order : INotifyPropertyChanged
 	{
-		public MainWindow () : base(Gtk.WindowType.Toplevel)
+		public Order ()
 		{
-			Build ();
-		}
-	
-		protected void OnDeleteEvent (object sender, DeleteEventArgs a)
-		{
-			Application.Quit ();
-			a.RetVal = true;
+			DeliveryDate = DateTime.Now;
 		}
 		
-		protected override void OnShown ()
-		{
-			base.OnShown ();
-			
-			BindingContext = new BindingContext ();
-			Order order = new Order ();
-			
-			datepicker.DataBindings.Add ("Date", order, "DeliveryDate", false, DataSourceUpdateMode.OnPropertyChanged);
-			label.DataBindings.Add ("Text", order, "DeliveryDate");
-		}
+		private DateTime deliveryDate;
+        public DateTime DeliveryDate 
+        {
+            get { return deliveryDate; }
+            set
+            {
+                if (deliveryDate != value)
+                {
+                    deliveryDate = value;
+                    OnPropertyChanged ("DeliveryDate");
+                }
+            }
+        }
+		
+		
+		#region INotifyPropertyChanged Members
+
+        protected void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged (this, new PropertyChangedEventArgs(name));
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion
 	}
 }
+

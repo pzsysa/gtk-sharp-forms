@@ -40,10 +40,6 @@
     <Reference Include="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <Reference Include="pango-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <Reference Include="GtkForms, Version=1.0.3923.26516, Culture=neutral, PublicKeyToken=null">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\freefirma\assemblies\GtkForms.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainWindow.cs" />
@@ -54,6 +50,7 @@
     <Compile Include="MainWindow.designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -61,5 +58,11 @@
       <DependentUpon>MainWindow.cs</DependentUpon>
       <LogicalName>MainWindow.gtkx</LogicalName>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Gtk.Forms\GtkForms.csproj">
+      <Project>{ACB49736-47BC-4318-9665-CBF9D8CB34CD}</Project>
+      <Name>GtkForms</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
