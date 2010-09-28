@@ -79,6 +79,7 @@ namespace GtkForms.Custom
 		{
 			if (calendwnd == null) {
 				calendwnd = new CalendarWindow ();
+				calendwnd.Hidden += HandleCalendwndHidden;
 			}
 			calendwnd.Date = Date;
 			
@@ -88,6 +89,11 @@ namespace GtkForms.Custom
 			y += this.Allocation.Top + this.Allocation.Height;
 			calendwnd.Move (x, y);
 			calendwnd.Show ();
+		}
+
+		void HandleCalendwndHidden (object sender, EventArgs e)
+		{
+			Date = calendwnd.Date;
 		}
 		
 		void HandleEntryChanged (object sender, EventArgs e)
@@ -104,11 +110,6 @@ namespace GtkForms.Custom
 			if (handler != null) 
 				handler (this, EventArgs.Empty);
 		}
-		protected virtual void Calendar_DaySelectedDoubleClick (object sender, System.EventArgs e)
-		{
-		}
-		
-		
 	}
 }
 
