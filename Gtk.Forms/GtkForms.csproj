@@ -103,6 +103,18 @@
     <Compile Include="Widgets\FormsRadioButton.cs" />
     <Compile Include="Bindings\BooleanBinding.cs" />
     <Compile Include="Widgets\FormsTextView.cs" />
+    <Compile Include="Designer\ActionGroups.designer.cs" />
+    <Compile Include="Designer\BinContainer.designer.cs" />
+    <Compile Include="Designer\Gui.designer.cs" />
+    <Compile Include="Custom\DatePicker.cs" />
+    <Compile Include="Custom\CalendarWindow.cs" />
+    <Compile Include="Custom\CalendarWindow.designer.cs">
+      <DependentUpon>CalendarWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Custom\DatePicker.designer.cs">
+      <DependentUpon>DatePicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Widgets\FormsDatePicker.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -110,8 +122,8 @@
     <Folder Include="Widgets\" />
     <Folder Include="Decorators\" />
     <Folder Include="Pixmaps\" />
-    <Folder Include="gtk-gui\" />
     <Folder Include="Designer\" />
+    <Folder Include="Custom\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="objects.xml">
@@ -140,6 +152,17 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pixmaps\textview.png">
       <LogicalName>textview.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom\CalendarWindow.gtkx">
+      <DependentUpon>CalendarWindow.cs</DependentUpon>
+      <LogicalName>CalendarWindow.gtkx</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom\DatePicker.gtkx">
+      <DependentUpon>DatePicker.cs</DependentUpon>
+      <LogicalName>DatePicker.gtkx</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pixmaps\calendar.png">
+      <LogicalName>calendar.png</LogicalName>
     </EmbeddedResource>
   </ItemGroup>
 </Project>
