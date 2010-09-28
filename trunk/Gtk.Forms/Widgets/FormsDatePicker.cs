@@ -1,5 +1,5 @@
 // 
-//  FormsEntry.cs
+//  FormsDatePicker.cs
 //  
 //  Author:
 //       Krzysztof Marecki <marecki.krzysztof@gmail.com>
@@ -19,41 +19,29 @@
 //  You should have received a copy of the GNU Lesser General Public
 //  License along with this library; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
-
-
 using System;
 using System.ComponentModel;
-using Gtk;
+
+using GtkForms.Custom;
 
 namespace GtkForms
 {
 	[ToolboxItem(true)]
-	public class FormsEntry : Entry, IBindableComponent
+	public class FormsDatePicker : DatePicker, IBindableComponent
 	{
-		private EntryDecorator decorator;
-		internal EntryDecorator Decorator { 
+		private WidgetDecorator decorator;
+		internal WidgetDecorator Decorator { 
 			get {
 				if (decorator == null)
-					decorator = new EntryDecorator (this);
+					decorator = new WidgetDecorator (this);
 				
 				return decorator;
 			}
 		}
 		
-		public FormsEntry ()
+		public FormsDatePicker ()
 			: base ()
 		{
-		}
-		
-		public FormsEntry (IntPtr raw)
-			: base (raw)
-		{
-		}
-		
-		public FormsEntry (string initialText)
-			:base (initialText)
-		{
-			
 		}
 		
 		#region IBindableComponent implementation
@@ -78,29 +66,6 @@ namespace GtkForms
 		
 		public bool IsHandleCreated { get { return Decorator.IsHandleCreated; } }
 		#endregion
-		
-		public Gdk.Color BackgroundColor {
-			get { return Decorator.BackgroundColor; }
-			set { Decorator.BackgroundColor = value; }
-		}
-		
-		public new string Text {
-			get { return base.Text; }
-			set {
-				if (value == null) {
-					return;
-				}
-				if (base.Text != value ) {
-					base.Text = value; 
-				}
-			}
-		}
-		
-		[EditorBrowsable (EditorBrowsableState.Never)]
-		public event EventHandler TextChanged {
-			add { base.Changed += value; }
-			remove { base.Changed -= value; }
-		}
 	}
 }
 
