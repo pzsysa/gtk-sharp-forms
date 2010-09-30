@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <stetic-interface>
-  <widget class="Gtk.Window" id="DatePickerDemo.MainWindow" design-size="387 49">
+  <widget class="Gtk.Window" id="DatePickerDemo.MainWindow" design-size="572 64">
     <property name="MemberName" />
     <property name="Title" translatable="yes">DatePicker demo</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -24,13 +24,31 @@
           </packing>
         </child>
         <child>
-          <widget class="GtkForms.FormsDatePicker" id="datepicker">
-            <property name="MemberName" />
-            <property name="Events">ButtonPressMask</property>
-          </widget>
+          <widget class="GtkForms.FormsDatePicker" id="datepicker" />
           <packing>
             <property name="Position">1</property>
             <property name="AutoSize">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkForms.FormsLabel" id="label2">
+            <property name="MemberName" />
+            <property name="LabelProp" translatable="yes">formslabel1</property>
+          </widget>
+          <packing>
+            <property name="Position">2</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkForms.FormsDatePicker" id="datepicker2" />
+          <packing>
+            <property name="Position">3</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
           </packing>
         </child>
       </widget>
