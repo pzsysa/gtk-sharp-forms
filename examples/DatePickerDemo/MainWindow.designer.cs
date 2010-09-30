@@ -22,6 +22,10 @@ namespace DatePickerDemo
 
 		private global::GtkForms.FormsDatePicker datepicker;
 
+		private global::GtkForms.FormsLabel label2;
+
+		private global::GtkForms.FormsDatePicker datepicker2;
+
 		protected virtual void Build ()
 		{
 			global::Stetic.Gui.Initialize (this);
@@ -46,17 +50,31 @@ namespace DatePickerDemo
 			w1.Fill = false;
 			// Container child hbox.Gtk.Box+BoxChild
 			this.datepicker = new global::GtkForms.FormsDatePicker ();
-			this.datepicker.Events = ((global::Gdk.EventMask)(256));
-			this.datepicker.Name = "datepicker";
 			this.hbox.Add (this.datepicker);
 			global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.hbox[this.datepicker]));
 			w2.Position = 1;
+			// Container child hbox.Gtk.Box+BoxChild
+			this.label2 = new global::GtkForms.FormsLabel ();
+			this.label2.Name = "label2";
+			this.label2.LabelProp = global::Mono.Unix.Catalog.GetString ("formslabel1");
+			this.hbox.Add (this.label2);
+			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.hbox[this.label2]));
+			w3.Position = 2;
+			w3.Expand = false;
+			w3.Fill = false;
+			// Container child hbox.Gtk.Box+BoxChild
+			this.datepicker2 = new global::GtkForms.FormsDatePicker ();
+			this.hbox.Add (this.datepicker2);
+			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.hbox[this.datepicker2]));
+			w4.Position = 3;
+			w4.Expand = false;
+			w4.Fill = false;
 			this.Add (this.hbox);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();
 			}
-			this.DefaultWidth = 387;
-			this.DefaultHeight = 49;
+			this.DefaultWidth = 572;
+			this.DefaultHeight = 64;
 			this.Show ();
 			this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		}

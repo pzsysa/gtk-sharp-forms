@@ -47,6 +47,9 @@ namespace DatePickerDemo
 			
 			datepicker.DataBindings.Add ("Date", order, "DeliveryDate", false, DataSourceUpdateMode.OnPropertyChanged);
 			label.DataBindings.Add ("Text", order, "DeliveryDate");
+			
+			datepicker2.DataBindings.Add ("Date", order, "DeliveryDate", false, DataSourceUpdateMode.OnPropertyChanged);
+			label2.DataBindings.Add ("Text", order, "DeliveryDate");
 		}
 	}
 }

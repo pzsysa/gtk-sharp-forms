@@ -27,7 +27,7 @@
       	</itemgroup>
     </itemgroups>
 	</object>
-	<object type="GtkForms.FormsDatePicker" base-type="Gtk.Bin" icon="calendar.png" palette-category="GtkForms">
+	<object type="GtkForms.FormsDatePicker" icon="calendar.png" palette-category="GtkForms">
 	  <itemgroups>
       	<itemgroup label="Binding Properties">
       	 <!--<property name="DataBindings"/>-->
