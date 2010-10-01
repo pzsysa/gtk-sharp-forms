@@ -47,6 +47,7 @@
     <Reference Include="Mono.Posix" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
+    <Reference Include="pango-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
@@ -163,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pixmaps\calendar.png">
       <LogicalName>calendar.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pixmaps\calendar_22x16.png">
+      <LogicalName>calendar_22x16.png</LogicalName>
     </EmbeddedResource>
   </ItemGroup>
 </Project>

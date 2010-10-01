@@ -89,6 +89,23 @@ namespace GtkForms
 			}
 		}
 		
+		int? fontsize;
+		public virtual int FontSize {
+			get { return fontsize.HasValue ? 
+							fontsize.Value :
+							(int) (widget.Style.FontDescription.Size / Pango.Scale.PangoScale);
+				} 
+			set {
+				if (FontSize != value) {
+					fontsize = value;
+					var font = widget.Style.FontDescription;
+					string fontname = string.Format ("{0} {1}", font.Family, value);
+					var fontnew = Pango.FontDescription.FromString (fontname);
+					widget.ModifyFont (fontnew);
+				}
+			}
+		}
+		
 		public WidgetDecorator (Widget widget)
 		{
 			this.widget = widget;
