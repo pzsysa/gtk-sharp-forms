@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <stetic-interface>
-  <widget class="Gtk.Bin" id="GtkForms.Custom.DatePicker" design-size="253 36">
+  <widget class="Gtk.Bin" id="GtkForms.Custom.DatePicker" design-size="254 28">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>
@@ -21,18 +21,18 @@
         <child>
           <widget class="Gtk.Button" id="button">
             <property name="MemberName" />
+            <property name="HeightRequest">0</property>
             <property name="CanFocus">True</property>
             <property name="Type">TextAndIcon</property>
-            <property name="Icon">resource:calendar.png</property>
-            <property name="Label" translatable="yes" />
-            <property name="UseUnderline">True</property>
+            <property name="Icon">resource:calendar_22x16.png</property>
             <property name="Relief">None</property>
+            <property name="Xalign">0</property>
+            <property name="Yalign">0</property>
           </widget>
           <packing>
             <property name="Position">1</property>
-            <property name="AutoSize">True</property>
+            <property name="AutoSize">False</property>
             <property name="Expand">False</property>
-            <property name="Fill">False</property>
           </packing>
         </child>
       </widget>

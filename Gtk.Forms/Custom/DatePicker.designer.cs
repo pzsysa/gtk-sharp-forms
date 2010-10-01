@@ -42,18 +42,20 @@ namespace GtkForms.Custom
 			w1.Position = 0;
 			// Container child hbox.Gtk.Box+BoxChild
 			this.button = new global::Gtk.Button ();
+			this.button.HeightRequest = 0;
 			this.button.CanFocus = true;
 			this.button.Name = "button";
-			this.button.UseUnderline = true;
 			this.button.Relief = ((global::Gtk.ReliefStyle)(2));
+			this.button.Xalign = 0f;
+			this.button.Yalign = 0f;
 			// Container child button.Gtk.Container+ContainerChild
-			global::Gtk.Alignment w2 = new global::Gtk.Alignment (0.5f, 0.5f, 0f, 0f);
+			global::Gtk.Alignment w2 = new global::Gtk.Alignment (0f, 0f, 0f, 0f);
 			// Container child GtkAlignment.Gtk.Container+ContainerChild
 			global::Gtk.HBox w3 = new global::Gtk.HBox ();
 			w3.Spacing = 2;
 			// Container child GtkHBox.Gtk.Container+ContainerChild
 			global::Gtk.Image w4 = new global::Gtk.Image ();
-			w4.Pixbuf = global::Gdk.Pixbuf.LoadFromResource ("calendar.png");
+			w4.Pixbuf = global::Gdk.Pixbuf.LoadFromResource ("calendar_22x16.png");
 			w3.Add (w4);
 			// Container child GtkHBox.Gtk.Container+ContainerChild
 			global::Gtk.Label w6 = new global::Gtk.Label ();
@@ -64,7 +66,6 @@ namespace GtkForms.Custom
 			global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.hbox[this.button]));
 			w10.Position = 1;
 			w10.Expand = false;
-			w10.Fill = false;
 			this.Add (this.hbox);
 			if ((this.Child != null)) {
 				this.Child.ShowAll ();

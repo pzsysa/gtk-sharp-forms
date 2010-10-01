@@ -11,12 +11,18 @@
       		<itemgroup label="Binding Properties">
       	 		<!--<property name="DataBindings"/>-->
       	</itemgroup>
+		<itemgroup label="Font Properties">
+      		<property name="FontSize"/>
+      	</itemgroup>
     </itemgroups>
 	</object>
 	<object type="GtkForms.FormsComboBox" base-type="Gtk.ComboBox" icon="combo.png" palette-category="GtkForms">
 		<itemgroups>
       		<itemgroup label="Binding Properties">
       	 		<!--<property name="DataBindings"/>-->
+      	</itemgroup>
+		<itemgroup label="Font Properties">
+      		<property name="FontSize"/>
       	</itemgroup>
     </itemgroups>
 	</object>
@@ -25,6 +31,9 @@
       		<itemgroup label="Binding Properties">
       	 		<!--<property name="DataBindings"/>-->
       	</itemgroup>
+		<itemgroup label="Font Properties">
+      		<property name="FontSize"/>
+     	 </itemgroup>
     </itemgroups>
 	</object>
 	<object type="GtkForms.FormsDatePicker" icon="calendar.png" palette-category="GtkForms">
@@ -38,6 +47,9 @@
 	  <itemgroups>
       	<itemgroup label="Binding Properties">
       	 <!--<property name="DataBindings"/>-->
+      	</itemgroup>
+		<itemgroup label="Font Properties">
+      		<property name="FontSize"/>
       	</itemgroup>
     </itemgroups>
     <signals>
@@ -57,6 +69,9 @@
     <itemgroups>
       <itemgroup label="Binding Properties">			
       	<!--<property name="DataBindings"/>-->
+      </itemgroup>
+      <itemgroup label="Font Properties">
+      	<property name="FontSize"/>
       </itemgroup>
     </itemgroups>
     <signals />
@@ -79,6 +94,9 @@
     <itemgroups>
       <itemgroup label="Binding Properties">			
       	<!--<property name="DataBindings"/>-->
+      </itemgroup>
+	  <itemgroup label="Font Properties">
+      	<property name="FontSize"/>
       </itemgroup>
     </itemgroups>
     <signals />

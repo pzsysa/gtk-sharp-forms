@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <stetic-interface>
-  <widget class="Gtk.Window" id="DatePickerDemo.MainWindow" design-size="572 64">
+  <widget class="Gtk.Window" id="DatePickerDemo.MainWindow" design-size="572 55">
     <property name="MemberName" />
     <property name="Title" translatable="yes">DatePicker demo</property>
     <property name="WindowPosition">CenterOnParent</property>

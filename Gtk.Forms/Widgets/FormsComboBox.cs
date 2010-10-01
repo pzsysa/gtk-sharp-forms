@@ -71,6 +71,11 @@ namespace GtkForms
 			set { Decorator.BindingContext = value; }
 		}
 		
+		public int FontSize {
+			get { return Decorator.FontSize; }
+			set { Decorator.FontSize = value; }
+		}
+		
 		
 		public ControlBindingsCollection DataBindings { get { return Decorator.DataBindings; } }
 		

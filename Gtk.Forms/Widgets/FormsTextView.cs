@@ -82,6 +82,11 @@ namespace GtkForms
 			set { Decorator.BackgroundColor = value; }
 		}
 		
+		public int FontSize {
+			get { return Decorator.FontSize; }
+			set { Decorator.FontSize = value; }
+		}
+		
 		public string Text {
 			get { return Buffer.Text; }
 			set { 
