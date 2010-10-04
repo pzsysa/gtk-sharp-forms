@@ -116,6 +116,7 @@
       <DependentUpon>DatePicker.cs</DependentUpon>
     </Compile>
     <Compile Include="Widgets\FormsDatePicker.cs" />
+    <Compile Include="Widgets\FormsBin.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
