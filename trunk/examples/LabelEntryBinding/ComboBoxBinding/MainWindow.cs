@@ -91,6 +91,13 @@ namespace ComboBoxBinding
 			labelCityName.DataBindings.Add ("Text", city, "CityName");
 			
 //			formscombobox3.DataSource = bsrcCities;
+			
+			city.CityType = CityTypes.City;
+			comboboxEnum.DataSource = Enum.GetValues (typeof(CityTypes));
+			comboboxEnum.DataBindings.Add ("SelectedItem", city, "CityType", false, DataSourceUpdateMode.OnPropertyChanged);
+//			comboboxEnum.DataSource = Enum.GetValues (typeof(CityTypes));
+			
+			labelEnum.DataBindings.Add ("Text", city, "CityType");
 		}
 		
 		protected virtual void OnButton1Clicked (object sender, System.EventArgs e)

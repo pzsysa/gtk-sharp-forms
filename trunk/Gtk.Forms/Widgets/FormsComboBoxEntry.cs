@@ -86,11 +86,13 @@ namespace GtkForms
 			set { Decorator.DataSource = value; }
 		}
 		
+		[Browsable (true)]
 		public string DisplayMember {
 			get { return Decorator.DisplayMember; }
 			set { Decorator.DisplayMember = value; }
 		}
 		
+		[Browsable (true)]
 		public string ValueMember {
 			get { return Decorator.ValueMember; }
 			set { Decorator.ValueMember = value; }

@@ -20,6 +20,8 @@
 		<itemgroups>
       		<itemgroup label="Binding Properties">
       	 		<!--<property name="DataBindings"/>-->
+				<property name="DisplayMember"/>
+				<property name="ValueMember"/>
       	</itemgroup>
 		<itemgroup label="Font Properties">
       		<property name="FontSize"/>
@@ -30,6 +32,8 @@
 		<itemgroups>
       		<itemgroup label="Binding Properties">
       	 		<!--<property name="DataBindings"/>-->
+				<property name="DisplayMember"/>
+				<property name="ValueMember"/>
       	</itemgroup>
 		<itemgroup label="Font Properties">
       		<property name="FontSize"/>
@@ -62,6 +66,9 @@
 	  <itemgroups>
       	<itemgroup label="Binding Properties">
       	 	<property name="AutoGenerateColumns"/>
+      	</itemgroup>
+		<itemgroup label="Font Properties">
+      		<property name="FontSize"/>
       	</itemgroup>
     </itemgroups>
 	</object>
