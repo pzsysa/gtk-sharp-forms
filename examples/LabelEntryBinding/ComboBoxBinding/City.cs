@@ -24,6 +24,13 @@ using System.ComponentModel;
 
 namespace ComboBoxBinding
 {
+	public enum CityTypes
+	{
+		Village,
+		City,
+		Metropoly
+	}
+	
 	public class City : INotifyPropertyChanged
 	{
 		private string cityName;
@@ -36,6 +43,20 @@ namespace ComboBoxBinding
                 {
                     cityName = value;
                     OnPropertyChanged("CityName");
+                }
+            }
+        }
+		
+		private CityTypes cityType;
+        public CityTypes CityType 
+        {
+            get { return cityType; }
+            set
+            {
+                if (cityType != value)
+                {
+                    cityType = value;
+                    OnPropertyChanged("CityType");
                 }
             }
         }

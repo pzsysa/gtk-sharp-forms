@@ -47,7 +47,7 @@ Global
 		{FEC098C0-4C64-4002-B98E-B18CB15FB06D} = {268F213E-0C0B-4F1B-9A0D-75390188AE44}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = examples\DatePickerDemo\DatePickerDemo.csproj
+		StartupItem = examples\LabelEntryBinding\ComboBoxBinding\ComboBoxBinding.csproj
 		Policies = $0
 		$0.StandardHeader = $1
 		$1.inheritsSet = LGPLv2License

@@ -99,6 +99,11 @@ namespace GtkForms
 	
 		#endregion
 		
+		public int FontSize {
+			get { return Decorator.FontSize; }
+			set { Decorator.FontSize = value; }
+		}
+		
 		protected override void OnCursorChanged ()
 		{
 			base.OnCursorChanged ();

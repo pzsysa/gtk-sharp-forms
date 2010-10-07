@@ -89,11 +89,13 @@ namespace GtkForms
 			set { Decorator.DataSource = value; }
 		}
 		
+		[Browsable (true)]
 		public string DisplayMember {
 			get { return Decorator.DisplayMember; }
 			set { Decorator.DisplayMember = value; }
 		}
 		
+		[Browsable (true)]
 		public string ValueMember {
 			get { return Decorator.ValueMember; }
 			set { Decorator.ValueMember = value; }
@@ -119,6 +121,11 @@ namespace GtkForms
 			set { Decorator.SelectedItem = value; }
 		}
 		
+		public object SelectedValue {
+			get { return Decorator.SelectedValue; }
+			set { Decorator.SelectedValue = value; }
+		}
+		
 		protected override void OnChanged ()
 		{
 			base.OnChanged ();
@@ -128,6 +135,7 @@ namespace GtkForms
 				Decorator.SetPositionFromIter (iter);
 			
 			OnSelectedItemChanged (EventArgs.Empty);
+			OnSelectedValueChanged (EventArgs.Empty);
 		}
 		
 				
@@ -139,6 +147,16 @@ namespace GtkForms
 			}
 		}
 		
+		protected void OnSelectedValueChanged (EventArgs args)
+		{
+			var handler = SelectedValueChanged;
+			if (handler != null) {
+				handler (this, args);
+			}
+		}
+		
 	 	public event EventHandler SelectedItemChanged; 
+		
+		public event EventHandler SelectedValueChanged;
 	}
 }

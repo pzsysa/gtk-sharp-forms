@@ -25,6 +25,7 @@
 using System;
 using System.Collections;
 using System.ComponentModel;
+using System.Reflection;
 using Gtk;
 
 namespace GtkForms
@@ -97,6 +98,31 @@ namespace GtkForms
 							continue;
 					
 						if (Comparer.Default.Compare (item, value) == 0) {
+							int position = DataManager.List.IndexOf (item);
+							DataManager.Position = position;
+					}
+				}
+			}
+		}
+		
+		public object SelectedValue {
+			get {
+				object selected = SelectedItem;
+				if (selected == null) {
+					return null;
+				}
+				PropertyInfo propinfo = selected.GetType ().GetProperty (ValueMember);
+				return propinfo.GetValue (selected, null);
+			}
+			set {
+				if (DataManager == null)
+					return;
+				
+				foreach (object item in DataManager.List) {
+					PropertyInfo propinfo = item.GetType ().GetProperty (ValueMember);
+					object itemval = propinfo.GetValue (item, null);
+					
+					if (Comparer.Default.Compare (itemval, value) == 0) {
 							int position = DataManager.List.IndexOf (item);
 							DataManager.Position = position;
 					}
