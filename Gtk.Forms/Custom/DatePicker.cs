@@ -88,6 +88,7 @@ namespace GtkForms.Custom
 			x += this.Allocation.Left;
 			y += this.Allocation.Top + this.Allocation.Height;
 			calendwnd.Move (x, y);
+			calendwnd.Modal = true;
 			calendwnd.Show ();
 		}
 
