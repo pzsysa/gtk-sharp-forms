@@ -26,9 +26,10 @@ namespace GtkForms
 {
 	public class WidgetDecorator
 	{
-		private Widget widget; 
-		private bool? validated;
-		private Gdk.Color backgroundColor;
+		Widget widget; 
+		bool? validated;
+		Gdk.Color backgroundColor;
+		Gdk.Color foregroundColor;
 		
 		private BindingContext binding_context;
 		public virtual BindingContext BindingContext {
@@ -89,6 +90,14 @@ namespace GtkForms
 			}
 		}
 		
+		public virtual Gdk.Color ForegroundColor {
+			get { return foregroundColor; }
+			set {
+				foregroundColor = value;
+				widget.ModifyFg (StateType.Normal, foregroundColor);
+			}
+		}
+		
 		int? fontsize;
 		public virtual int FontSize {
 			get { return fontsize.HasValue ? 
@@ -101,6 +110,29 @@ namespace GtkForms
 					var font = widget.Style.FontDescription;
 					string fontname = string.Format ("{0} {1}", font.Family, value);
 					var fontnew = Pango.FontDescription.FromString (fontname);
+//					var fontnew = font.Copy ();
+//					widget.ModifyFont (fontnew);
+//					fontnew.Size = (int) (value * Pango.Scale.PangoScale);
+					fontnew.Weight = font.Weight;
+					widget.ModifyFont (fontnew);
+				}
+			}
+		}
+		
+		Pango.Weight? fontweight;
+		public virtual Pango.Weight FontWeight
+		{
+			get {
+				return fontweight.HasValue ? fontweight.Value : widget.Style.FontDescription.Weight;
+			}
+			set {
+				if (FontWeight != fontweight) {
+					fontweight = value;
+					
+					var font = widget.Style.FontDescription;
+					string fontname = string.Format ("{0} {1}", font.Family, FontSize);
+					var fontnew = Pango.FontDescription.FromString (fontname);
+					fontnew.Weight = value;
 					widget.ModifyFont (fontnew);
 				}
 			}

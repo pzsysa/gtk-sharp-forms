@@ -79,6 +79,7 @@
       </itemgroup>
       <itemgroup label="Font Properties">
       	<property name="FontSize"/>
+<!--		<property name="FontWeight"/>-->
       </itemgroup>
     </itemgroups>
     <signals />
