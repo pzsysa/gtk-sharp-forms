@@ -80,9 +80,19 @@ namespace GtkForms
 			set { Decorator.BackgroundColor = value; }
 		}
 		
+		public Gdk.Color ForegroundColor {
+			get { return Decorator.ForegroundColor; }
+			set { Decorator.ForegroundColor = value; }
+		}
+		
 		public int FontSize {
 			get { return Decorator.FontSize; }
 			set { Decorator.FontSize = value; }
+		}
+		
+		public Pango.Weight FontWeight {
+			get { return Decorator.FontWeight; }
+			set { Decorator.FontWeight = value; }
 		}
 	}
 }
