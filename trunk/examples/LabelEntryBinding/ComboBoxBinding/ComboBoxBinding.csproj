@@ -46,7 +46,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\freefirma2\assemblies\GtkForms.dll</HintPath>
     </Reference>
-    <Reference Include="GtkForms, Version=1.0.3943.3508, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="GtkForms, Version=1.0.3943.4724, Culture=neutral, PublicKeyToken=null">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Gtk.Forms\bin\Debug\GtkForms.dll</HintPath>
     </Reference>
