@@ -89,6 +89,11 @@ namespace GtkForms
 			set { Decorator.FontSize = value; }
 		}
 		
+		public Pango.Weight FontWeight {
+			get { return Decorator.FontWeight; }
+			set { Decorator.FontWeight = value; }
+		}
+		
 		public new string Text {
 			get { return base.Text; }
 			set {
