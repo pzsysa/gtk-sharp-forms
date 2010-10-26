@@ -29,34 +29,49 @@ namespace DatePickerDemo
 		public Order ()
 		{
 			DeliveryDate = DateTime.Now;
+			OrderDate = DateTime.Now;
 		}
 		
 		private DateTime deliveryDate;
-        public DateTime DeliveryDate 
-        {
-            get { return deliveryDate; }
-            set
-            {
-                if (deliveryDate != value)
-                {
-                    deliveryDate = value;
-                    OnPropertyChanged ("DeliveryDate");
-                }
-            }
-        }
+		public DateTime DeliveryDate 
+		{
+		    get { return deliveryDate; }
+		    set
+		    {
+		        if (deliveryDate != value)
+		        {
+		            deliveryDate = value;
+		            OnPropertyChanged ("DeliveryDate");
+		        }
+		    }
+		}
+		
+		private DateTime orderDate;
+		public DateTime OrderDate 
+		{
+		    get { return orderDate; }
+		    set
+		    {
+		        if (orderDate != value)
+		        {
+		            orderDate = value;
+		            OnPropertyChanged ("OrderDate");
+		        }
+		    }
+		}
 		
 		
 		#region INotifyPropertyChanged Members
 
-        protected void OnPropertyChanged(string name)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged (this, new PropertyChangedEventArgs(name));
-        }
+		protected void OnPropertyChanged(string name)
+		{
+		    if (PropertyChanged != null)
+		        PropertyChanged (this, new PropertyChangedEventArgs(name));
+		}
+		
+		public event PropertyChangedEventHandler PropertyChanged;
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        #endregion
+        	#endregion
 	}
 }
 

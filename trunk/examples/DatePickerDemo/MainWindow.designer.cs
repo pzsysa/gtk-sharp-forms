@@ -43,6 +43,7 @@ namespace DatePickerDemo
 			this.label = new global::GtkForms.FormsLabel ();
 			this.label.Name = "label";
 			this.label.LabelProp = global::Mono.Unix.Catalog.GetString ("formslabel1");
+			this.label.FontSize = 10;
 			this.hbox.Add (this.label);
 			global::Gtk.Box.BoxChild w1 = ((global::Gtk.Box.BoxChild)(this.hbox[this.label]));
 			w1.Position = 0;
@@ -57,6 +58,7 @@ namespace DatePickerDemo
 			this.label2 = new global::GtkForms.FormsLabel ();
 			this.label2.Name = "label2";
 			this.label2.LabelProp = global::Mono.Unix.Catalog.GetString ("formslabel1");
+			this.label2.FontSize = 10;
 			this.hbox.Add (this.label2);
 			global::Gtk.Box.BoxChild w3 = ((global::Gtk.Box.BoxChild)(this.hbox[this.label2]));
 			w3.Position = 2;

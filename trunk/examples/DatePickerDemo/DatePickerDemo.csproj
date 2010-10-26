@@ -40,7 +40,7 @@
     <Reference Include="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <Reference Include="pango-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <Reference Include="GtkForms, Version=1.0.3943.3508, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="GtkForms, Version=1.0.3951.22269, Culture=neutral, PublicKeyToken=null">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Gtk.Forms\bin\Debug\GtkForms.dll</HintPath>
     </Reference>
