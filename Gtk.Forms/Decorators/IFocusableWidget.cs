@@ -1,5 +1,5 @@
 // 
-//  MainWindow.cs
+//  IFocusableWidget.cs
 //  
 //  Author:
 //       Krzysztof Marecki <marecki.krzysztof@gmail.com>
@@ -20,37 +20,12 @@
 //  License along with this library; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 using System;
-using Gtk;
-using GtkForms;
 
-namespace DatePickerDemo
+namespace GtkForms
 {
-	public partial class MainWindow : FormsWindow
+	public interface IFocusableWidget
 	{
-		public MainWindow () : base(Gtk.WindowType.Toplevel)
-		{
-			Build ();
-		}
-	
-		protected void OnDeleteEvent (object sender, DeleteEventArgs a)
-		{
-			Application.Quit ();
-			a.RetVal = true;
-		}
-		
-		protected override void OnShown ()
-		{
-			base.OnShown ();
-			
-			BindingContext = new BindingContext ();
-			Order order = new Order ();
-			
-			datepicker.DataBindings.Add ("Date", order, "OrderDate", 
-						     false, DataSourceUpdateMode.OnPropertyChanged);
-			label.DataBindings.Add ("Text", order, "OrderDate");
-			
-			datepicker2.DataBindings.Add ("Date", order, "DeliveryDate");
-			label2.DataBindings.Add ("Text", order, "DeliveryDate");
-		}
+		event EventHandler FocusOut;
 	}
 }
+

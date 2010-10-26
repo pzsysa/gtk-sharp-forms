@@ -145,6 +145,11 @@ namespace GtkForms
 			this.widget.ButtonPressEvent += widget_ButtonPressEvent;
 			this.widget.FocusInEvent += widget_FocusInEvent;
 			this.widget.FocusOutEvent += widget_FocusOutEvent;
+			
+			if (this.widget is IFocusableWidget) {
+				IFocusableWidget focuswidget = (IFocusableWidget) this.widget;
+				focuswidget.FocusOut += focuswidget_FocusOut;
+			}
 		
 			HandleWidgetRealized ();
 		}
@@ -183,17 +188,29 @@ namespace GtkForms
 		[GLib.ConnectBefore]
 		private void widget_FocusOutEvent (object o, FocusOutEventArgs args)
 		{
+			args.RetVal = OnWidgetFocusOutEvent ();
+		}
+		
+		private bool OnWidgetFocusOutEvent ()
+		{
 			if (!Validated) {
 				widget.GrabFocus ();
 				
-				args.RetVal = true;
-				return;
+//				args.RetVal = true;
+				return true;
 			}
 			
 			if (widget.Toplevel is FormsWindow) {
 				var window = (FormsWindow)widget.Toplevel;
 				window.Decorator.Focused = null;
 			}
+			
+			return false;
+		}
+		
+		private void focuswidget_FocusOut (object o, EventArgs e)
+		{
+			OnWidgetFocusOutEvent ();
 		}
 
 		private void widget_Realized (object sender, EventArgs e)
@@ -236,8 +253,6 @@ namespace GtkForms
 		public event EventHandler BindingContextChanged;
 		public event EventHandler HandleCreated;
 		public event CancelEventHandler Validating;
-
-		
 	}
 }
 

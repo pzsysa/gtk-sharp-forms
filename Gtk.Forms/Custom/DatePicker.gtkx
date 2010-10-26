@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <stetic-interface>
-  <widget class="Gtk.Bin" id="GtkForms.Custom.DatePicker" design-size="254 28">
+  <widget class="Gtk.Bin" id="GtkForms.Custom.DatePicker" design-size="254 29">
     <property name="MemberName" />
     <property name="Visible">False</property>
     <child>

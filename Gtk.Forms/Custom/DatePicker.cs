@@ -21,11 +21,12 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 using System;
 using System.Globalization;
+using GtkForms;
 
 namespace GtkForms.Custom
 {
 	[System.ComponentModel.ToolboxItem(true)]
-	public partial class DatePicker : Gtk.Bin
+	public partial class DatePicker : Gtk.Bin, IFocusableWidget
 	{
 		CalendarWindow calendwnd;
 			
@@ -36,9 +37,9 @@ namespace GtkForms.Custom
 			
 			button.Clicked += HandleButtonClicked;
 			entry.Changed += HandleEntryChanged;
+			entry.FocusOutEvent += HandleEntryFocusOutEvent;
 		}
-		
-		
+	
 		public string CustomFormat { get; set; }
 		
 		public DateTime Date {
@@ -102,6 +103,12 @@ namespace GtkForms.Custom
 			OnDateChanged ();
 		}
 		
+		[GLib.ConnectBefore]
+		void HandleEntryFocusOutEvent (object o, Gtk.FocusOutEventArgs args)
+		{
+			OnFocusOut ();
+		}
+		
 		
 		public event EventHandler DateChanged;
 		
@@ -109,6 +116,15 @@ namespace GtkForms.Custom
 		{
 			var handler = DateChanged;
 			if (handler != null) 
+				handler (this, EventArgs.Empty);
+		}
+		
+		public event EventHandler FocusOut;
+		
+		protected virtual void OnFocusOut ()
+		{
+			var handler = FocusOut;
+			if (handler != null)
 				handler (this, EventArgs.Empty);
 		}
 	}

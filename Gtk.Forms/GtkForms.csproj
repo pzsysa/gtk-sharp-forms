@@ -122,6 +122,7 @@
     <Compile Include="Extensions\GradientColorMode.cs" />
     <Compile Include="Extensions\GtkExtensions.cs" />
     <Compile Include="Extensions\GdkExtensions.cs" />
+    <Compile Include="Decorators\IFocusableWidget.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
