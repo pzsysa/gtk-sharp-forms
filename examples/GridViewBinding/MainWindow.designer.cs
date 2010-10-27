@@ -30,6 +30,8 @@ public partial class MainWindow
 
 	private global::GtkForms.FormsSpinButton spinPrice;
 
+	private global::Gtk.Button buttonLoad;
+
 	private global::GtkForms.FormsEntry entryID;
 
 	private global::GtkForms.FormsEntry entryName;
@@ -70,7 +72,7 @@ public partial class MainWindow
 		global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.GtkScrolledWindow]));
 		w2.Position = 0;
 		// Container child hbox1.Gtk.Box+BoxChild
-		this.table1 = new global::Gtk.Table (((uint)(5)), ((uint)(3)), false);
+		this.table1 = new global::Gtk.Table (((uint)(6)), ((uint)(2)), false);
 		this.table1.Name = "table1";
 		this.table1.RowSpacing = ((uint)(6));
 		this.table1.ColumnSpacing = ((uint)(6));
@@ -112,6 +114,20 @@ public partial class MainWindow
 		w6.XOptions = ((global::Gtk.AttachOptions)(4));
 		w6.YOptions = ((global::Gtk.AttachOptions)(4));
 		// Container child table1.Gtk.Table+TableChild
+		this.buttonLoad = new global::Gtk.Button ();
+		this.buttonLoad.CanFocus = true;
+		this.buttonLoad.Name = "buttonLoad";
+		this.buttonLoad.UseUnderline = true;
+		this.buttonLoad.Label = global::Mono.Unix.Catalog.GetString ("Load");
+		this.table1.Add (this.buttonLoad);
+		global::Gtk.Table.TableChild w7 = ((global::Gtk.Table.TableChild)(this.table1[this.buttonLoad]));
+		w7.TopAttach = ((uint)(5));
+		w7.BottomAttach = ((uint)(6));
+		w7.LeftAttach = ((uint)(1));
+		w7.RightAttach = ((uint)(2));
+		w7.XOptions = ((global::Gtk.AttachOptions)(4));
+		w7.YOptions = ((global::Gtk.AttachOptions)(4));
+		// Container child table1.Gtk.Table+TableChild
 		this.entryID = new global::GtkForms.FormsEntry ();
 		this.entryID.CanFocus = true;
 		this.entryID.Name = "entryID";
@@ -119,11 +135,11 @@ public partial class MainWindow
 		this.entryID.InvisibleChar = '●';
 		this.entryID.FontSize = 10;
 		this.table1.Add (this.entryID);
-		global::Gtk.Table.TableChild w7 = ((global::Gtk.Table.TableChild)(this.table1[this.entryID]));
-		w7.LeftAttach = ((uint)(1));
-		w7.RightAttach = ((uint)(2));
-		w7.XOptions = ((global::Gtk.AttachOptions)(4));
-		w7.YOptions = ((global::Gtk.AttachOptions)(4));
+		global::Gtk.Table.TableChild w8 = ((global::Gtk.Table.TableChild)(this.table1[this.entryID]));
+		w8.LeftAttach = ((uint)(1));
+		w8.RightAttach = ((uint)(2));
+		w8.XOptions = ((global::Gtk.AttachOptions)(4));
+		w8.YOptions = ((global::Gtk.AttachOptions)(4));
 		// Container child table1.Gtk.Table+TableChild
 		this.entryName = new global::GtkForms.FormsEntry ();
 		this.entryName.CanFocus = true;
@@ -132,23 +148,23 @@ public partial class MainWindow
 		this.entryName.InvisibleChar = '●';
 		this.entryName.FontSize = 10;
 		this.table1.Add (this.entryName);
-		global::Gtk.Table.TableChild w8 = ((global::Gtk.Table.TableChild)(this.table1[this.entryName]));
-		w8.TopAttach = ((uint)(1));
-		w8.BottomAttach = ((uint)(2));
-		w8.LeftAttach = ((uint)(1));
-		w8.RightAttach = ((uint)(2));
-		w8.XOptions = ((global::Gtk.AttachOptions)(4));
-		w8.YOptions = ((global::Gtk.AttachOptions)(4));
+		global::Gtk.Table.TableChild w9 = ((global::Gtk.Table.TableChild)(this.table1[this.entryName]));
+		w9.TopAttach = ((uint)(1));
+		w9.BottomAttach = ((uint)(2));
+		w9.LeftAttach = ((uint)(1));
+		w9.RightAttach = ((uint)(2));
+		w9.XOptions = ((global::Gtk.AttachOptions)(4));
+		w9.YOptions = ((global::Gtk.AttachOptions)(4));
 		// Container child table1.Gtk.Table+TableChild
 		this.labelError = new global::Gtk.Label ();
 		this.labelError.Name = "labelError";
 		this.labelError.LabelProp = global::Mono.Unix.Catalog.GetString ("error message");
 		this.table1.Add (this.labelError);
-		global::Gtk.Table.TableChild w9 = ((global::Gtk.Table.TableChild)(this.table1[this.labelError]));
-		w9.TopAttach = ((uint)(4));
-		w9.BottomAttach = ((uint)(5));
-		w9.RightAttach = ((uint)(3));
-		w9.YOptions = ((global::Gtk.AttachOptions)(4));
+		global::Gtk.Table.TableChild w10 = ((global::Gtk.Table.TableChild)(this.table1[this.labelError]));
+		w10.TopAttach = ((uint)(4));
+		w10.BottomAttach = ((uint)(5));
+		w10.RightAttach = ((uint)(2));
+		w10.YOptions = ((global::Gtk.AttachOptions)(4));
 		// Container child table1.Gtk.Table+TableChild
 		this.labelFavourite = new global::GtkForms.FormsLabel ();
 		this.labelFavourite.Name = "labelFavourite";
@@ -157,11 +173,11 @@ public partial class MainWindow
 		this.labelFavourite.LabelProp = global::Mono.Unix.Catalog.GetString ("Favourite");
 		this.labelFavourite.FontSize = 10;
 		this.table1.Add (this.labelFavourite);
-		global::Gtk.Table.TableChild w10 = ((global::Gtk.Table.TableChild)(this.table1[this.labelFavourite]));
-		w10.TopAttach = ((uint)(3));
-		w10.BottomAttach = ((uint)(4));
-		w10.XOptions = ((global::Gtk.AttachOptions)(4));
-		w10.YOptions = ((global::Gtk.AttachOptions)(4));
+		global::Gtk.Table.TableChild w11 = ((global::Gtk.Table.TableChild)(this.table1[this.labelFavourite]));
+		w11.TopAttach = ((uint)(3));
+		w11.BottomAttach = ((uint)(4));
+		w11.XOptions = ((global::Gtk.AttachOptions)(4));
+		w11.YOptions = ((global::Gtk.AttachOptions)(4));
 		// Container child table1.Gtk.Table+TableChild
 		this.labelID = new global::GtkForms.FormsLabel ();
 		this.labelID.Name = "labelID";
@@ -170,9 +186,9 @@ public partial class MainWindow
 		this.labelID.LabelProp = global::Mono.Unix.Catalog.GetString ("ID");
 		this.labelID.FontSize = 10;
 		this.table1.Add (this.labelID);
-		global::Gtk.Table.TableChild w11 = ((global::Gtk.Table.TableChild)(this.table1[this.labelID]));
-		w11.XOptions = ((global::Gtk.AttachOptions)(4));
-		w11.YOptions = ((global::Gtk.AttachOptions)(4));
+		global::Gtk.Table.TableChild w12 = ((global::Gtk.Table.TableChild)(this.table1[this.labelID]));
+		w12.XOptions = ((global::Gtk.AttachOptions)(4));
+		w12.YOptions = ((global::Gtk.AttachOptions)(4));
 		// Container child table1.Gtk.Table+TableChild
 		this.labelName = new global::GtkForms.FormsLabel ();
 		this.labelName.Name = "labelName";
@@ -181,11 +197,11 @@ public partial class MainWindow
 		this.labelName.LabelProp = global::Mono.Unix.Catalog.GetString ("Company name\n");
 		this.labelName.FontSize = 10;
 		this.table1.Add (this.labelName);
-		global::Gtk.Table.TableChild w12 = ((global::Gtk.Table.TableChild)(this.table1[this.labelName]));
-		w12.TopAttach = ((uint)(1));
-		w12.BottomAttach = ((uint)(2));
-		w12.XOptions = ((global::Gtk.AttachOptions)(4));
-		w12.YOptions = ((global::Gtk.AttachOptions)(4));
+		global::Gtk.Table.TableChild w13 = ((global::Gtk.Table.TableChild)(this.table1[this.labelName]));
+		w13.TopAttach = ((uint)(1));
+		w13.BottomAttach = ((uint)(2));
+		w13.XOptions = ((global::Gtk.AttachOptions)(4));
+		w13.YOptions = ((global::Gtk.AttachOptions)(4));
 		// Container child table1.Gtk.Table+TableChild
 		this.labelPrice = new global::GtkForms.FormsLabel ();
 		this.labelPrice.Name = "labelPrice";
@@ -194,16 +210,16 @@ public partial class MainWindow
 		this.labelPrice.LabelProp = global::Mono.Unix.Catalog.GetString ("Price");
 		this.labelPrice.FontSize = 10;
 		this.table1.Add (this.labelPrice);
-		global::Gtk.Table.TableChild w13 = ((global::Gtk.Table.TableChild)(this.table1[this.labelPrice]));
-		w13.TopAttach = ((uint)(2));
-		w13.BottomAttach = ((uint)(3));
-		w13.XOptions = ((global::Gtk.AttachOptions)(4));
-		w13.YOptions = ((global::Gtk.AttachOptions)(4));
+		global::Gtk.Table.TableChild w14 = ((global::Gtk.Table.TableChild)(this.table1[this.labelPrice]));
+		w14.TopAttach = ((uint)(2));
+		w14.BottomAttach = ((uint)(3));
+		w14.XOptions = ((global::Gtk.AttachOptions)(4));
+		w14.YOptions = ((global::Gtk.AttachOptions)(4));
 		this.hbox1.Add (this.table1);
-		global::Gtk.Box.BoxChild w14 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.table1]));
-		w14.Position = 1;
-		w14.Expand = false;
-		w14.Fill = false;
+		global::Gtk.Box.BoxChild w15 = ((global::Gtk.Box.BoxChild)(this.hbox1[this.table1]));
+		w15.Position = 1;
+		w15.Expand = false;
+		w15.Fill = false;
 		this.Add (this.hbox1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
@@ -214,5 +230,6 @@ public partial class MainWindow
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		this.entryName.Validating += new global::System.ComponentModel.CancelEventHandler (this.OnEntryNameValidating);
+		this.buttonLoad.Clicked += new global::System.EventHandler (this.ButtonLoad_Clicked);
 	}
 }

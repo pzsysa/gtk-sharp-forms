@@ -96,6 +96,8 @@ namespace GtkForms.Custom
 		void HandleCalendwndHidden (object sender, EventArgs e)
 		{
 			Date = calendwnd.Date;
+			entry.GrabFocus ();
+			entry.Position = entry.Text.Length;
 		}
 		
 		void HandleEntryChanged (object sender, EventArgs e)
@@ -104,7 +106,7 @@ namespace GtkForms.Custom
 		}
 		
 		[GLib.ConnectBefore]
-		void HandleEntryFocusOutEvent (object o, Gtk.FocusOutEventArgs args)
+		void HandleEntryFocusOutEvent (object sender, Gtk.FocusOutEventArgs e)
 		{
 			OnFocusOut ();
 		}
