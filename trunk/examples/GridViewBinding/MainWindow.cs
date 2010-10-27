@@ -17,23 +17,16 @@ public partial class MainWindow : FormsWindow
 	protected override void OnShown ()
 	{
 		base.OnShown ();
-		
 		BindingContext = new BindingContext ();
 		
-		products = new NotifiedBindingList<Product> () {
-						new Product(){ProductID=1, ProductName="computer", Price=49m, Favourite=false},
-						new Product(){ProductID=2, ProductName="mouse", Price=10.5m, Favourite=false},
-						new Product(){ProductID=3, ProductName="monitor", Price=200m, Favourite=true},
-						new Product(){ProductID=4, ProductName="keyboard", Price=21m, Favourite=true}};
-		
+		products = new NotifiedBindingList<Product>() {};
 		bsrcProducts = new BindingSource (){DataSource = products};
+		gridview.DataSource = bsrcProducts;
 		
 		entryID.DataBindings.Add (new Binding ("Text", bsrcProducts, "ProductID", true, DataSourceUpdateMode.OnPropertyChanged));
 		entryName.DataBindings.Add (new Binding ("Text", bsrcProducts, "ProductName", true, DataSourceUpdateMode.OnPropertyChanged));
 		spinPrice.DataBindings.Add (new Binding ("Value", bsrcProducts, "Price", true, DataSourceUpdateMode.OnPropertyChanged));
 		checkFavourite.DataBindings.Add (new Binding("Active", bsrcProducts, "Favourite", true, DataSourceUpdateMode.OnPropertyChanged));
-	
-		gridview.DataSource = bsrcProducts;		
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
@@ -51,5 +44,17 @@ public partial class MainWindow : FormsWindow
 		} else {
 			labelError.Visible = false;
 		}
+	}
+	
+	protected virtual void ButtonLoad_Clicked (object sender, System.EventArgs e)
+	{
+		products = new NotifiedBindingList<Product> () {
+						new Product(){ProductID=1, ProductName="computer", Price=49m, Favourite=false},
+						new Product(){ProductID=2, ProductName="mouse", Price=10.5m, Favourite=false},
+						new Product(){ProductID=3, ProductName="monitor", Price=200m, Favourite=true},
+						new Product(){ProductID=4, ProductName="keyboard", Price=21m, Favourite=true}};
+		
+		bsrcProducts.DataSource = products;
+		gridview.DataSource = bsrcProducts;
 	}
 }
