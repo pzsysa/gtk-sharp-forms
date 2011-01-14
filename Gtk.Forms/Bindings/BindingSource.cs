@@ -451,6 +451,7 @@ namespace GtkForms {
 
 				ProcessSortString (value);
 				sort = value;
+				ResetList ();
 			}
 		}
 

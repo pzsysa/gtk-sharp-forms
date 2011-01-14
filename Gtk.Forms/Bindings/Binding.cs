@@ -466,7 +466,7 @@ namespace GtkForms {
 				ConvertEventArgs e = new ConvertEventArgs (control_data, pd.PropertyType);
 				control_data = ParseData (e);
 				//We need to compare different types eg. Decimal and string
-				if (StringComparer.InvariantCultureIgnoreCase.Compare ((control_data ?? (pd.PropertyType.IsValueType ? Activator.CreateInstance (pd.PropertyType) : string.Empty)).ToString (), 
+				if (StringComparer.InvariantCultureIgnoreCase.Compare ((control_data ?? (pd.PropertyType.IsValueType ? (Activator.CreateInstance (pd.PropertyType) ?? string.Empty) : string.Empty)).ToString (), 
 				                                                       (data ?? string.Empty).ToString())== 0)
 					return;
 			}

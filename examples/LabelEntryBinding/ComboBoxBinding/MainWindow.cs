@@ -98,6 +98,14 @@ namespace ComboBoxBinding
 //			comboboxEnum.DataSource = Enum.GetValues (typeof(CityTypes));
 			
 			labelEnum.DataBindings.Add ("Text", city, "CityType");
+			
+			City city2 = new City ();
+			comboboxEnum2.DataSource = Enum.GetValues (typeof(CityTypes));
+			comboboxEnum2.DataBindings.Add ("SelectedItem", city2, "CityType", false, DataSourceUpdateMode.OnPropertyChanged);
+			comboboxEnum2.DataBindings [0].WriteValue ();
+			labelEnum2.DataBindings.Add ("Text", city2, "CityType");
+			
+			
 		}
 		
 		protected virtual void OnButton1Clicked (object sender, System.EventArgs e)
