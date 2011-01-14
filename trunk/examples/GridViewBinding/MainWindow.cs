@@ -4,7 +4,7 @@ using GtkForms;
 
 public partial class MainWindow : FormsWindow
 {
-	NotifiedBindingList<Product> products;
+	LinqNotifiedBindingList<Product> products;
 	BindingSource bsrcProducts;
 	
 	public MainWindow () : base(Gtk.WindowType.Toplevel)
@@ -19,7 +19,7 @@ public partial class MainWindow : FormsWindow
 		base.OnShown ();
 		BindingContext = new BindingContext ();
 		
-		products = new NotifiedBindingList<Product>() {};
+		products = new LinqNotifiedBindingList<Product>() {};
 		bsrcProducts = new BindingSource (){DataSource = products};
 		gridview.DataSource = bsrcProducts;
 		
@@ -27,6 +27,8 @@ public partial class MainWindow : FormsWindow
 		entryName.DataBindings.Add (new Binding ("Text", bsrcProducts, "ProductName", true, DataSourceUpdateMode.OnPropertyChanged));
 		spinPrice.DataBindings.Add (new Binding ("Value", bsrcProducts, "Price", true, DataSourceUpdateMode.OnPropertyChanged));
 		checkFavourite.DataBindings.Add (new Binding("Active", bsrcProducts, "Favourite", true, DataSourceUpdateMode.OnPropertyChanged));
+	
+		gridview.HeadersClickable = true;
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
@@ -48,11 +50,13 @@ public partial class MainWindow : FormsWindow
 	
 	protected virtual void ButtonLoad_Clicked (object sender, System.EventArgs e)
 	{
-		products = new NotifiedBindingList<Product> () {
+		products = new LinqNotifiedBindingList<Product> () {
 						new Product(){ProductID=1, ProductName="computer", Price=49m, Favourite=false},
 						new Product(){ProductID=2, ProductName="mouse", Price=10.5m, Favourite=false},
-						new Product(){ProductID=3, ProductName="monitor", Price=200m, Favourite=true},
-						new Product(){ProductID=4, ProductName="keyboard", Price=21m, Favourite=true}};
+						new Product(){ProductID=3, ProductName="monitor", Price=80m, Favourite=true},
+						new Product(){ProductID=4, ProductName="keyboard", Price=21m, Favourite=true},
+						new Product(){ProductID=5, ProductName="monitor", Price=30m, Favourite=true},
+						new Product(){ProductID=6, ProductName="monitor", Price=30m, Favourite=false}};
 		
 		bsrcProducts.DataSource = products;
 		gridview.DataSource = bsrcProducts;

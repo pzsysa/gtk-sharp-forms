@@ -47,8 +47,8 @@ namespace ComboBoxBinding
             }
         }
 		
-		private CityTypes cityType;
-        public CityTypes CityType 
+		private CityTypes? cityType;
+        public CityTypes? CityType 
         {
             get { return cityType; }
             set

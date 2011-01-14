@@ -73,13 +73,16 @@ namespace GtkForms
 
 			PropertyDescriptor prop = null;
 
-			if (DataManager != null) {
-				PropertyDescriptorCollection col = DataManager.GetItemProperties ();
-				prop = col.Find (field, true);
-			} else {
-				PropertyDescriptorCollection properties = TypeDescriptor.GetProperties (item);
-				prop = properties.Find (field, true);
-			}
+//			if (DataManager != null) {
+//				PropertyDescriptorCollection col = DataManager.GetItemProperties ();
+//				prop = col.Find (field, true);
+//			} else {
+//				PropertyDescriptorCollection properties = TypeDescriptor.GetProperties (item);
+//				prop = properties.Find (field, true);
+//			}
+			
+			PropertyDescriptorCollection properties = TypeDescriptor.GetProperties (item);
+			prop = properties.Find (field, true);
 			
 			if (prop == null)
 				return item;

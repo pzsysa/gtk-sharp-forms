@@ -39,6 +39,7 @@ namespace GtkForms
 		private object data_source;
 		private BindingMemberInfo value_member;
 		private string display_member;
+		private BindingSource bsrc;
 		
 		protected CurrencyManager DataManager {get; set;}
 		
@@ -59,7 +60,7 @@ namespace GtkForms
 				else if (!(value is IList || value is IListSource))
 					throw new Exception ("Complex DataBinding accepts as a data source " +
 						"either an IList or an IListSource");
-
+				
 				data_source = value;
 				ConnectToDataSource ();
 //				OnDataSourceChanged (EventArgs.Empty);
@@ -111,6 +112,9 @@ namespace GtkForms
 				if (selected == null) {
 					return null;
 				}
+				if (ValueMember == null) {
+					return selected;
+				}
 				PropertyInfo propinfo = selected.GetType ().GetProperty (ValueMember);
 				return propinfo.GetValue (selected, null);
 			}
@@ -119,9 +123,11 @@ namespace GtkForms
 					return;
 				
 				foreach (object item in DataManager.List) {
-					PropertyInfo propinfo = item.GetType ().GetProperty (ValueMember);
-					object itemval = propinfo.GetValue (item, null);
-					
+					object itemval = item;
+					if (ValueMember != null) {
+						PropertyInfo propinfo = item.GetType ().GetProperty (ValueMember);
+						itemval = propinfo.GetValue (item, null);
+					}
 					if (Comparer.Default.Compare (itemval, value) == 0) {
 							int position = DataManager.List.IndexOf (item);
 							DataManager.Position = position;
@@ -203,6 +209,11 @@ namespace GtkForms
 		protected abstract ListStore CreateStore ();
 		
 		protected abstract void SetCellRenderers ();
+		
+		protected void RefreshDataSource ()
+		{
+			ConnectToDataSource ();
+		}
 		
 		private void SetItems ()
 		{

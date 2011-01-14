@@ -22,6 +22,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Text;
 using Gtk;
 
 namespace GtkForms
@@ -31,6 +32,8 @@ namespace GtkForms
 		where T : TreeView, IDecoratedGridView
 	{
 		private T grid;
+		private Dictionary<TreeViewColumn, PropertyDescriptor> treecolumns;
+		private List <ListSortDescription> sorts;
 		
 		private bool auto_generate_columns = true;
 		public bool AutoGenerateColumns {
@@ -42,6 +45,7 @@ namespace GtkForms
 			: base (widget)
 		{
 			grid = widget;
+			sorts = new List<ListSortDescription> ();
 		}
 		
 		protected override ListStore CreateStore ()
@@ -62,6 +66,8 @@ namespace GtkForms
 		
 		protected override void SetCellRenderers ()
 		{
+			treecolumns = new Dictionary<TreeViewColumn, PropertyDescriptor> ();
+			
 			if (AutoGenerateColumns) {
 				
 				int count = 0;
@@ -69,7 +75,9 @@ namespace GtkForms
 					CellRendererText ct = new CellRendererText ();
 					ct.Editable = false;
 					TreeViewColumn treecol = new TreeViewColumn (prop.DisplayName, ct, "text", count++);
+					treecol.Clicked += HandleTreeColumnClicked;
 					grid.AppendColumn (treecol);
+					treecolumns.Add (treecol, prop);
 				}
 			}
 		}
@@ -88,6 +96,78 @@ namespace GtkForms
 			}
 			
 			return values.ToArray ();
+		}
+		
+		void UpdateSorts (TreeViewColumn treecol)
+		{
+			PropertyDescriptor prop = treecolumns [treecol];
+			ListSortDescription lsd = sorts.Find (l => l.PropertyDescriptor == prop);
+			
+			if (lsd == null) {
+				lsd = new ListSortDescription (prop, ListSortDirection.Ascending);
+				sorts.Add (lsd);
+			} else {
+				if (lsd.SortDirection == ListSortDirection.Ascending) {
+					lsd.SortDirection = ListSortDirection.Descending;
+				} else {
+					sorts.Remove (lsd);
+				}
+			}
+		}
+		
+		void UpdateHeaders ()
+		{
+			foreach (TreeViewColumn treecol in treecolumns.Keys) {
+				PropertyDescriptor prop = treecolumns [treecol];
+				ListSortDescription lsd = sorts.Find (l => l.PropertyDescriptor == prop);
+				if (lsd == null) {
+					treecol.Title = prop.DisplayName;
+				} else {
+					int n = sorts.IndexOf (lsd) + 1; //column order number
+					treecol.Title = string.Format ("{0} {1}{2}", 
+						prop.DisplayName, (lsd.SortDirection == ListSortDirection.Ascending) ? "\u2193" : "\u2191", n);                               
+				}
+			}
+		}
+		
+		string GetSortExpression ()
+		{
+			if (sorts.Count == 0)
+				return string.Empty;
+			
+			var sortexpr = new StringBuilder ();
+			for (int i = 0; i < sorts.Count; i++) {
+				if (i != 0) {
+					sortexpr.Append (", ");
+				}
+				ListSortDescription lsd = sorts [i];
+				sortexpr.AppendFormat ("{0} {1}", 
+					lsd.PropertyDescriptor.Name, 
+					(lsd.SortDirection == ListSortDirection.Ascending) ? "ASC" : "DESC");
+			}
+			return sortexpr.ToString ();
+		}
+		
+		void Sort ()
+		{
+			if (DataSource is BindingSource) {
+				var bsrc = (BindingSource) DataSource;
+				string sortexpr = GetSortExpression ();
+				bsrc.Sort = sortexpr;
+			} else if (DataSource is IBindingListView) {
+				var listview = (IBindingListView) DataSource;
+				listview.ApplySort (new ListSortDescriptionCollection (sorts.ToArray ()));
+				RefreshDataSource ();
+			}
+		}
+		
+		void HandleTreeColumnClicked (object sender, EventArgs e)
+		{
+			var treecol = (TreeViewColumn) sender;
+			
+			UpdateSorts (treecol);
+			UpdateHeaders ();
+			Sort ();
 		}
 	}
 }

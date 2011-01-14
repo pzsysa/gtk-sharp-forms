@@ -32,7 +32,6 @@ using System.ComponentModel;
                     OnPropertyChanged("ProductID");
                 }
             }
-
         }
 		
 		private decimal price;
