@@ -21,11 +21,13 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using Gtk;
 
 namespace GtkForms
 {
+	[ToolboxItem(true)]
 	public class FormsGridView : TreeView, IBindableComponent, IDecoratedGridView, IListWidget
 	{
 		private GridViewDecorator<FormsGridView> decorator;
@@ -41,6 +43,10 @@ namespace GtkForms
 		public bool AutoGenerateColumns {
 			get { return Decorator.AutoGenerateColumns; }
 			set { Decorator.AutoGenerateColumns = value; }
+		}
+		
+		public List<GridViewColumn> Columns {
+			get { return Decorator.Columns; }
 		}
 		
 		public object DataSource {

@@ -40,7 +40,11 @@ namespace GtkForms
 			: base (list)
 		{
 		}
-	
+		
+		public LinqNotifiedBindingList (System.Collections.IEnumerable list)
+			: base (list)
+		{
+		}
 
 		#region IBindingListView implementation
 		

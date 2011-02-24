@@ -49,7 +49,7 @@
     <Reference Include="System.Core" />
     <Reference Include="pango-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
     </Reference>
-    <Reference Include="Mono.Cairo, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
+    <Reference Include="Mono.Cairo" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
@@ -125,6 +125,10 @@
     <Compile Include="Extensions\GdkExtensions.cs" />
     <Compile Include="Decorators\IFocusableWidget.cs" />
     <Compile Include="Bindings\LinqNotifiedBindingList.cs" />
+    <Compile Include="Widgets\FormsTreeView.cs" />
+    <Compile Include="Decorators\TreeViewDecorator.cs" />
+    <Compile Include="Decorators\gridview\GridViewColumn.cs" />
+    <Compile Include="Decorators\gridview\GridViewCellStyle.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -135,6 +139,7 @@
     <Folder Include="Designer\" />
     <Folder Include="Custom\" />
     <Folder Include="Extensions\" />
+    <Folder Include="Decorators\gridview\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="objects.xml">
