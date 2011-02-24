@@ -82,7 +82,7 @@ public partial class MainWindow
 		w4.XOptions = ((global::Gtk.AttachOptions)(4));
 		w4.YOptions = ((global::Gtk.AttachOptions)(4));
 		// Container child table1.Gtk.Table+TableChild
-		this.alignmentPrice = new global::Gtk.Alignment (0.01F, 0.5F, 0F, 1F);
+		this.alignmentPrice = new global::Gtk.Alignment (1F, 0.5F, 0F, 1F);
 		this.alignmentPrice.Name = "alignmentPrice";
 		// Container child alignmentPrice.Gtk.Container+ContainerChild
 		this.spinPrice = new global::GtkForms.FormsSpinButton ();

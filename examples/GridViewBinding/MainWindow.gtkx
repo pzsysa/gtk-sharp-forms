@@ -73,7 +73,7 @@
               <widget class="Gtk.Alignment" id="alignmentPrice">
                 <property name="MemberName" />
                 <property name="Xscale">0</property>
-                <property name="Xalign">0.01</property>
+                <property name="Xalign">1</property>
                 <child>
                   <widget class="GtkForms.FormsSpinButton" id="spinPrice">
                     <property name="MemberName" />

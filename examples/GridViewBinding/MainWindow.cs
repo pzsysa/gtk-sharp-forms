@@ -12,12 +12,18 @@ public partial class MainWindow : FormsWindow
 		Build ();	
 		
 		labelError.ModifyFg (StateType.Normal, new Gdk.Color(255, 0, 0));
-	}
-	
-	protected override void OnShown ()
-	{
-		base.OnShown ();
-		BindingContext = new BindingContext ();
+		gridview.AutoGenerateColumns = false;
+		gridview.HeadersClickable = true;
+		gridview.Columns.Add (new GridViewColumn () {
+			DataPropertyName = "ProductID", HeaderText = "ID" });
+		gridview.Columns.Add (new GridViewColumn () {
+			DataPropertyName = "ProductName", HeaderText = "Name", Width = 160 });
+		var colPrice = new GridViewColumn () {
+			DataPropertyName = "Price", HeaderText = "Price", Width = 60};
+		colPrice.DefaultCellStyle.Format = "C2";
+		gridview.Columns.Add (colPrice);
+		gridview.Columns.Add (new GridViewColumn () {
+			DataPropertyName = "Favourite", HeaderText = "Favourite"}); 
 		
 		products = new LinqNotifiedBindingList<Product>() {};
 		bsrcProducts = new BindingSource (){DataSource = products};
@@ -26,8 +32,7 @@ public partial class MainWindow : FormsWindow
 		entryID.DataBindings.Add (new Binding ("Text", bsrcProducts, "ProductID", true, DataSourceUpdateMode.OnPropertyChanged));
 		entryName.DataBindings.Add (new Binding ("Text", bsrcProducts, "ProductName", true, DataSourceUpdateMode.OnPropertyChanged));
 		spinPrice.DataBindings.Add (new Binding ("Value", bsrcProducts, "Price", true, DataSourceUpdateMode.OnPropertyChanged));
-		checkFavourite.DataBindings.Add (new Binding("Active", bsrcProducts, "Favourite", true, DataSourceUpdateMode.OnPropertyChanged));
-	
+		checkFavourite.DataBindings.Add (new Binding ("Active", bsrcProducts, "Favourite", true, DataSourceUpdateMode.OnPropertyChanged));
 		gridview.HeadersClickable = true;
 	}
 

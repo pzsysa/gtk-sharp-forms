@@ -195,14 +195,13 @@ namespace GtkForms
 		}
 			
 		private void SetModel ()
-		{
-			store = CreateStore ();
-			
+		{	
 			if (!CellRenderExists) {
 				SetCellRenderers ();
 				CellRenderExists = true;
 			}
-                
+            
+			store = CreateStore ();
             list_widget.Model = store;
 		}
 		
