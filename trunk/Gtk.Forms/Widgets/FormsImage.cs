@@ -1,10 +1,10 @@
 // 
-//  FormsEntry.cs
+//  FormsImage.cs
 //  
 //  Author:
 //       Krzysztof Marecki <marecki.krzysztof@gmail.com>
 // 
-//  Copyright (c) 2010 Krzysztof Marecki
+//  Copyright (c) 2011 KrzysztofMarecki
 // 
 //  This library is free software; you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as
@@ -22,37 +22,43 @@
 using System;
 using System.ComponentModel;
 using Gtk;
+using Gdk;
 
 namespace GtkForms
 {
 	[ToolboxItem(true)]
-	public class FormsEntry : Entry, IBindableComponent
+	public class FormsImage : Gtk.Image
 	{
-		private EntryDecorator decorator;
-		internal EntryDecorator Decorator { 
+		private ImageDecorator decorator;
+		internal ImageDecorator Decorator { 
 			get {
 				if (decorator == null)
-					decorator = new EntryDecorator (this);
+					decorator = new ImageDecorator (this);
 				
 				return decorator;
 			}
 		}
 		
-		public FormsEntry ()
+		public FormsImage ()
 			: base ()
 		{
 		}
 		
-		public FormsEntry (IntPtr raw)
+		public FormsImage (IntPtr raw)
 			: base (raw)
 		{
 		}
 		
-		public FormsEntry (string initialText)
-			:base (initialText)
+		public FormsImage (Pixbuf pixbuf)
+			: base (pixbuf)
 		{
-			
 		}
+		
+		public FormsImage (PixbufAnimation animation)
+			: base (animation)
+		{
+		}
+		
 		
 		#region IBindableComponent implementation
 		public event EventHandler HandleCreated {
@@ -77,37 +83,30 @@ namespace GtkForms
 		public bool IsHandleCreated { get { return Decorator.IsHandleCreated; } }
 		#endregion
 		
-		public Gdk.Color BackgroundColor {
-			get { return Decorator.BackgroundColor; }
-			set { Decorator.BackgroundColor = value; }
-		}
-		
-		public int FontSize {
-			get { return Decorator.FontSize; }
-			set { Decorator.FontSize = value; }
-		}
-		
-		public Pango.Weight FontWeight {
-			get { return Decorator.FontWeight; }
-			set { Decorator.FontWeight = value; }
-		}
-		
-		public new string Text {
-			get { return base.Text; }
-			set {
-				if (value == null) {
-					return;
-				}
-				if (base.Text != value ) {
-					base.Text = value; 
-				}
+		public byte[] ImageData {
+			get { return Decorator.ImageData; }
+			set { 
+				Decorator.ImageData = value;
+				OnImageDataChanged (EventArgs.Empty);
 			}
 		}
 		
-		[EditorBrowsable (EditorBrowsableState.Never)]
-		public event EventHandler TextChanged {
-			add { base.Changed += value; }
-			remove { base.Changed -= value; }
+		public new Pixbuf Pixbuf {
+			get { return base.Pixbuf; }
+			set {
+				base.Pixbuf = value;
+				OnImageDataChanged (EventArgs.Empty);
+			}
+		}
+		
+		public event EventHandler ImageDataChanged;
+		
+		protected virtual void OnImageDataChanged (EventArgs args)
+		{
+			var handler = ImageDataChanged;
+			if (handler != null) {
+				handler (this, args);
+			}
 		}
 	}
 }

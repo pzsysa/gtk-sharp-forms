@@ -30,7 +30,7 @@ using System.Reflection;
 namespace GtkForms
 {
 	[SerializableAttribute] 
-	public class NotifiedBindingList<T> : Collection<T>,
+	public class NotifiedBindingList<T> : BaseCollection<T>,
 		IBindingList, IList, ICollection, 
 		IEnumerable, ICancelAddNew, IRaiseItemChangedEvents
 	{
@@ -48,6 +48,7 @@ namespace GtkForms
 		int pending_add_index;
 		
 		PropertyChangedEventHandler property_changed_event_handler;
+		Collection<T> collection;
 
 		void CheckType ()
 		{

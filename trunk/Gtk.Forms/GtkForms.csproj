@@ -129,6 +129,10 @@
     <Compile Include="Decorators\TreeViewDecorator.cs" />
     <Compile Include="Decorators\gridview\GridViewColumn.cs" />
     <Compile Include="Decorators\gridview\GridViewCellStyle.cs" />
+    <Compile Include="Decorators\gridview\GridViewContentAlignment.cs" />
+    <Compile Include="Widgets\FormsFrame.cs" />
+    <Compile Include="Decorators\ImageDecorator.cs" />
+    <Compile Include="Widgets\FormsImage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -183,5 +187,11 @@
     <EmbeddedResource Include="Pixmaps\calendar_22x16.png">
       <LogicalName>calendar_22x16.png</LogicalName>
     </EmbeddedResource>
+    <EmbeddedResource Include="Pixmaps\frame.png">
+      <LogicalName>frame.png</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pixmaps\image.png" />
   </ItemGroup>
 </Project>

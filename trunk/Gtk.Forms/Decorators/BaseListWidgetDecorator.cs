@@ -52,8 +52,9 @@ namespace GtkForms
 		public object DataSource {
 			get { return data_source; }
 			set {
-				if (data_source == value)
-					return;
+				//if data_source is BindingSource we don't know if real data source is different
+				//if (data_source == value)
+				//	return;
 
 				if (value == null)
 					display_member = String.Empty;
@@ -62,7 +63,8 @@ namespace GtkForms
 						"either an IList or an IListSource");
 				
 				data_source = value;
-				ConnectToDataSource ();
+				//ConnectToDataSource ();
+				RefreshDataSource ();
 //				OnDataSourceChanged (EventArgs.Empty);
 			}
 		}
@@ -150,7 +152,7 @@ namespace GtkForms
 					DisplayMember = value_member.BindingMember;
 
 				if (DataSource != null)
-					ConnectToDataSource ();
+					RefreshDataSource ();
 //				OnValueMemberChanged (EventArgs.Empty);
 			}
 		}
@@ -209,7 +211,7 @@ namespace GtkForms
 		
 		protected abstract void SetCellRenderers ();
 		
-		protected void RefreshDataSource ()
+		protected virtual void RefreshDataSource ()
 		{
 			ConnectToDataSource ();
 		}

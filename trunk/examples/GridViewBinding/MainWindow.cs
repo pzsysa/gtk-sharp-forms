@@ -13,7 +13,6 @@ public partial class MainWindow : FormsWindow
 		
 		labelError.ModifyFg (StateType.Normal, new Gdk.Color(255, 0, 0));
 		gridview.AutoGenerateColumns = false;
-		gridview.HeadersClickable = true;
 		gridview.Columns.Add (new GridViewColumn () {
 			DataPropertyName = "ProductID", HeaderText = "ID" });
 		gridview.Columns.Add (new GridViewColumn () {
