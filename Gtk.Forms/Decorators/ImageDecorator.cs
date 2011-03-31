@@ -1,10 +1,10 @@
 // 
-//  GridViewCellStyle.cs
+//  ImageDecorator.cs
 //  
 //  Author:
 //       Krzysztof Marecki <marecki.krzysztof@gmail.com>
 // 
-//  Copyright (c) 2011 Krzysztof Marecki
+//  Copyright (c) 2011 KrzysztofMarecki
 // 
 //  This library is free software; you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as
@@ -20,18 +20,35 @@
 //  License along with this library; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 using System;
+using Gdk;
+using Gtk;
 
 namespace GtkForms
 {
-	public class GridViewCellStyle
+	public class ImageDecorator : WidgetDecorator
 	{
-		public GridViewCellStyle ()
+		Gtk.Image image;
+		
+		public ImageDecorator (Gtk.Image widget)
+			: base (widget)
 		{
+			image = widget;
 		}
 		
-		public GridViewContentAlignment Alignment { get; set; }
-		
-		public string Format { get; set; }
+		public byte[] ImageData {
+			get {
+				Pixdata data = new Pixdata ();
+				data.FromPixbuf (image.Pixbuf, false);
+				return data.Serialize ();
+				
+			}
+			set {
+				Pixdata data = new Pixdata ();
+				data.Deserialize ((uint)value.Length, value); 
+				Pixbuf pixbuf = Pixbuf.FromPixdata (data, true);
+				image.Pixbuf = pixbuf;
+			}
+		}
 	}
 }
 

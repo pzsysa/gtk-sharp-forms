@@ -62,6 +62,14 @@
 			</itemgroup>
 		</signals>
 	</object>
+	<object type="GtkForms.FormsFrame" base-type="Gtk.Frame" icon="frame.png" palette-category="GtkForms">
+		<itemgroups>
+			<itemgroup label="Binding Properties">
+				<!--<property name="DataBindings"/>-->
+			</itemgroup>
+		</itemgroups>
+		<signals />
+	</object>
 	<object type="GtkForms.FormsGridView" base-type="Gtk.TreeView" palette-category="GtkForms">
 		<itemgroups>
 			<itemgroup label="Binding Properties">
@@ -71,6 +79,14 @@
 				<property name="FontSize" />
 			</itemgroup>
 		</itemgroups>
+	</object>
+	<object type="GtkForms.FormsImage" base-type="Gtk.Image" icon="image.png" palette-category="GtkForms">
+		<itemgroups>
+			<itemgroup label="Binding Properties">
+				<!--<property name="DataBindings"/>-->
+			</itemgroup>
+		</itemgroups>
+		<signals />
 	</object>
 	<object type="GtkForms.FormsTreeView" base-type="Gtk.TreeView" palette-category="GtkForms">
 		<itemgroups>

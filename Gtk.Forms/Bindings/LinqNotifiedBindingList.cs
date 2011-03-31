@@ -20,6 +20,7 @@
 //  License along with this library; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -27,7 +28,7 @@ using System.Reflection;
 
 namespace GtkForms
 {
-	public class LinqNotifiedBindingList<T> : NotifiedBindingList<T>, IBindingListView
+	public class LinqNotifiedBindingList<T> : NotifiedBindingList<T>, IBindingListView 
 	{
 		Dictionary<int, int> view_indexes;
 		
@@ -102,6 +103,7 @@ namespace GtkForms
 			foreach (var item in sorted) {
 				view_indexes.Add (key++, IndexOf (item));
 			}
+
 		}
 
 		void IBindingListView.RemoveFilter ()
@@ -147,17 +149,18 @@ namespace GtkForms
 		public System.Collections.IEnumerator GetViewEnumerator ()
 		{
 			foreach (var pair in view_indexes) {
-				yield return base [pair.Value];
+				yield return base [pair.Key];
 			}
 		}
 		
-		public new T this[int index] {
-			get {
-				return base [Translate (index)];
-			}
-			set {
-				base [Translate (index)] = value;
-			}
+		protected override T GetItem (int index)
+		{
+			return base.GetItem (Translate (index));
+		}
+		
+		protected override void SetItem (int index, T item)
+		{
+			base.SetItem (Translate (index), item);
 		}
 		
 		public new System.Collections.IEnumerator GetEnumerator ()

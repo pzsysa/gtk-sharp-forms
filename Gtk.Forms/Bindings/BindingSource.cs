@@ -17,6 +17,7 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
+// Copyright (c) 2011 Krzysztof Marecki
 // Copyright (c) 2007 Novell, Inc.
 //
 
@@ -443,6 +444,7 @@ namespace GtkForms {
 						RemoveSort ();
 				
 					sort = value;
+					ResetList ();
 					return;
 				}
 

@@ -1,10 +1,10 @@
 // 
-//  FormsEntry.cs
+//  FormsFrame.cs
 //  
 //  Author:
 //       Krzysztof Marecki <marecki.krzysztof@gmail.com>
 // 
-//  Copyright (c) 2010 Krzysztof Marecki
+//  Copyright (c) 2011 KrzysztofMarecki
 // 
 //  This library is free software; you can redistribute it and/or modify
 //  it under the terms of the GNU Lesser General Public License as
@@ -26,32 +26,31 @@ using Gtk;
 namespace GtkForms
 {
 	[ToolboxItem(true)]
-	public class FormsEntry : Entry, IBindableComponent
+	public class FormsFrame : Frame, IBindableComponent
 	{
-		private EntryDecorator decorator;
-		internal EntryDecorator Decorator { 
+		private WidgetDecorator decorator;
+		internal WidgetDecorator Decorator { 
 			get {
 				if (decorator == null)
-					decorator = new EntryDecorator (this);
+					decorator = new WidgetDecorator (this);
 				
 				return decorator;
 			}
 		}
 		
-		public FormsEntry ()
+		public FormsFrame ()
 			: base ()
 		{
 		}
 		
-		public FormsEntry (IntPtr raw)
+		public FormsFrame (IntPtr raw)
 			: base (raw)
 		{
 		}
 		
-		public FormsEntry (string initialText)
-			:base (initialText)
+		public FormsFrame (string label)
+			: base (label)
 		{
-			
 		}
 		
 		#region IBindableComponent implementation
@@ -76,39 +75,6 @@ namespace GtkForms
 		
 		public bool IsHandleCreated { get { return Decorator.IsHandleCreated; } }
 		#endregion
-		
-		public Gdk.Color BackgroundColor {
-			get { return Decorator.BackgroundColor; }
-			set { Decorator.BackgroundColor = value; }
-		}
-		
-		public int FontSize {
-			get { return Decorator.FontSize; }
-			set { Decorator.FontSize = value; }
-		}
-		
-		public Pango.Weight FontWeight {
-			get { return Decorator.FontWeight; }
-			set { Decorator.FontWeight = value; }
-		}
-		
-		public new string Text {
-			get { return base.Text; }
-			set {
-				if (value == null) {
-					return;
-				}
-				if (base.Text != value ) {
-					base.Text = value; 
-				}
-			}
-		}
-		
-		[EditorBrowsable (EditorBrowsableState.Never)]
-		public event EventHandler TextChanged {
-			add { base.Changed += value; }
-			remove { base.Changed -= value; }
-		}
 	}
 }
 

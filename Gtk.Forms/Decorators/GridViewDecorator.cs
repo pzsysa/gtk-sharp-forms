@@ -84,16 +84,25 @@ namespace GtkForms
 					CellRendererText ct = new CellRendererText ();
 					ct.Editable = col.ReadOnly;
 					
+					SetCellRendererAlignment (ct, col);
+					
 					var treecol = new TreeViewColumn (col.HeaderText, ct, "text", count++);
 					if (col.Width > 0) {
 						treecol.MinWidth = col.Width;
 					}
+					treecol.Clickable = grid.HeadersClickable;
 					treecol.Clicked += HandleTreeColumnClicked;
 					
 					grid.AppendColumn (treecol);
 					treecolumns.Add (treecol, prop);
 				}
 			}
+		}
+		
+		protected override void RefreshDataSource ()
+		{
+			Sort ();
+			base.RefreshDataSource ();
 		}
 		
 		protected override object[] GetItemValues (object item)
@@ -136,6 +145,57 @@ namespace GtkForms
 					.OfType<PropertyDescriptor> ()
 						.FirstOrDefault (p => col.DataPropertyName == p.Name);
 				col.DataProperty = prop;
+			}
+		}
+		
+		void SetCellRendererAlignment (CellRendererText ct, GridViewColumn col)
+		{
+			switch (col.DefaultCellStyle.Alignment) {
+				case GridViewContentAlignment.BottomCenter : {
+					ct.Xalign = 0.5f;
+					ct.Yalign = 1f;
+					break;
+				}
+				case GridViewContentAlignment.BottomLeft : {
+					ct.Xalign = 0f;
+					ct.Yalign = 1f;
+					break;
+				}
+				case GridViewContentAlignment.BottomRight : {
+					ct.Xalign = 1f;
+					ct.Yalign = 1f;
+					break;
+				}
+				case GridViewContentAlignment.MiddleCenter : {
+					ct.Xalign = 0.5f;
+					ct.Yalign = 0.5f;
+					break;
+				}
+				case GridViewContentAlignment.MiddleLeft : {
+					ct.Xalign = 0f;
+					ct.Yalign = 0.5f;
+					break;
+				}
+				case GridViewContentAlignment.MiddleRight : {
+					ct.Xalign = 1f;
+					ct.Yalign = 0.5f;
+					break;
+				}
+				case GridViewContentAlignment.TopCenter : {
+					ct.Xalign = 0.5f;
+					ct.Yalign = 0f;
+					break;
+				}
+				case GridViewContentAlignment.TopLeft : {
+					ct.Xalign = 0f;
+					ct.Yalign = 0f;
+					break;
+				}
+				case GridViewContentAlignment.TopRight : {
+					ct.Xalign = 1f;
+					ct.Yalign = 0f;
+					break;
+				}	
 			}
 		}
 		
@@ -194,14 +254,19 @@ namespace GtkForms
 		
 		void Sort ()
 		{
+			if (DataSource == null)
+				return;
+			if (sorts == null)
+				return;
+			
 			if (DataSource is BindingSource) {
 				var bsrc = (BindingSource) DataSource;
 				string sortexpr = GetSortExpression ();
 				bsrc.Sort = sortexpr;
+				
 			} else if (DataSource is IBindingListView) {
 				var listview = (IBindingListView) DataSource;
 				listview.ApplySort (new ListSortDescriptionCollection (sorts.ToArray ()));
-				RefreshDataSource ();
 			}
 		}
 		
@@ -211,7 +276,7 @@ namespace GtkForms
 			
 			UpdateSorts (treecol);
 			UpdateHeaders ();
-			Sort ();
+			RefreshDataSource ();
 		}
 	}
 }
