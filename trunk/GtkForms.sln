@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatePickerDemo", "examples\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeViewBinding", "examples\TreeViewBinding\TreeViewBinding.csproj", "{AFC13D6C-B18A-48C7-9E71-FA07EAF38DA8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImageBinding", "examples\ImageBinding\ImageBinding.csproj", "{D0124487-DDB7-454B-9B0B-9EEF632CB7DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +43,10 @@ Global
 		{AFC13D6C-B18A-48C7-9E71-FA07EAF38DA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFC13D6C-B18A-48C7-9E71-FA07EAF38DA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFC13D6C-B18A-48C7-9E71-FA07EAF38DA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0124487-DDB7-454B-9B0B-9EEF632CB7DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0124487-DDB7-454B-9B0B-9EEF632CB7DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0124487-DDB7-454B-9B0B-9EEF632CB7DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0124487-DDB7-454B-9B0B-9EEF632CB7DE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FEC098C0-4C64-4002-B98E-B18CB15FB06D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FEC098C0-4C64-4002-B98E-B18CB15FB06D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEC098C0-4C64-4002-B98E-B18CB15FB06D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -52,9 +58,10 @@ Global
 		{2A0BEC56-55B4-4AB8-A33D-A697B9C89C81} = {268F213E-0C0B-4F1B-9A0D-75390188AE44}
 		{FEC098C0-4C64-4002-B98E-B18CB15FB06D} = {268F213E-0C0B-4F1B-9A0D-75390188AE44}
 		{AFC13D6C-B18A-48C7-9E71-FA07EAF38DA8} = {268F213E-0C0B-4F1B-9A0D-75390188AE44}
+		{D0124487-DDB7-454B-9B0B-9EEF632CB7DE} = {268F213E-0C0B-4F1B-9A0D-75390188AE44}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = examples\GridViewBinding\GridViewBinding.csproj
+		StartupItem = examples\ImageBinding\ImageBinding.csproj
 		Policies = $0
 		$0.StandardHeader = $1
 		$1.Text = @\n ${FileName}\n \n Author:\n      ${AuthorName} <${AuthorEmail}>\n\n Copyright (c) ${Year} ${CopyrightHolder}\n\n This library is free software; you can redistribute it and/or modify\n it under the terms of the GNU Lesser General Public License as\n published by the Free Software Foundation; either version 2.1 of the\n License, or (at your option) any later version.\n\n This library is distributed in the hope that it will be useful, but\n WITHOUT ANY WARRANTY; without even the implied warranty of\n MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU\n Lesser General Public License for more details.\n\n You should have received a copy of the GNU Lesser General Public\n License along with this library; if not, write to the Free Software\n Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA

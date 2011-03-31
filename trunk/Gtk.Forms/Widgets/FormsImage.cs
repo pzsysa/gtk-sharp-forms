@@ -27,7 +27,7 @@ using Gdk;
 namespace GtkForms
 {
 	[ToolboxItem(true)]
-	public class FormsImage : Gtk.Image
+	public class FormsImage : Gtk.Image, IBindableComponent
 	{
 		private ImageDecorator decorator;
 		internal ImageDecorator Decorator { 

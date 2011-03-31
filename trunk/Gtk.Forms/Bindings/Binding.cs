@@ -53,7 +53,7 @@ namespace GtkForms {
 
 		private DataSourceUpdateMode datasource_update_mode;
 		private ControlUpdateMode control_update_mode;
-		private object datasource_null_value = Convert.DBNull;
+		private object datasource_null_value = null;
 		private object null_value;
 		private IFormatProvider format_info;
 		private string format_string;
@@ -294,8 +294,8 @@ namespace GtkForms {
 			}*/
 			
 			control.Validating += new CancelEventHandler (ControlValidatingHandler);
-			if (!control.IsHandleCreated)
-				control.HandleCreated += new EventHandler (ControlCreatedHandler);
+//			if (!control.IsHandleCreated)
+//				control.HandleCreated += new EventHandler (ControlCreatedHandler);
 
 			EventDescriptor prop_changed_event = GetPropertyChangedEvent (control, property_name);
 			if (prop_changed_event != null)
