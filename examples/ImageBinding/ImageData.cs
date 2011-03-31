@@ -1,5 +1,5 @@
 // 
-//  ImageDecorator.cs
+//  ImageData.cs
 //  
 //  Author:
 //       Krzysztof Marecki <marecki.krzysztof@gmail.com>
@@ -20,42 +20,36 @@
 //  License along with this library; if not, write to the Free Software
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 using System;
-using Gdk;
-using Gtk;
+using System.ComponentModel;
 
-namespace GtkForms
+namespace ImageBinding
 {
-	public class ImageDecorator : WidgetDecorator
+	public class ImageData : INotifyPropertyChanged
 	{
-		Gtk.Image image;
-		
-		public ImageDecorator (Gtk.Image widget)
-			: base (widget)
+		public ImageData ()
 		{
-			image = widget;
 		}
 		
-		public byte[] ImageData {
-			get {
-				if (image.Pixbuf == null) {
-					return null;
-				}
-				Pixdata data = new Pixdata ();
-				data.FromPixbuf (image.Pixbuf, false);
-				return data.Serialize ();
-				
-			}
+		byte[] pixdata;
+		public byte[] Pixdata {
+			get { return pixdata; }
 			set {
-				if (value != null) {
-					Pixdata data = new Pixdata ();
-					data.Deserialize ((uint)value.Length, value); 
-					Pixbuf pixbuf = Pixbuf.FromPixdata (data, true);
-					image.Pixbuf = pixbuf;
-				} else {
-					image.Pixbuf = null;
-				}
+				pixdata = value;
+				OnPropertyChanged ("Pixdata");
 			}
 		}
+			
+		#region INotifyPropertyChanged Members
+
+        protected void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion
 	}
 }
 

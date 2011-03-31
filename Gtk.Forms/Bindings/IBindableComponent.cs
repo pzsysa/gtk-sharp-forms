@@ -34,7 +34,7 @@ namespace GtkForms {
 		
 		BindingContext BindingContext { get; set; }
 		ControlBindingsCollection DataBindings { get; }
-		bool IsHandleCreated { get; }
+//		bool IsHandleCreated { get; }
 	}
 }
 
