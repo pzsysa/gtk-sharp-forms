@@ -62,6 +62,14 @@
 			</itemgroup>
 		</signals>
 	</object>
+<!--	<object type="GtkForms.FormsFileChooserButton" wrapper="Stetic.Wrapper.Container" base-type="Gtk.Container" icon="fileselection.png" palette-category="GtkForms">
+		<itemgroups>
+			<itemgroup label="Binding Properties">
+			
+			</itemgroup>
+		</itemgroups>
+		<signals />
+	</object>-->
 	<object type="GtkForms.FormsFrame" base-type="Gtk.Frame" icon="frame.png" palette-category="GtkForms">
 		<itemgroups>
 			<itemgroup label="Binding Properties">

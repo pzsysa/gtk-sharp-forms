@@ -40,16 +40,18 @@ namespace GtkForms
 				if (image.Pixbuf == null) {
 					return null;
 				}
-				Pixdata data = new Pixdata ();
-				data.FromPixbuf (image.Pixbuf, false);
-				return data.Serialize ();
-				
+				//Pixdata data = new Pixdata ();
+				//data.FromPixbuf (image.Pixbuf, false);
+				//return data.Serialize ();
+				return image.Pixbuf.SaveToBuffer ("png");
 			}
 			set {
 				if (value != null) {
-					Pixdata data = new Pixdata ();
-					data.Deserialize ((uint)value.Length, value); 
-					Pixbuf pixbuf = Pixbuf.FromPixdata (data, true);
+//					Pixdata data = new Pixdata ();
+//					data.Deserialize ((uint)value.Length, value); 
+//					Pixbuf pixbuf = Pixbuf.FromPixdata (data, true);
+//					image.Pixbuf = pixbuf;
+					Pixbuf pixbuf = new Pixbuf (value);
 					image.Pixbuf = pixbuf;
 				} else {
 					image.Pixbuf = null;

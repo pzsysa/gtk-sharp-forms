@@ -24,12 +24,14 @@ using Gtk;
 
 namespace GtkForms
 {
-	public class WidgetDecorator
+	public class WidgetDecorator : IBindableDecorator
 	{
 		Widget widget; 
 		bool? validated;
 		Gdk.Color backgroundColor;
 		Gdk.Color foregroundColor;
+		
+		#region IBindableDecorator
 		
 		private BindingContext binding_context;
 		public virtual BindingContext BindingContext {
@@ -58,11 +60,25 @@ namespace GtkForms
 		private ControlBindingsCollection data_bindings;
 		public ControlBindingsCollection DataBindings {
 			get {
-				if (data_bindings == null)
-					data_bindings = new ControlBindingsCollection (widget);
+				if (data_bindings == null) {
+					var bindable = 
+						((widget as IBindableComponent) != null) ? 
+						(IBindableComponent) widget : 
+						(IBindableComponent) this;
+					data_bindings = new ControlBindingsCollection (bindable);
+				}
 				return data_bindings;
 			}
 		}
+		
+		public object Component {
+			get { return widget; }
+		}
+		
+		public event EventHandler HandleCreated;
+		
+		public event CancelEventHandler Validating;
+		#endregion
 		
 		public bool IsHandleCreated {
 			get { return widget.GdkWindow != null; }
@@ -251,8 +267,6 @@ namespace GtkForms
 		}
 	
 		public event EventHandler BindingContextChanged;
-		public event EventHandler HandleCreated;
-		public event CancelEventHandler Validating;
 	}
 }
 
