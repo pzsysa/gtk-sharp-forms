@@ -23,7 +23,6 @@
 
 using System;
 using System.ComponentModel;
-using Gtk;
 
 namespace GtkForms {
 
@@ -35,6 +34,11 @@ namespace GtkForms {
 		BindingContext BindingContext { get; set; }
 		ControlBindingsCollection DataBindings { get; }
 //		bool IsHandleCreated { get; }
+	}
+	
+	public interface IBindableDecorator : IBindableComponent
+	{
+		object Component { get; }
 	}
 }
 

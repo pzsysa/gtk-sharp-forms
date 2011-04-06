@@ -58,6 +58,7 @@ namespace GtkForms {
 		private IFormatProvider format_info;
 		private string format_string;
 		private bool formatting_enabled;
+		private object source;
 
 		#region Public Constructors
 		public Binding (string propertyName, object dataSource, string dataMember) 
@@ -273,11 +274,14 @@ namespace GtkForms {
 		}
 		
 		internal void SetControl (IBindableComponent control)
-		{
+		{	
 			if (control == this.control)
 				return;
-
-			control_property = TypeDescriptor.GetProperties (control).Find (property_name, true);			
+			
+			this.source =  (control is IBindableDecorator) ?
+				((IBindableDecorator)control).Component : control;
+			
+			control_property = TypeDescriptor.GetProperties (source).Find (property_name, true);			
 
 			if (control_property == null)
 				throw new ArgumentException (String.Concat ("Cannot bind to property '", property_name, "' on target control."));
@@ -297,7 +301,7 @@ namespace GtkForms {
 //			if (!control.IsHandleCreated)
 //				control.HandleCreated += new EventHandler (ControlCreatedHandler);
 
-			EventDescriptor prop_changed_event = GetPropertyChangedEvent (control, property_name);
+			EventDescriptor prop_changed_event = GetPropertyChangedEvent (source, property_name);
 			if (prop_changed_event != null)
 				prop_changed_event.AddEventHandler (control, new EventHandler (ControlPropertyChangedHandler));
 			
@@ -460,7 +464,7 @@ namespace GtkForms {
 			if (!force_control_update) {
 				//Set control property value only if differs from data
 				PropertyDescriptor pd = TypeDescriptor.GetProperties (manager.Current).Find (binding_member_info.BindingField, true);
-				object control_data = control_property.GetValue (control);
+				object control_data = control_property.GetValue (source);
 				if (control_data == null)
 					control_data = datasource_null_value;
 				ConvertEventArgs e = new ConvertEventArgs (control_data, pd.PropertyType);
@@ -471,7 +475,7 @@ namespace GtkForms {
 					return;
 			}
 			
-			control_property.SetValue (control, data);
+			control_property.SetValue (source, data);
 		}
 
 		private void SetPropertyValue (object data)

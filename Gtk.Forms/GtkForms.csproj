@@ -95,7 +95,6 @@
     <Compile Include="Decorators\EntryDecorator.cs" />
     <Compile Include="Decorators\IDecoratedBaseListWidget.cs" />
     <Compile Include="Decorators\BaseListWidgetDecorator.cs" />
-    <Compile Include="Widgets\FormsGridView.cs" />
     <Compile Include="Decorators\GridViewDecorator.cs" />
     <Compile Include="Decorators\IDecoratedGridView.cs" />
     <Compile Include="Widgets\FormsLabel.cs" />
@@ -125,14 +124,16 @@
     <Compile Include="Extensions\GdkExtensions.cs" />
     <Compile Include="Decorators\IFocusableWidget.cs" />
     <Compile Include="Bindings\LinqNotifiedBindingList.cs" />
-    <Compile Include="Widgets\FormsTreeView.cs" />
     <Compile Include="Decorators\TreeViewDecorator.cs" />
     <Compile Include="Decorators\gridview\GridViewColumn.cs" />
     <Compile Include="Decorators\gridview\GridViewCellStyle.cs" />
     <Compile Include="Decorators\gridview\GridViewContentAlignment.cs" />
     <Compile Include="Widgets\FormsFrame.cs" />
     <Compile Include="Decorators\ImageDecorator.cs" />
+    <Compile Include="Widgets\FormsFileChooserButton.cs" />
+    <Compile Include="Widgets\FormsTreeView.cs" />
     <Compile Include="Widgets\FormsImage.cs" />
+    <Compile Include="Widgets\FormsGridView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -190,8 +191,11 @@
     <EmbeddedResource Include="Pixmaps\frame.png">
       <LogicalName>frame.png</LogicalName>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Pixmaps\image.png" />
+    <EmbeddedResource Include="Pixmaps\image.png">
+      <LogicalName>image.png</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pixmaps\fileselection.png">
+      <LogicalName>fileselection.png</LogicalName>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
