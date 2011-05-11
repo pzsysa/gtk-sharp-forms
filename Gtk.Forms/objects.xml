@@ -96,16 +96,6 @@
 		</itemgroups>
 		<signals />
 	</object>
-	<object type="GtkForms.FormsTreeView" base-type="Gtk.TreeView" palette-category="GtkForms">
-		<itemgroups>
-			<itemgroup label="Binding Properties">
-				<property name="AutoGenerateColumns" />
-			</itemgroup>
-			<itemgroup label="Font Properties">
-				<property name="FontSize" />
-			</itemgroup>
-		</itemgroups>
-	</object>
 	<object type="GtkForms.FormsLabel" base-type="Gtk.Label" icon="label.png" palette-category="GtkForms">
 		<itemgroups>
 			<itemgroup label="Binding Properties">
@@ -142,5 +132,14 @@
 			</itemgroup>
 		</itemgroups>
 		<signals />
+	</object>
+	<object type="GtkForms.FormsTreeView" base-type="Gtk.TreeView" palette-category="GtkForms">
+		<itemgroups>
+			<itemgroup label="Binding Properties">
+			</itemgroup>
+			<itemgroup label="Font Properties">
+<!--				<property name="FontSize" />-->
+			</itemgroup>
+		</itemgroups>
 	</object>
 </objects>

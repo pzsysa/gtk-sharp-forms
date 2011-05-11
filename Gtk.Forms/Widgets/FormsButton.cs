@@ -2,7 +2,7 @@
 //  FormsButton.cs
 //  
 //  Author:
-//       Krzysztof Marecki <freefirma@gmail.com>
+//       Krzysztof Marecki 
 // 
 //  Copyright (c) 2010 KrzysztofMarecki
 // 
@@ -19,12 +19,13 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.ComponentModel;
 using System.Linq;
 using Gtk;
 
 namespace GtkForms
 {
-	public class FormsButton : Button
+	public class FormsButton : Button, IBindableComponent
 	{
 		private WidgetDecorator decorator;
 		internal WidgetDecorator Decorator { 
@@ -45,6 +46,27 @@ namespace GtkForms
 			: base (raw)
 		{
 		}
+		
+		#region IBindableComponent implementation
+		public event EventHandler HandleCreated {
+			add { Decorator.HandleCreated += value; }
+			remove { Decorator.HandleCreated -= value; }
+		}
+	
+		public event CancelEventHandler Validating {
+			add { Decorator.Validating += value; }
+			remove { Decorator.Validating -= value; }
+		}
+		
+		public BindingContext BindingContext {
+			get { return Decorator.BindingContext; }
+			set { Decorator.BindingContext = value; }
+		}
+		
+		public ControlBindingsCollection DataBindings { get { return Decorator.DataBindings; } }
+		
+		public bool IsHandleCreated { get { return Decorator.IsHandleCreated; } }
+		#endregion
 		
 		public new string Label {
 			get { return base.Label; }
@@ -70,7 +92,7 @@ namespace GtkForms
 		}
 		
 	
-		Label FindLabelChild (Container container)
+		Label FindLabelChild (Gtk.Container container)
 		{
 			var widgets = (
 				from child in container.Children
@@ -78,8 +100,8 @@ namespace GtkForms
 				select (Label) child
 			).Union (
 				from child in container.Children
-				where typeof (Container).IsAssignableFrom (child.GetType ())
-			    select FindLabelChild ((Container) child)
+				where typeof (Gtk.Container).IsAssignableFrom (child.GetType ())
+			    select FindLabelChild ((Gtk.Container) child)
 			);
 			
 			var labels = widgets.ToArray ();

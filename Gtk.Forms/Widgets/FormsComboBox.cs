@@ -121,6 +121,11 @@ namespace GtkForms
 			set { Decorator.SelectedItem = value; }
 		}
 		
+		public int SelectedIndex {
+			get { return Decorator.SelectedIndex; }
+			set { Decorator.SelectedIndex = value; }
+		}
+		
 		public object SelectedValue {
 			get { return Decorator.SelectedValue; }
 			set { Decorator.SelectedValue = value; }
@@ -134,10 +139,18 @@ namespace GtkForms
 			if (GetActiveIter (out iter))
 				Decorator.SetPositionFromIter (iter);
 			
+			OnSelectedIndexChanged (EventArgs.Empty);
 			OnSelectedItemChanged (EventArgs.Empty);
 			OnSelectedValueChanged (EventArgs.Empty);
 		}
 		
+		protected void OnSelectedIndexChanged (EventArgs args)
+		{
+			var handler = SelectedIndexChanged;
+			if (handler != null) {
+				handler (this, args);
+			}
+		}
 				
 		protected void OnSelectedItemChanged (EventArgs args)
 		{
@@ -154,6 +167,8 @@ namespace GtkForms
 				handler (this, args);
 			}
 		}
+		
+		public event EventHandler SelectedIndexChanged;
 		
 	 	public event EventHandler SelectedItemChanged; 
 		
