@@ -26,6 +26,7 @@
 //  Krzysztof Marecki
 
 using System;
+using System.Collections;
 using System.ComponentModel;
 using Gtk;
 
@@ -400,8 +401,16 @@ namespace GtkForms {
 		
 		void PushData (bool force, bool force_control_update)
 		{
-			if (manager == null || manager.IsSuspended || manager.Count == 0 || manager.Position == -1)
+			if (manager == null || manager.IsSuspended || manager.Count == 0 || manager.Position == -1) {
+				if (manager != null) {
+					Console.WriteLine ("PushData return : manager.IsSuspended = {0}, manager.Count = {1}, managet.Position = {2}",
+				                   manager.IsSuspended, manager.Count, manager.Position);
+				}
+				else {
+					Console.WriteLine ("PushData return : manager = null");
+				}
 				return;
+			}
 
 			if (!force && control_update_mode == ControlUpdateMode.Never)
 				return;
@@ -427,6 +436,8 @@ namespace GtkForms {
 			try {
 				ConvertEventArgs e = new ConvertEventArgs (data, data_type);
 				data = FormatData (e);
+				Console.WriteLine ("PushData : data = {0}, e.Cancel = {1}",
+				                   data, e.Cancel);
 				if (!e.Cancel)
 					SetControlValue (data, force_control_update);
 			} catch (Exception e) {
@@ -471,8 +482,18 @@ namespace GtkForms {
 				control_data = ParseData (e);
 				//We need to compare different types eg. Decimal and string
 				if (StringComparer.InvariantCultureIgnoreCase.Compare ((control_data ?? (pd.PropertyType.IsValueType ? (Activator.CreateInstance (pd.PropertyType) ?? string.Empty) : string.Empty)).ToString (), 
-				                                                       (data ?? string.Empty).ToString())== 0)
-					return;
+				                                                       (data ?? string.Empty).ToString())== 0) {
+						if (data == null || control_data == null) {
+							return;
+						}
+				}
+			
+				//fallback for object that are different but have same ToString values
+				if (data != null && control_data != null) {
+					if (data.GetHashCode () == control_data.GetHashCode ()) {
+						return;
+					}
+				}
 			}
 			
 			control_property.SetValue (source, data);
@@ -540,13 +561,16 @@ namespace GtkForms {
 
 		void SourcePropertyChangedHandler (object o, EventArgs args)
 		{
+			Console.WriteLine ("SourcePropertyChanged {0}", PropertyName);
 			PushData ();
 		}
 		
 		void NotifiedPropertyChangedHandler (object o, PropertyChangedEventArgs args)
 		{
-			if (args.PropertyName == this.DataMember)
+			if (args.PropertyName == this.DataMember) {
+				Console.WriteLine ("NotifiedPropertyChanged {0}", PropertyName);
 				PushData ();
+			}
 		}
 
 		void CurrentItemChangedHandler (object o, EventArgs args)

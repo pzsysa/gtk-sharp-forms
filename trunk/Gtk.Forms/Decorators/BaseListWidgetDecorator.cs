@@ -39,7 +39,6 @@ namespace GtkForms
 		private object data_source;
 		private BindingMemberInfo value_member;
 		private string display_member;
-		private BindingSource bsrc;
 		
 		protected CurrencyManager DataManager {get; set;}
 		
@@ -63,6 +62,7 @@ namespace GtkForms
 						"either an IList or an IListSource");
 				
 				data_source = value;
+				Console.WriteLine ("DataSource changed {0}", list_widget.Name);
 				//ConnectToDataSource ();
 				RefreshDataSource ();
 //				OnDataSourceChanged (EventArgs.Empty);
@@ -89,6 +89,22 @@ namespace GtkForms
 		}
 		
 		public bool CellRenderExists { get; set; }
+		
+		public int SelectedIndex { 
+			get { 
+				if (DataManager == null)
+					return -1;
+				
+				return DataManager.Position;
+			}
+			set {
+				if (DataManager == null)
+					return;
+				
+				Console.WriteLine ("Selected changed {0}", list_widget.Name);
+				DataManager.Position = value;
+			}
+		}
 		
 		public object SelectedItem {
 			get { return (DataManager != null) ? DataManager.Current : null; }

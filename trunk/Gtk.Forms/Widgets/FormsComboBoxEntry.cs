@@ -126,6 +126,11 @@ namespace GtkForms
 			set { Decorator.SelectedItem = value; }
 		}
 		
+		public int SelectedIndex {
+			get { return Decorator.SelectedIndex; }
+			set { Decorator.SelectedIndex = value; }
+		}
+		
 		public string Text {
 			get { return Entry.Text; }
 			set { Entry.Text = value; }
@@ -143,8 +148,17 @@ namespace GtkForms
 		protected override bool OnSelectionNotifyEvent (Gdk.EventSelection evnt)
 		{
 			bool ret = base.OnSelectionNotifyEvent (evnt);
+			OnSelectedIndexChanged (EventArgs.Empty);
 			OnSelectedItemChanged (EventArgs.Empty);
 			return ret;
+		}
+		
+		protected void OnSelectedIndexChanged (EventArgs args)
+		{
+			var handler = SelectedIndexChanged;
+			if (handler != null) {
+				handler (this, args);
+			}
 		}
 		
 		protected void OnSelectedItemChanged (EventArgs args)
@@ -154,6 +168,8 @@ namespace GtkForms
 				handler (this, args);
 			}
 		}
+		
+		public event EventHandler SelectedIndexChanged;
 		
 	 	public event EventHandler SelectedItemChanged; 
 			
