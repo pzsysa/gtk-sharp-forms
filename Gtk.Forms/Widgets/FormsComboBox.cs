@@ -116,6 +116,11 @@ namespace GtkForms
 			set { Decorator.BackgroundColor = value; }
 		}
 		
+		public string DisplayFormat {
+			get { return Decorator.DisplayFormat; }
+			set { Decorator.DisplayFormat = value; }
+		}
+		
 		public object SelectedItem {
 			get { return Decorator.SelectedItem; }
 			set { Decorator.SelectedItem = value; }
