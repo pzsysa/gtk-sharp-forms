@@ -40,6 +40,8 @@ namespace GtkForms
 			list_widget = widget;
 		}
 		
+		public string DisplayFormat { get; set; }
+		
 		protected override ListStore CreateStore ()
 		{
 			return new ListStore (typeof(string));
@@ -60,7 +62,10 @@ namespace GtkForms
 			if (o == null)
 				o = item;
 			
-			return new object[] {o.ToString ()};
+			string format = (!string.IsNullOrEmpty (DisplayFormat)) ?
+						string.Format ("{{0:{0}}}", DisplayFormat) :
+						"{0}";
+			return new object[] {string.Format (format, o)};
 		}
 		
 		private object FilterItemOnProperty (object item, string field)

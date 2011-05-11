@@ -20,6 +20,7 @@
 		<itemgroups>
 			<itemgroup label="Binding Properties">
 				<!--<property name="DataBindings"/>-->
+				<property name="DisplayFormat" />
 				<property name="DisplayMember" />
 				<property name="ValueMember" />
 			</itemgroup>
@@ -32,6 +33,7 @@
 		<itemgroups>
 			<itemgroup label="Binding Properties">
 				<!--<property name="DataBindings"/>-->
+				<property name="DisplayFormat" />
 				<property name="DisplayMember" />
 				<property name="ValueMember" />
 			</itemgroup>
