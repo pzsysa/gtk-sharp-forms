@@ -1,0 +1,1 @@
+The goal is to provide the best experience for people used to developing with VS, therefore this data binding solution is modeled after data bindings implemented in windows forms. Familiar properties and method names could help people coming from Windows start writing various line of business application using GTK.
